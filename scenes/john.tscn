@@ -3,9 +3,6 @@
 [ext_resource type="Script" uid="uid://cxjey6i6f6g7m" path="res://scripts/john.gd" id="1_r0ebv"]
 [ext_resource type="Texture2D" uid="uid://c68fixnmtjfsx" path="res://sprites/john/sheet.png" id="1_uxisy"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_r0ebv"]
-size = Vector2(8, 15)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_af6mu"]
 atlas = ExtResource("1_uxisy")
 region = Rect2(0, 0, 16, 16)
@@ -174,16 +171,20 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_r0ebv"]
+radius = 4.0
+height = 12.0
+
 [node name="John" type="CharacterBody2D" unique_id=1620480787]
 script = ExtResource("1_r0ebv")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1223813713]
-visible = false
-position = Vector2(0, 0.5)
-shape = SubResource("RectangleShape2D_r0ebv")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1303598773]
 sprite_frames = SubResource("SpriteFrames_07sbj")
 animation = &"idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1223813713]
+visible = false
+position = Vector2(0, 2)
+shape = SubResource("CapsuleShape2D_r0ebv")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1456303919]
