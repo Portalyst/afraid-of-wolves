@@ -1,7 +1,10 @@
 [gd_scene format=3 uid="uid://d3bi08tfs43wa"]
 
+[ext_resource type="Script" uid="uid://hrgiap2iia4q" path="res://scripts/window.gd" id="1_ato5p"]
 [ext_resource type="Texture2D" uid="uid://d3u58vh3o6b0r" path="res://sprites/window/window0.png" id="1_oya5r"]
+[ext_resource type="Texture2D" uid="uid://dssjbco4jeelg" path="res://sprites/window/window1.png" id="2_qvkcj"]
 [ext_resource type="Texture2D" uid="uid://dc2du3airgoo7" path="res://sprites/window/leveler.png" id="2_to7fh"]
+[ext_resource type="Texture2D" uid="uid://b2e5ehdyafjt8" path="res://sprites/window/window2.png" id="4_syahi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oya5r"]
 size = Vector2(50, 2)
@@ -14,6 +17,22 @@ animations = [{
 }],
 "loop": true,
 "name": &"window0",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_qvkcj")
+}],
+"loop": true,
+"name": &"window1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_syahi")
+}],
+"loop": true,
+"name": &"window2",
 "speed": 5.0
 }]
 
@@ -127,6 +146,7 @@ animations = [{
 }]
 
 [node name="window" type="StaticBody2D" unique_id=1972362471]
+script = ExtResource("1_ato5p")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=668877832]
 visible = false
@@ -134,6 +154,7 @@ position = Vector2(0, 9)
 shape = SubResource("RectangleShape2D_oya5r")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=738110515]
+position = Vector2(0, -8)
 sprite_frames = SubResource("SpriteFrames_to7fh")
 animation = &"window0"
 
