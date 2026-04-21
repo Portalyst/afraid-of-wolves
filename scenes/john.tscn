@@ -2,6 +2,9 @@
 
 [ext_resource type="Script" uid="uid://cxjey6i6f6g7m" path="res://scripts/john.gd" id="1_r0ebv"]
 [ext_resource type="Texture2D" uid="uid://c68fixnmtjfsx" path="res://sprites/john/sheet.png" id="1_uxisy"]
+[ext_resource type="Texture2D" uid="uid://mf1rk7ora7q3" path="res://sprites/tools/shadow.png" id="3_af6mu"]
+[ext_resource type="Texture2D" uid="uid://cqbmvcpqua3ym" path="res://sprites/tools/select.png" id="4_oigdq"]
+[ext_resource type="Texture2D" uid="uid://l0ovxavdoymg" path="res://sprites/tools/crowbar/crowbar.png" id="5_fsnvj"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_r0ebv"]
 atlas = ExtResource("1_uxisy")
@@ -320,3 +323,62 @@ position = Vector2(0, 2)
 shape = SubResource("CapsuleShape2D_r0ebv")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1456303919]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=239907170]
+
+[node name="Shadow" type="Sprite2D" parent="CanvasLayer" unique_id=381984673]
+self_modulate = Color(1, 1, 1, 0.5882353)
+position = Vector2(60, 134)
+texture = ExtResource("3_af6mu")
+
+[node name="Button" type="Button" parent="CanvasLayer/Shadow" unique_id=1933129194]
+self_modulate = Color(1, 1, 1, 0)
+offset_left = -16.0
+offset_top = -18.0
+offset_right = 16.0
+offset_bottom = 16.0
+
+[node name="Shadow3" type="Sprite2D" parent="CanvasLayer" unique_id=1087183668]
+self_modulate = Color(1, 1, 1, 0.5882353)
+position = Vector2(140, 134)
+texture = ExtResource("3_af6mu")
+
+[node name="Button" type="Button" parent="CanvasLayer/Shadow3" unique_id=153409167]
+self_modulate = Color(1, 1, 1, 0)
+offset_left = -16.0
+offset_top = -18.0
+offset_right = 16.0
+offset_bottom = 16.0
+
+[node name="Shadow2" type="Sprite2D" parent="CanvasLayer" unique_id=1651289100]
+self_modulate = Color(1, 1, 1, 0.5882353)
+position = Vector2(100, 134)
+texture = ExtResource("3_af6mu")
+
+[node name="Button" type="Button" parent="CanvasLayer/Shadow2" unique_id=1905786005]
+self_modulate = Color(1, 1, 1, 0)
+offset_left = -16.0
+offset_top = -18.0
+offset_right = 16.0
+offset_bottom = 16.0
+
+[node name="Select" type="Sprite2D" parent="CanvasLayer" unique_id=1318989878]
+position = Vector2(44, 147)
+texture = ExtResource("4_oigdq")
+centered = false
+
+[node name="Select2" type="Sprite2D" parent="CanvasLayer" unique_id=2020039713]
+visible = false
+position = Vector2(84, 147)
+texture = ExtResource("4_oigdq")
+centered = false
+
+[node name="Select3" type="Sprite2D" parent="CanvasLayer" unique_id=445097581]
+visible = false
+position = Vector2(124, 147)
+texture = ExtResource("4_oigdq")
+centered = false
+
+[node name="Crowbar" type="Sprite2D" parent="CanvasLayer" unique_id=2132804754]
+position = Vector2(60, 131)
+texture = ExtResource("5_fsnvj")

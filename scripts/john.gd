@@ -38,3 +38,4 @@ func _physics_process(delta: float) -> void:
 		velocity.y = move_toward(velocity.y, 0, speed)
 		$AnimatedSprite2D.play("idle")
 	move_and_slide()
+	
