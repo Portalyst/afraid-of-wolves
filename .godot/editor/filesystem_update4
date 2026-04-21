@@ -1,5 +1,2 @@
-res://scripts/grass.gd
-res://scenes/grass.tscn
-res://scenes/window.tscn
-res://scenes/level.tscn
-res://scripts/john.gd
+res://scenes/leveler.tscn
+res://scripts/leveler.gd

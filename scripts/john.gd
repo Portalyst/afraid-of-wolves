@@ -1,27 +1,40 @@
 extends CharacterBody2D
 
-var speed = 60.0
+var speed : int = 60
+
+signal use
+
+func _ready() -> void:
+	set_meta("player", 1)
 
 func _physics_process(delta: float) -> void:
 	var direction := Vector2(Input.get_axis("left", "right"), Input.get_axis("up", "down"))
-	var anim_is_playing : bool = false
-	if Input.is_action_pressed("down") and anim_is_playing == false:
-		$AnimatedSprite2D.play("run_d")
-		anim_is_playing = true
-	if Input.is_action_pressed("up") and anim_is_playing == false:
-		$AnimatedSprite2D.play("run_u")
-		anim_is_playing = true
-	if Input.is_action_pressed("left") and anim_is_playing == false:
-		anim_is_playing = true
-		$AnimatedSprite2D.play("run_l")
-	if Input.is_action_pressed("right") and anim_is_playing == false:
-		$AnimatedSprite2D.play("run_r")
-		anim_is_playing = true
+	var anim_dir := ""
+	speed = 60
+	
+	if Input.is_action_just_pressed("use"):
+		use.emit()
+	
+	if Input.is_action_pressed("run"):
+		speed = 80
+
+	if Input.is_action_pressed("down"):
+		anim_dir = "d"
+	if Input.is_action_pressed("up"):
+		anim_dir = "u"
+	if Input.is_action_pressed("left"):
+		anim_dir = "l"
+	if Input.is_action_pressed("right"):
+		anim_dir = "r"
+	
 	if direction:
 		velocity = direction * speed
+		if speed <= 60:
+			$AnimatedSprite2D.play("run_"+anim_dir)
+		if speed > 60:
+			$AnimatedSprite2D.play("fastrun_"+anim_dir)
 	else:
 		velocity.x = move_toward(velocity.x, 0, speed)
 		velocity.y = move_toward(velocity.y, 0, speed)
 		$AnimatedSprite2D.play("idle")
-		anim_is_playing = false
 	move_and_slide()

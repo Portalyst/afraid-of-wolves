@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://d3bi08tfs43wa" path="res://scenes/window.tscn" id="3_w8frs"]
 [ext_resource type="PackedScene" uid="uid://blyioqwiwqdhv" path="res://scenes/john.tscn" id="4_mx8sn"]
 [ext_resource type="PackedScene" uid="uid://e2ftdui8oqqh" path="res://scenes/grass.tscn" id="5_ppgk2"]
+[ext_resource type="PackedScene" uid="uid://w84ufaxlctjb" path="res://scenes/leveler.tscn" id="6_2r41h"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_w8frs"]
 texture = ExtResource("2_w7c3h")
@@ -171,22 +172,43 @@ tile_set = SubResource("TileSet_mx8sn")
 [node name="John" parent="." unique_id=1620480787 instance=ExtResource("4_mx8sn")]
 position = Vector2(139, 19)
 
+[node name="leveler" parent="." unique_id=522787959 instance=ExtResource("6_2r41h")]
+position = Vector2(104, -199)
+
+[node name="leveler2" parent="." unique_id=1096261832 instance=ExtResource("6_2r41h")]
+position = Vector2(279, -168)
+rotation = 1.5707964
+
+[node name="leveler3" parent="." unique_id=457375829 instance=ExtResource("6_2r41h")]
+position = Vector2(264, 70)
+rotation = 3.1415927
+inverted = true
+
+[node name="leveler4" parent="." unique_id=1667117644 instance=ExtResource("6_2r41h")]
+position = Vector2(74, 70)
+rotation = 3.1415927
+inverted = true
+
+[node name="leveler5" parent="." unique_id=840843554 instance=ExtResource("6_2r41h")]
+position = Vector2(-7, 8)
+rotation = 4.712389
+
 [node name="Window" parent="." unique_id=572688343 instance=ExtResource("3_w8frs")]
 position = Vector2(40, 56)
-
-[node name="Window2" parent="." unique_id=851853042 instance=ExtResource("3_w8frs")]
-position = Vector2(-8, -24)
-rotation = 4.712389
+type = 1
 
 [node name="Window3" parent="." unique_id=957738484 instance=ExtResource("3_w8frs")]
 position = Vector2(232, 56)
+type = 1
 
 [node name="window" parent="." unique_id=1972362471 instance=ExtResource("3_w8frs")]
 position = Vector2(136, -200)
+type = 1
 
 [node name="window2" parent="." unique_id=312322407 instance=ExtResource("3_w8frs")]
 position = Vector2(280, -136)
 rotation = 1.5707964
+type = 2
 
 [node name="grass22" parent="." unique_id=1598571424 instance=ExtResource("5_ppgk2")]
 position = Vector2(-21, -44)
@@ -493,3 +515,8 @@ position = Vector2(-52, 6)
 
 [node name="grass161" parent="." unique_id=629954081 instance=ExtResource("5_ppgk2")]
 position = Vector2(-60, 6)
+
+[node name="Window2" parent="." unique_id=851853042 instance=ExtResource("3_w8frs")]
+position = Vector2(-8, -24)
+rotation = -1.5707964
+type = 2
