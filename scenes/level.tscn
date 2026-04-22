@@ -4,8 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://b5py6jbx7glt1" path="res://sprites/tilemap.png" id="2_w7c3h"]
 [ext_resource type="PackedScene" uid="uid://d3bi08tfs43wa" path="res://scenes/window.tscn" id="3_w8frs"]
 [ext_resource type="PackedScene" uid="uid://blyioqwiwqdhv" path="res://scenes/john.tscn" id="4_mx8sn"]
-[ext_resource type="PackedScene" uid="uid://e2ftdui8oqqh" path="res://scenes/grass.tscn" id="5_ppgk2"]
 [ext_resource type="PackedScene" uid="uid://w84ufaxlctjb" path="res://scenes/leveler.tscn" id="6_2r41h"]
+[ext_resource type="Texture2D" uid="uid://doa871nkr42ud" path="res://sprites/john/Sprite-0003.png" id="7_b121j"]
+[ext_resource type="Texture2D" uid="uid://bbethmeiqbfsg" path="res://sprites/wolves/lenny/sheet.png" id="7_klq6b"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_w8frs"]
 texture = ExtResource("2_w7c3h")
@@ -148,7 +149,9 @@ texture = ExtResource("2_w7c3h")
 6:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 4:0/0 = 0
 6:3/0 = 0
+6:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 6:4/0 = 0
+6:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 5:0/0 = 0
 6:0/0 = 0
 6:5/0 = 0
@@ -171,6 +174,16 @@ tile_set = SubResource("TileSet_mx8sn")
 
 [node name="John" parent="." unique_id=1620480787 instance=ExtResource("4_mx8sn")]
 position = Vector2(139, 19)
+
+[node name="Sheet" type="Sprite2D" parent="." unique_id=2039668783]
+position = Vector2(20, -18)
+texture = ExtResource("7_klq6b")
+
+[node name="Sprite0003" type="Sprite2D" parent="." unique_id=1614628088]
+self_modulate = Color(1, 1, 1, 0.9137255)
+position = Vector2(-43, -24)
+scale = Vector2(5.375, 3)
+texture = ExtResource("7_b121j")
 
 [node name="leveler" parent="." unique_id=522787959 instance=ExtResource("6_2r41h")]
 position = Vector2(104, -199)
@@ -209,312 +222,6 @@ type = 1
 position = Vector2(280, -136)
 rotation = 1.5707964
 type = 2
-
-[node name="grass22" parent="." unique_id=1598571424 instance=ExtResource("5_ppgk2")]
-position = Vector2(-21, -44)
-
-[node name="grass25" parent="." unique_id=1484352112 instance=ExtResource("5_ppgk2")]
-position = Vector2(-35, -44)
-
-[node name="grass26" parent="." unique_id=1164499944 instance=ExtResource("5_ppgk2")]
-position = Vector2(-39, -44)
-
-[node name="grass29" parent="." unique_id=1470924265 instance=ExtResource("5_ppgk2")]
-position = Vector2(-52, -44)
-
-[node name="grass35" parent="." unique_id=1664577148 instance=ExtResource("5_ppgk2")]
-position = Vector2(-35, -40)
-
-[node name="grass42" parent="." unique_id=1825345042 instance=ExtResource("5_ppgk2")]
-position = Vector2(-21, -36)
-
-[node name="grass43" parent="." unique_id=1423247003 instance=ExtResource("5_ppgk2")]
-position = Vector2(-26, -36)
-
-[node name="grass44" parent="." unique_id=1403723911 instance=ExtResource("5_ppgk2")]
-position = Vector2(-30, -36)
-
-[node name="grass46" parent="." unique_id=462600603 instance=ExtResource("5_ppgk2")]
-position = Vector2(-39, -36)
-
-[node name="grass47" parent="." unique_id=1760608798 instance=ExtResource("5_ppgk2")]
-position = Vector2(-44, -36)
-
-[node name="grass49" parent="." unique_id=2109440065 instance=ExtResource("5_ppgk2")]
-position = Vector2(-52, -36)
-
-[node name="grass50" parent="." unique_id=1258960382 instance=ExtResource("5_ppgk2")]
-position = Vector2(-56, -36)
-
-[node name="grass51" parent="." unique_id=437831673 instance=ExtResource("5_ppgk2")]
-position = Vector2(-60, -36)
-
-[node name="grass52" parent="." unique_id=910024613 instance=ExtResource("5_ppgk2")]
-position = Vector2(-21, -32)
-
-[node name="grass53" parent="." unique_id=2132762706 instance=ExtResource("5_ppgk2")]
-position = Vector2(-26, -32)
-
-[node name="grass54" parent="." unique_id=2036674506 instance=ExtResource("5_ppgk2")]
-position = Vector2(-30, -32)
-
-[node name="grass55" parent="." unique_id=919759665 instance=ExtResource("5_ppgk2")]
-position = Vector2(-35, -32)
-
-[node name="grass56" parent="." unique_id=539235683 instance=ExtResource("5_ppgk2")]
-position = Vector2(-39, -32)
-
-[node name="grass57" parent="." unique_id=383085135 instance=ExtResource("5_ppgk2")]
-position = Vector2(-44, -32)
-
-[node name="grass58" parent="." unique_id=1088691858 instance=ExtResource("5_ppgk2")]
-position = Vector2(-48, -32)
-
-[node name="grass59" parent="." unique_id=1674195217 instance=ExtResource("5_ppgk2")]
-position = Vector2(-52, -32)
-
-[node name="grass62" parent="." unique_id=1731057582 instance=ExtResource("5_ppgk2")]
-position = Vector2(-21, -28)
-
-[node name="grass63" parent="." unique_id=1259668521 instance=ExtResource("5_ppgk2")]
-position = Vector2(-26, -28)
-
-[node name="grass64" parent="." unique_id=560908550 instance=ExtResource("5_ppgk2")]
-position = Vector2(-30, -28)
-
-[node name="grass65" parent="." unique_id=1396967798 instance=ExtResource("5_ppgk2")]
-position = Vector2(-35, -28)
-
-[node name="grass66" parent="." unique_id=2082298076 instance=ExtResource("5_ppgk2")]
-position = Vector2(-39, -28)
-
-[node name="grass67" parent="." unique_id=1132616717 instance=ExtResource("5_ppgk2")]
-position = Vector2(-44, -28)
-
-[node name="grass68" parent="." unique_id=1452518657 instance=ExtResource("5_ppgk2")]
-position = Vector2(-48, -28)
-
-[node name="grass69" parent="." unique_id=2094790008 instance=ExtResource("5_ppgk2")]
-position = Vector2(-52, -28)
-
-[node name="grass70" parent="." unique_id=6122635 instance=ExtResource("5_ppgk2")]
-position = Vector2(-56, -28)
-
-[node name="grass71" parent="." unique_id=1060167295 instance=ExtResource("5_ppgk2")]
-position = Vector2(-60, -28)
-
-[node name="grass72" parent="." unique_id=1371943104 instance=ExtResource("5_ppgk2")]
-position = Vector2(-21, -24)
-
-[node name="grass73" parent="." unique_id=1541835105 instance=ExtResource("5_ppgk2")]
-position = Vector2(-26, -24)
-
-[node name="grass74" parent="." unique_id=1669350140 instance=ExtResource("5_ppgk2")]
-position = Vector2(-30, -24)
-
-[node name="grass75" parent="." unique_id=469630383 instance=ExtResource("5_ppgk2")]
-position = Vector2(-35, -24)
-
-[node name="grass76" parent="." unique_id=1481033104 instance=ExtResource("5_ppgk2")]
-position = Vector2(-39, -24)
-
-[node name="grass77" parent="." unique_id=437056022 instance=ExtResource("5_ppgk2")]
-position = Vector2(-44, -24)
-
-[node name="grass78" parent="." unique_id=1784287113 instance=ExtResource("5_ppgk2")]
-position = Vector2(-48, -24)
-
-[node name="grass81" parent="." unique_id=238954501 instance=ExtResource("5_ppgk2")]
-position = Vector2(-60, -24)
-
-[node name="grass82" parent="." unique_id=1975335326 instance=ExtResource("5_ppgk2")]
-position = Vector2(-21, -21)
-
-[node name="grass83" parent="." unique_id=2042403586 instance=ExtResource("5_ppgk2")]
-position = Vector2(-26, -21)
-
-[node name="grass84" parent="." unique_id=2022989106 instance=ExtResource("5_ppgk2")]
-position = Vector2(-30, -21)
-
-[node name="grass85" parent="." unique_id=359942049 instance=ExtResource("5_ppgk2")]
-position = Vector2(-35, -21)
-
-[node name="grass86" parent="." unique_id=2034894224 instance=ExtResource("5_ppgk2")]
-position = Vector2(-39, -21)
-
-[node name="grass87" parent="." unique_id=1025154286 instance=ExtResource("5_ppgk2")]
-position = Vector2(-44, -21)
-
-[node name="grass88" parent="." unique_id=1961972981 instance=ExtResource("5_ppgk2")]
-position = Vector2(-48, -21)
-
-[node name="grass89" parent="." unique_id=1048380441 instance=ExtResource("5_ppgk2")]
-position = Vector2(-52, -21)
-
-[node name="grass92" parent="." unique_id=2019609314 instance=ExtResource("5_ppgk2")]
-position = Vector2(-21, -17)
-
-[node name="grass93" parent="." unique_id=10135033 instance=ExtResource("5_ppgk2")]
-position = Vector2(-26, -17)
-
-[node name="grass94" parent="." unique_id=559858411 instance=ExtResource("5_ppgk2")]
-position = Vector2(-30, -17)
-
-[node name="grass95" parent="." unique_id=978789902 instance=ExtResource("5_ppgk2")]
-position = Vector2(-35, -17)
-
-[node name="grass96" parent="." unique_id=2057151691 instance=ExtResource("5_ppgk2")]
-position = Vector2(-39, -17)
-
-[node name="grass97" parent="." unique_id=125294573 instance=ExtResource("5_ppgk2")]
-position = Vector2(-44, -17)
-
-[node name="grass98" parent="." unique_id=521778190 instance=ExtResource("5_ppgk2")]
-position = Vector2(-48, -17)
-
-[node name="grass99" parent="." unique_id=589981339 instance=ExtResource("5_ppgk2")]
-position = Vector2(-52, -17)
-
-[node name="grass100" parent="." unique_id=1913207975 instance=ExtResource("5_ppgk2")]
-position = Vector2(-56, -17)
-
-[node name="grass101" parent="." unique_id=1923644864 instance=ExtResource("5_ppgk2")]
-position = Vector2(-60, -17)
-
-[node name="grass102" parent="." unique_id=349223985 instance=ExtResource("5_ppgk2")]
-position = Vector2(-21, -13)
-
-[node name="grass103" parent="." unique_id=873958391 instance=ExtResource("5_ppgk2")]
-position = Vector2(-26, -13)
-
-[node name="grass104" parent="." unique_id=1502507495 instance=ExtResource("5_ppgk2")]
-position = Vector2(-30, -13)
-
-[node name="grass105" parent="." unique_id=636264152 instance=ExtResource("5_ppgk2")]
-position = Vector2(-35, -13)
-
-[node name="grass106" parent="." unique_id=880637091 instance=ExtResource("5_ppgk2")]
-position = Vector2(-39, -13)
-
-[node name="grass107" parent="." unique_id=1455189655 instance=ExtResource("5_ppgk2")]
-position = Vector2(-44, -13)
-
-[node name="grass108" parent="." unique_id=1819163258 instance=ExtResource("5_ppgk2")]
-position = Vector2(-48, -13)
-
-[node name="grass112" parent="." unique_id=861715032 instance=ExtResource("5_ppgk2")]
-position = Vector2(-21, -9)
-
-[node name="grass113" parent="." unique_id=106942262 instance=ExtResource("5_ppgk2")]
-position = Vector2(-26, -9)
-
-[node name="grass114" parent="." unique_id=1944884358 instance=ExtResource("5_ppgk2")]
-position = Vector2(-30, -9)
-
-[node name="grass115" parent="." unique_id=1709526269 instance=ExtResource("5_ppgk2")]
-position = Vector2(-35, -9)
-
-[node name="grass116" parent="." unique_id=566002137 instance=ExtResource("5_ppgk2")]
-position = Vector2(-39, -9)
-
-[node name="grass117" parent="." unique_id=666090343 instance=ExtResource("5_ppgk2")]
-position = Vector2(-44, -9)
-
-[node name="grass118" parent="." unique_id=416320765 instance=ExtResource("5_ppgk2")]
-position = Vector2(-48, -9)
-
-[node name="grass119" parent="." unique_id=323602852 instance=ExtResource("5_ppgk2")]
-position = Vector2(-52, -9)
-
-[node name="grass120" parent="." unique_id=69549421 instance=ExtResource("5_ppgk2")]
-position = Vector2(-56, -9)
-
-[node name="grass122" parent="." unique_id=1138605213 instance=ExtResource("5_ppgk2")]
-position = Vector2(-21, -5)
-
-[node name="grass123" parent="." unique_id=1895460239 instance=ExtResource("5_ppgk2")]
-position = Vector2(-26, -5)
-
-[node name="grass124" parent="." unique_id=1944959037 instance=ExtResource("5_ppgk2")]
-position = Vector2(-30, -5)
-
-[node name="grass125" parent="." unique_id=1654493769 instance=ExtResource("5_ppgk2")]
-position = Vector2(-35, -5)
-
-[node name="grass126" parent="." unique_id=941888353 instance=ExtResource("5_ppgk2")]
-position = Vector2(-39, -5)
-
-[node name="grass127" parent="." unique_id=1140257177 instance=ExtResource("5_ppgk2")]
-position = Vector2(-44, -5)
-
-[node name="grass128" parent="." unique_id=1219863592 instance=ExtResource("5_ppgk2")]
-position = Vector2(-48, -5)
-
-[node name="grass130" parent="." unique_id=1904580380 instance=ExtResource("5_ppgk2")]
-position = Vector2(-56, -5)
-
-[node name="grass132" parent="." unique_id=295481733 instance=ExtResource("5_ppgk2")]
-position = Vector2(-21, -1)
-
-[node name="grass133" parent="." unique_id=1173340389 instance=ExtResource("5_ppgk2")]
-position = Vector2(-26, -1)
-
-[node name="grass135" parent="." unique_id=1823265018 instance=ExtResource("5_ppgk2")]
-position = Vector2(-35, -1)
-
-[node name="grass136" parent="." unique_id=403462404 instance=ExtResource("5_ppgk2")]
-position = Vector2(-39, -1)
-
-[node name="grass137" parent="." unique_id=1378236226 instance=ExtResource("5_ppgk2")]
-position = Vector2(-44, -1)
-
-[node name="grass138" parent="." unique_id=767424747 instance=ExtResource("5_ppgk2")]
-position = Vector2(-48, -1)
-
-[node name="grass139" parent="." unique_id=1828702006 instance=ExtResource("5_ppgk2")]
-position = Vector2(-52, -1)
-
-[node name="grass140" parent="." unique_id=604820201 instance=ExtResource("5_ppgk2")]
-position = Vector2(-56, -1)
-
-[node name="grass142" parent="." unique_id=988027191 instance=ExtResource("5_ppgk2")]
-position = Vector2(-21, 3)
-
-[node name="grass143" parent="." unique_id=934725227 instance=ExtResource("5_ppgk2")]
-position = Vector2(-26, 3)
-
-[node name="grass145" parent="." unique_id=1598939167 instance=ExtResource("5_ppgk2")]
-position = Vector2(-35, 3)
-
-[node name="grass146" parent="." unique_id=1598787789 instance=ExtResource("5_ppgk2")]
-position = Vector2(-39, 3)
-
-[node name="grass148" parent="." unique_id=127468301 instance=ExtResource("5_ppgk2")]
-position = Vector2(-48, 3)
-
-[node name="grass149" parent="." unique_id=1743580097 instance=ExtResource("5_ppgk2")]
-position = Vector2(-52, 3)
-
-[node name="grass151" parent="." unique_id=589184379 instance=ExtResource("5_ppgk2")]
-position = Vector2(-60, 3)
-
-[node name="grass152" parent="." unique_id=1530805342 instance=ExtResource("5_ppgk2")]
-position = Vector2(-21, 6)
-
-[node name="grass153" parent="." unique_id=1394591495 instance=ExtResource("5_ppgk2")]
-position = Vector2(-26, 6)
-
-[node name="grass157" parent="." unique_id=1345775161 instance=ExtResource("5_ppgk2")]
-position = Vector2(-44, 6)
-
-[node name="grass158" parent="." unique_id=782214827 instance=ExtResource("5_ppgk2")]
-position = Vector2(-48, 6)
-
-[node name="grass159" parent="." unique_id=2065824866 instance=ExtResource("5_ppgk2")]
-position = Vector2(-52, 6)
-
-[node name="grass161" parent="." unique_id=629954081 instance=ExtResource("5_ppgk2")]
-position = Vector2(-60, 6)
 
 [node name="Window2" parent="." unique_id=851853042 instance=ExtResource("3_w8frs")]
 position = Vector2(-8, -24)
