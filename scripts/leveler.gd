@@ -2,6 +2,7 @@ extends Area2D
 
 @export var inverted : bool = false
 var active : bool = false
+var stuck : bool = false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	if inverted == true:
@@ -14,13 +15,16 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-func use():
+func use(selected: Array):
 	if active == false:
 		$LightTimer.start()
 		$LightEndTimer.start()
 		$leveler.play("down")
 		$leveler0.play("down")
 		active = true
+	if stuck == true and active == true and selected[0] == 1:
+		anim_up()
+		stuck = false
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.has_meta("player"):
@@ -39,18 +43,27 @@ func _on_light_end_timer_timeout() -> void:
 	$charge.hide()
 	$light.hide()
 	var i := randi_range(0, 4)
-	if i == 1:
-		pass
+	if i != 0:
+		stuck = true
 	else:
-		if inverted == false:
-			$leveler.play("up0")
+		anim_up()
+
+func anim_up() -> void:
+	if inverted == false:
+		if stuck == true:
+			$leveler.play("add_frame")
 			await $leveler.animation_finished
-			$leveler.play("up1")
-			await $leveler.animation_finished
-			active = false
-		else:
-			$leveler0.play("up0")
+		$leveler.play("up0")
+		await $leveler.animation_finished
+		$leveler.play("up1")
+		await $leveler.animation_finished
+		active = false
+	else:
+		if stuck == true:
+			$leveler0.play("add_frame")
 			await $leveler0.animation_finished
-			$leveler0.play("up1")
-			await $leveler0.animation_finished
-			active = false
+		$leveler0.play("up0")
+		await $leveler0.animation_finished
+		$leveler0.play("up1")
+		await $leveler0.animation_finished
+		active = false

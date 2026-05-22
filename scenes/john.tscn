@@ -362,7 +362,7 @@ offset_top = -18.0
 offset_right = 16.0
 offset_bottom = 16.0
 
-[node name="Select" type="Sprite2D" parent="CanvasLayer" unique_id=1318989878]
+[node name="Select1" type="Sprite2D" parent="CanvasLayer" unique_id=1318989878]
 position = Vector2(44, 147)
 texture = ExtResource("4_oigdq")
 centered = false

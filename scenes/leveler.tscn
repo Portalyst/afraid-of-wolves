@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://ckllrihpmkssu" path="res://scripts/leveler.gd" id="1_jv1db"]
 [ext_resource type="Texture2D" uid="uid://dc2du3airgoo7" path="res://sprites/leveler/leveler.png" id="1_qgquf"]
 [ext_resource type="Texture2D" uid="uid://dq81w7t7pd210" path="res://sprites/leveler/electricity.png" id="2_jv1db"]
+[ext_resource type="Texture2D" uid="uid://cw7lxhc6ljr3k" path="res://sprites/leveler/add_frame.png" id="4_wm4xg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wm4xg"]
 size = Vector2(48, 32)
@@ -54,6 +55,14 @@ region = Rect2(176, 0, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_iyci7"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_wm4xg")
+}],
+"loop": false,
+"name": &"add_frame",
+"speed": 1.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_nt4w1")
@@ -124,7 +133,7 @@ texture = ExtResource("2_jv1db")
 
 [node name="leveler" type="AnimatedSprite2D" parent="." unique_id=1204232327]
 sprite_frames = SubResource("SpriteFrames_iyci7")
-animation = &"down"
+animation = &"add_frame"
 
 [node name="leveler0" type="AnimatedSprite2D" parent="." unique_id=467150381]
 position = Vector2(0, 13)
