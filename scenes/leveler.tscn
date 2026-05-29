@@ -61,7 +61,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"add_frame",
-"speed": 1.0
+"speed": 2.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -133,7 +133,7 @@ texture = ExtResource("2_jv1db")
 
 [node name="leveler" type="AnimatedSprite2D" parent="." unique_id=1204232327]
 sprite_frames = SubResource("SpriteFrames_iyci7")
-animation = &"add_frame"
+animation = &"down"
 
 [node name="leveler0" type="AnimatedSprite2D" parent="." unique_id=467150381]
 position = Vector2(0, 13)

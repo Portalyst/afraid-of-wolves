@@ -1,4 +1,1 @@
-res://scenes/john.tscn
-res://scripts/john.gd
-res://scripts/leveler.gd
-res://scenes/leveler.tscn
+res://scenes/level.tscn

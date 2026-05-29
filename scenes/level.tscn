@@ -175,16 +175,6 @@ tile_set = SubResource("TileSet_mx8sn")
 [node name="John" parent="." unique_id=1620480787 instance=ExtResource("4_mx8sn")]
 position = Vector2(139, 19)
 
-[node name="Sheet" type="Sprite2D" parent="." unique_id=2039668783]
-position = Vector2(20, -18)
-texture = ExtResource("7_klq6b")
-
-[node name="Sprite0003" type="Sprite2D" parent="." unique_id=1614628088]
-self_modulate = Color(1, 1, 1, 0.9137255)
-position = Vector2(-43, -24)
-scale = Vector2(5.375, 3)
-texture = ExtResource("7_b121j")
-
 [node name="leveler" parent="." unique_id=522787959 instance=ExtResource("6_2r41h")]
 position = Vector2(104, -199)
 
@@ -214,6 +204,10 @@ type = 1
 position = Vector2(232, 56)
 type = 1
 
+[node name="Sheet" type="Sprite2D" parent="." unique_id=2039668783]
+position = Vector2(40, 73)
+texture = ExtResource("7_klq6b")
+
 [node name="window" parent="." unique_id=1972362471 instance=ExtResource("3_w8frs")]
 position = Vector2(136, -200)
 type = 1
@@ -227,3 +221,30 @@ type = 2
 position = Vector2(-8, -24)
 rotation = -1.5707964
 type = 2
+
+[node name="Sprite0003" type="Sprite2D" parent="." unique_id=1614628088]
+self_modulate = Color(1, 1, 1, 0.9137255)
+position = Vector2(-43, -24)
+scale = Vector2(5.375, 3)
+texture = ExtResource("7_b121j")
+
+[node name="Sprite0004" type="Sprite2D" parent="." unique_id=628059018]
+self_modulate = Color(1, 1, 1, 0.9137255)
+position = Vector2(40, 88)
+scale = Vector2(5.375, 3)
+texture = ExtResource("7_b121j")
+
+[node name="WindowMarker" type="Marker2D" parent="." unique_id=504295377]
+position = Vector2(-14, -21)
+
+[node name="WindowMarker1" type="Marker2D" parent="." unique_id=674821164]
+position = Vector2(40, 81)
+
+[node name="WindowMarker2" type="Marker2D" parent="." unique_id=2025827244]
+position = Vector2(232, 81)
+
+[node name="WindowMarker3" type="Marker2D" parent="." unique_id=780877541]
+position = Vector2(289, -130)
+
+[node name="WindowMarker4" type="Marker2D" parent="." unique_id=1717050344]
+position = Vector2(136, -203)

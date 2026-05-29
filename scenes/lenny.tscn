@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://ba345t4lh0o1g"]
+
+[ext_resource type="Texture2D" uid="uid://bbethmeiqbfsg" path="res://sprites/wolves/lenny/sheet.png" id="1_cbdyq"]
+[ext_resource type="Script" uid="uid://bl2kjdjq7tldp" path="res://scripts/lenny.gd" id="1_d587q"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_d587q"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_cbdyq")
+}],
+"loop": true,
+"name": &"down",
+"speed": 5.0
+}]
+
+[node name="Lenny" type="CharacterBody2D" unique_id=1372898414]
+script = ExtResource("1_d587q")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=780831286]
+sprite_frames = SubResource("SpriteFrames_d587q")
+animation = &"down"
