@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://blyioqwiwqdhv" path="res://scenes/john.tscn" id="4_mx8sn"]
 [ext_resource type="PackedScene" uid="uid://w84ufaxlctjb" path="res://scenes/leveler.tscn" id="6_2r41h"]
 [ext_resource type="Texture2D" uid="uid://doa871nkr42ud" path="res://sprites/john/Sprite-0003.png" id="7_b121j"]
-[ext_resource type="Texture2D" uid="uid://bbethmeiqbfsg" path="res://sprites/wolves/lenny/sheet.png" id="7_klq6b"]
+[ext_resource type="PackedScene" uid="uid://ba345t4lh0o1g" path="res://scenes/lenny.tscn" id="7_klq6b"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_w8frs"]
 texture = ExtResource("2_w7c3h")
@@ -175,6 +175,39 @@ tile_set = SubResource("TileSet_mx8sn")
 [node name="John" parent="." unique_id=1620480787 instance=ExtResource("4_mx8sn")]
 position = Vector2(139, 19)
 
+[node name="Lenny" parent="." unique_id=1372898414 instance=ExtResource("7_klq6b")]
+position = Vector2(593, 50)
+
+[node name="Sprite0003" type="Sprite2D" parent="." unique_id=1614628088]
+self_modulate = Color(1, 1, 1, 0.9137255)
+position = Vector2(-127, -24)
+scale = Vector2(15.875, 3)
+texture = ExtResource("7_b121j")
+
+[node name="Sprite0004" type="Sprite2D" parent="." unique_id=628059018]
+self_modulate = Color(1, 1, 1, 0.9137255)
+position = Vector2(40, 179)
+scale = Vector2(5.375, 14.375)
+texture = ExtResource("7_b121j")
+
+[node name="Sprite0005" type="Sprite2D" parent="." unique_id=1211206176]
+self_modulate = Color(1, 1, 1, 0.9137255)
+position = Vector2(234.00002, 166.5)
+scale = Vector2(5.375, 12.8125)
+texture = ExtResource("7_b121j")
+
+[node name="Sprite0006" type="Sprite2D" parent="." unique_id=1123385802]
+self_modulate = Color(1, 1, 1, 0.9137255)
+position = Vector2(430, -137)
+scale = Vector2(19.625004, 3)
+texture = ExtResource("7_b121j")
+
+[node name="Sprite0007" type="Sprite2D" parent="." unique_id=1048308680]
+self_modulate = Color(1, 1, 1, 0.9137255)
+position = Vector2(136, -323.5)
+scale = Vector2(2.9999995, 16.4375)
+texture = ExtResource("7_b121j")
+
 [node name="leveler" parent="." unique_id=522787959 instance=ExtResource("6_2r41h")]
 position = Vector2(104, -199)
 
@@ -183,30 +216,18 @@ position = Vector2(279, -168)
 rotation = 1.5707964
 
 [node name="leveler3" parent="." unique_id=457375829 instance=ExtResource("6_2r41h")]
-position = Vector2(264, 70)
-rotation = 3.1415927
+position = Vector2(264, 68)
+rotation = -3.1415925
 inverted = true
 
 [node name="leveler4" parent="." unique_id=1667117644 instance=ExtResource("6_2r41h")]
-position = Vector2(74, 70)
-rotation = 3.1415927
+position = Vector2(72, 68)
+rotation = -3.1415925
 inverted = true
 
 [node name="leveler5" parent="." unique_id=840843554 instance=ExtResource("6_2r41h")]
 position = Vector2(-7, 8)
-rotation = 4.712389
-
-[node name="Window" parent="." unique_id=572688343 instance=ExtResource("3_w8frs")]
-position = Vector2(40, 56)
-type = 1
-
-[node name="Window3" parent="." unique_id=957738484 instance=ExtResource("3_w8frs")]
-position = Vector2(232, 56)
-type = 1
-
-[node name="Sheet" type="Sprite2D" parent="." unique_id=2039668783]
-position = Vector2(40, 73)
-texture = ExtResource("7_klq6b")
+rotation = -1.5707964
 
 [node name="window" parent="." unique_id=1972362471 instance=ExtResource("3_w8frs")]
 position = Vector2(136, -200)
@@ -222,17 +243,13 @@ position = Vector2(-8, -24)
 rotation = -1.5707964
 type = 2
 
-[node name="Sprite0003" type="Sprite2D" parent="." unique_id=1614628088]
-self_modulate = Color(1, 1, 1, 0.9137255)
-position = Vector2(-43, -24)
-scale = Vector2(5.375, 3)
-texture = ExtResource("7_b121j")
+[node name="Window" parent="." unique_id=572688343 instance=ExtResource("3_w8frs")]
+position = Vector2(40, 56)
+type = 1
 
-[node name="Sprite0004" type="Sprite2D" parent="." unique_id=628059018]
-self_modulate = Color(1, 1, 1, 0.9137255)
-position = Vector2(40, 88)
-scale = Vector2(5.375, 3)
-texture = ExtResource("7_b121j")
+[node name="Window3" parent="." unique_id=957738484 instance=ExtResource("3_w8frs")]
+position = Vector2(232, 56)
+type = 1
 
 [node name="WindowMarker" type="Marker2D" parent="." unique_id=504295377]
 position = Vector2(-14, -21)
@@ -247,4 +264,4 @@ position = Vector2(232, 81)
 position = Vector2(289, -130)
 
 [node name="WindowMarker4" type="Marker2D" parent="." unique_id=1717050344]
-position = Vector2(136, -203)
+position = Vector2(136, -211)

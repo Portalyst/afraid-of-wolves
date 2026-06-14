@@ -3,8 +3,11 @@ extends Area2D
 @export var inverted : bool = false
 var active : bool = false
 var stuck : bool = false
+
+signal charge
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	set_meta("leveler", 1)
 	if inverted == true:
 		$leveler.hide()
 	else:
@@ -22,6 +25,7 @@ func use(selected: Array):
 		$leveler.play("down")
 		$leveler0.play("down")
 		active = true
+		charge.emit()
 	if stuck == true and active == true and selected[0] == 1:
 		anim_up()
 		stuck = false
