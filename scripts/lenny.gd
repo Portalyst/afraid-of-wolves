@@ -7,9 +7,12 @@ var numb : int
 var running : bool = false
 var direction
 
+signal brake_window
+
 func _ready() -> void:
 	set_meta("wolf", 1)
 	spawn()
+	$PassiveTimer.start()
 
 func _physics_process(delta: float) -> void:
 	if running == true:
@@ -24,7 +27,8 @@ func spawn():
 	position = global.windows[numb]
 
 func run_away():
-	print("HUI")
+	$PassiveTimer.stop()
+	print($PassiveTimer.time_left)
 	if numb == 0:
 		direction = Vector2(-1, 0)
 	if numb == 1 or numb == 2:
@@ -40,5 +44,13 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.has_meta("leveler"):
 		area.charge.connect(run_away)
 
-#func _on_timer_timeout() -> void:
-	#running = false
+func _on_timer_timeout() -> void:
+	running = false
+	$SpawnTimer.start()
+
+func _on_spawn_timer_timeout() -> void:
+	spawn()
+
+func _on_passive_timer_timeout() -> void:
+	brake_window.emit()
+	print("brake")

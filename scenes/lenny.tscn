@@ -17,6 +17,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d587q"]
 size = Vector2(62, 59)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dtw10"]
+size = Vector2(20, 26)
+
 [node name="Lenny" type="CharacterBody2D" unique_id=1372898414]
 script = ExtResource("1_d587q")
 
@@ -25,7 +28,8 @@ sprite_frames = SubResource("SpriteFrames_d587q")
 animation = &"down"
 
 [node name="SpawnTimer" type="Timer" parent="." unique_id=1504195488]
-wait_time = 120.0
+wait_time = 20.0
+one_shot = true
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1501305900]
 
@@ -34,8 +38,18 @@ position = Vector2(0, 1.5)
 shape = SubResource("RectangleShape2D_d587q")
 
 [node name="Timer" type="Timer" parent="." unique_id=703199833]
-wait_time = 3.0
+wait_time = 2.0
 one_shot = true
 
+[node name="PassiveTimer" type="Timer" parent="." unique_id=1465982446]
+wait_time = 30.0
+one_shot = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=792925696]
+position = Vector2(0, 3)
+shape = SubResource("RectangleShape2D_dtw10")
+
+[connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="PassiveTimer" to="." method="_on_passive_timer_timeout"]

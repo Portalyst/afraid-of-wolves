@@ -4,6 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://d3u58vh3o6b0r" path="res://sprites/window/window0.png" id="1_oya5r"]
 [ext_resource type="Texture2D" uid="uid://dssjbco4jeelg" path="res://sprites/window/window1.png" id="2_qvkcj"]
 [ext_resource type="Texture2D" uid="uid://b2e5ehdyafjt8" path="res://sprites/window/window2.png" id="4_syahi"]
+[ext_resource type="Texture2D" uid="uid://s3ompbffmuuf" path="res://sprites/window/windowbroken1.png" id="5_syahi"]
+[ext_resource type="Texture2D" uid="uid://bq5nvgyx8w70" path="res://sprites/window/windowbroken2.png" id="6_ot01e"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oya5r"]
 size = Vector2(50, 2)
@@ -33,7 +35,26 @@ animations = [{
 "loop": true,
 "name": &"window2",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_syahi")
+}],
+"loop": true,
+"name": &"windowbroken1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_ot01e")
+}],
+"loop": true,
+"name": &"windowbroken2",
+"speed": 5.0
 }]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_syahi"]
+size = Vector2(46, 112)
 
 [node name="window" type="StaticBody2D" unique_id=1972362471]
 script = ExtResource("1_ato5p")
@@ -46,4 +67,12 @@ shape = SubResource("RectangleShape2D_oya5r")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=738110515]
 position = Vector2(0, -8)
 sprite_frames = SubResource("SpriteFrames_to7fh")
-animation = &"window2"
+animation = &"window1"
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1467265318]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1190382482]
+position = Vector2(0, -9)
+shape = SubResource("RectangleShape2D_syahi")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

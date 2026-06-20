@@ -47,7 +47,7 @@ func _on_light_end_timer_timeout() -> void:
 	$charge.hide()
 	$light.hide()
 	var i := randi_range(0, 4)
-	if i != 0:
+	if i == 0:
 		stuck = true
 	else:
 		anim_up()

@@ -1,13 +1,14 @@
-Timer
 CollisionShape2D
 Area2D
-Marker2D
+Node2D
+StaticBody2D
 AnimatedSprite2D
+Timer
+Marker2D
 CharacterBody2D
 Button
 CanvasLayer
 Sprite2D
-StaticBody2D
 TileMapLayer
 Camera2D
 Node
