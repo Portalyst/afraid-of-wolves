@@ -308,3 +308,6 @@ shape = SubResource("RectangleShape2D_olg7q")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="trigger_up" unique_id=187036458]
 position = Vector2(80, -118)
 shape = SubResource("RectangleShape2D_t1rx8")
+
+[connection signal="body_entered" from="trigger_down" to="." method="_on_trigger_down_body_entered"]
+[connection signal="body_entered" from="trigger_up" to="." method="_on_trigger_up_body_entered"]

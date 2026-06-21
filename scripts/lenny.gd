@@ -25,20 +25,33 @@ func _physics_process(delta: float) -> void:
 func spawn():
 	numb = randi_range(0, 4)
 	position = global.windows[numb]
+	if numb == 0:
+		$AnimatedSprite2D.play("right")
+	if numb == 1 or numb == 2:
+		$AnimatedSprite2D.play("up")
+	if numb == 3:
+		$AnimatedSprite2D.play("left")
+	if numb == 4:
+		$AnimatedSprite2D.play("down")
 
 func run_away():
 	$PassiveTimer.stop()
 	print($PassiveTimer.time_left)
 	if numb == 0:
 		direction = Vector2(-1, 0)
+		$AnimatedSprite2D.play("left")
 	if numb == 1 or numb == 2:
 		direction = Vector2(0, 1)
+		$AnimatedSprite2D.play("down")
 	if numb == 3:
 		direction = Vector2(1, 0)
+		$AnimatedSprite2D.play("right")
 	if numb == 4:
 		direction = Vector2(0, -1)
+		$AnimatedSprite2D.play("up")
 	running = true
 	$Timer.start()
+	#spawn()
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.has_meta("leveler"):
