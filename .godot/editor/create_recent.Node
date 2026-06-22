@@ -1,5 +1,7 @@
 CollisionShape2D
 Area2D
+NavigationRegion2D
+NavigationAgent2D
 Node2D
 StaticBody2D
 AnimatedSprite2D
@@ -10,5 +12,3 @@ Button
 CanvasLayer
 Sprite2D
 TileMapLayer
-Camera2D
-Node

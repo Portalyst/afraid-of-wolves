@@ -57,8 +57,8 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d587q"]
 size = Vector2(62, 59)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_dtw10"]
-size = Vector2(20, 26)
+[sub_resource type="CircleShape2D" id="CircleShape2D_d587q"]
+radius = 5.0
 
 [node name="Lenny" type="CharacterBody2D" unique_id=1372898414]
 script = ExtResource("1_d587q")
@@ -85,10 +85,20 @@ wait_time = 30.0
 one_shot = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=792925696]
-position = Vector2(0, 3)
-shape = SubResource("RectangleShape2D_dtw10")
+position = Vector2(0, 2)
+shape = SubResource("CircleShape2D_d587q")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=209317352]
+path_desired_distance = 1.0
+target_desired_distance = 3.0
+path_max_distance = 120.0
+path_postprocessing = 1
+debug_path_custom_point_size = 3.96
+debug_path_custom_line_width = 1.5
 
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="PassiveTimer" to="." method="_on_passive_timer_timeout"]

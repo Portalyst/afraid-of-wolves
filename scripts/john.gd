@@ -55,3 +55,14 @@ func _physics_process(delta: float) -> void:
 		$AnimatedSprite2D.play("idle")
 	move_and_slide()
 	
+
+func dead():
+	pass
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	if body.has_meta("wolf"):
+		body.bite.connect(dead)
+
+func _on_area_2d_body_exited(body: Node2D) -> void:
+	if body.has_meta("wolf"):
+		body.bite.disconnect(dead)

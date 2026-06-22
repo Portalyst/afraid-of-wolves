@@ -1,2 +1,7 @@
 res://scenes/lenny.tscn
 res://scripts/lenny.gd
+res://scenes/window.tscn
+res://scenes/john.tscn
+res://scenes/level.tscn
+res://scripts/window.gd
+res://scripts/john.gd
