@@ -41,30 +41,29 @@ func _physics_process(delta: float) -> void:
 
 func spawn():
 	$PassiveTimer.start()
-	print($PassiveTimer.time_left)
-	numb = randi_range(0, 4)
+	numb = randi_range(0, 9)
 	position = global.windows[numb]
-	if numb == 0:
+	if numb in [0, 5]:
 		$AnimatedSprite2D.play("right")
-	if numb == 1 or numb == 2:
+	if numb in [1, 2, 6, 7]:
 		$AnimatedSprite2D.play("up")
 	if numb == 3:
 		$AnimatedSprite2D.play("left")
-	if numb == 4:
+	if numb in [4, 8, 9]:
 		$AnimatedSprite2D.play("down")
 
 func run_away():
 	$PassiveTimer.stop()
-	if numb == 0:
+	if numb in [0, 5]:
 		direction = Vector2(-1, 0)
 		$AnimatedSprite2D.play("left")
-	if numb == 1 or numb == 2:
+	if numb in [1, 2, 6, 7]:
 		direction = Vector2(0, 1)
 		$AnimatedSprite2D.play("down")
 	if numb == 3:
 		direction = Vector2(1, 0)
 		$AnimatedSprite2D.play("right")
-	if numb == 4:
+	if numb in [4, 8, 9]:
 		direction = Vector2(0, -1)
 		$AnimatedSprite2D.play("up")
 	running = true
