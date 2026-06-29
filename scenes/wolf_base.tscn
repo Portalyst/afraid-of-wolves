@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://b4xl5c33g6lt3"]
+
+[ext_resource type="Script" uid="uid://ccap3cvrn26d6" path="res://scripts/wolf_base.gd" id="1_sj5xr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sj5xr"]
+size = Vector2(52, 50)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kklgu"]
+radius = 5.0
+
+[node name="wolf_base" type="CharacterBody2D" unique_id=1251208640]
+script = ExtResource("1_sj5xr")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1740745473]
+
+[node name="SpawnTimer" type="Timer" parent="." unique_id=1505807063]
+one_shot = true
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1466089484]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1196445474]
+visible = false
+shape = SubResource("RectangleShape2D_sj5xr")
+
+[node name="PassiveTimer" type="Timer" parent="." unique_id=768835833]
+one_shot = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1132464983]
+position = Vector2(0, 2)
+shape = SubResource("CircleShape2D_kklgu")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=890131409]
+path_desired_distance = 1.0
+target_desired_distance = 3.0
+path_max_distance = 120.0
+path_postprocessing = 1
+
+[connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="timeout" from="PassiveTimer" to="." method="_on_passive_timer_timeout"]
