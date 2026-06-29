@@ -1,29 +1,30 @@
-[gd_scene format=3 uid="uid://ba345t4lh0o1g"]
+[gd_scene format=3 uid="uid://druif5kxh078g"]
 
-[ext_resource type="Texture2D" uid="uid://bbethmeiqbfsg" path="res://sprites/wolves/lenny/sheet.png" id="1_cbdyq"]
-[ext_resource type="Script" uid="uid://bl2kjdjq7tldp" path="res://scripts/lenny.gd" id="1_d587q"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_d587q"]
-atlas = ExtResource("1_cbdyq")
-region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_dtw10"]
-atlas = ExtResource("1_cbdyq")
-region = Rect2(96, 0, 32, 32)
+[ext_resource type="PackedScene" uid="uid://b4xl5c33g6lt3" path="res://scenes/wolf_base.tscn" id="1_cbdyq"]
+[ext_resource type="Script" uid="uid://b0fxsegvtcjax" path="res://scripts/lenny.gd" id="1_d587q"]
+[ext_resource type="Texture2D" uid="uid://bbethmeiqbfsg" path="res://sprites/wolves/lenny/sheet.png" id="3_dtw10"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_l8wo7"]
-atlas = ExtResource("1_cbdyq")
-region = Rect2(64, 0, 32, 32)
+atlas = ExtResource("3_dtw10")
+region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ug321"]
-atlas = ExtResource("1_cbdyq")
+atlas = ExtResource("3_dtw10")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1pxfj"]
+atlas = ExtResource("3_dtw10")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ji5y5"]
+atlas = ExtResource("3_dtw10")
 region = Rect2(32, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_d587q"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_d587q")
+"texture": SubResource("AtlasTexture_l8wo7")
 }],
 "loop": true,
 "name": &"down",
@@ -31,7 +32,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_dtw10")
+"texture": SubResource("AtlasTexture_ug321")
 }],
 "loop": true,
 "name": &"left",
@@ -39,7 +40,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_l8wo7")
+"texture": SubResource("AtlasTexture_1pxfj")
 }],
 "loop": true,
 "name": &"right",
@@ -47,58 +48,27 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ug321")
+"texture": SubResource("AtlasTexture_ji5y5")
 }],
 "loop": true,
 "name": &"up",
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_d587q"]
-size = Vector2(62, 59)
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_d587q"]
-radius = 5.0
-
-[node name="Lenny" type="CharacterBody2D" unique_id=1372898414]
+[node name="Lenny" unique_id=1251208640 instance=ExtResource("1_cbdyq")]
 script = ExtResource("1_d587q")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=780831286]
+[node name="AnimatedSprite2D" parent="." index="0" unique_id=1740745473]
 sprite_frames = SubResource("SpriteFrames_d587q")
 animation = &"down"
 
-[node name="SpawnTimer" type="Timer" parent="." unique_id=1504195488]
-one_shot = true
+[node name="PassiveTimer" parent="." index="3" unique_id=768835833]
+wait_time = 30.0
 
-[node name="Area2D" type="Area2D" parent="." unique_id=1501305900]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=549664234]
-position = Vector2(0, 1.5)
-shape = SubResource("RectangleShape2D_d587q")
-
-[node name="Timer" type="Timer" parent="." unique_id=703199833]
+[node name="Timer" type="Timer" parent="." index="6" unique_id=1318555065]
 wait_time = 2.0
 one_shot = true
 
-[node name="PassiveTimer" type="Timer" parent="." unique_id=1465982446]
-wait_time = 30.0
-one_shot = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=792925696]
-position = Vector2(0, 2)
-shape = SubResource("CircleShape2D_d587q")
-
-[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=209317352]
-path_desired_distance = 1.0
-target_desired_distance = 3.0
-path_max_distance = 120.0
-path_postprocessing = 1
-debug_path_custom_point_size = 3.96
-debug_path_custom_line_width = 1.5
-
-[connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
-[connection signal="timeout" from="PassiveTimer" to="." method="_on_passive_timer_timeout"]

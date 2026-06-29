@@ -15,3 +15,15 @@ func _on_trigger_up_body_entered(body: Node2D) -> void:
 
 func _on_trigger_down_body_entered(body: Node2D) -> void:
 	body.position -= Vector2(736, 0)
+
+func _on_on_floor_1_body_entered(body: Node2D) -> void:
+	if body.has_meta("player"):
+		global.player_on_floor = 1
+	if body.has_meta("wolf"):
+		global.wolf_on_floor = 1
+
+func _on_on_floor_2_body_entered(body: Node2D) -> void:
+	if body.has_meta("player"):
+		global.player_on_floor = 2
+	if body.has_meta("wolf"):
+		global.wolf_on_floor = 2

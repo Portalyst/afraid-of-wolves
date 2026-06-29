@@ -1,6 +1,7 @@
 extends Node
 
-
+var player_on_floor : int = 1
+var wolf_on_floor : int = 1
 
 var windows : Array
 

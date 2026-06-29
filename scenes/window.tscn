@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bq5nvgyx8w70" path="res://sprites/window/windowbroken2.png" id="6_ot01e"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oya5r"]
-size = Vector2(50, 2)
+size = Vector2(50, 0)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_to7fh"]
 animations = [{
@@ -58,11 +58,11 @@ size = Vector2(46, 112)
 
 [node name="window" type="StaticBody2D" unique_id=1972362471]
 collision_layer = 2
+collision_mask = 2
 script = ExtResource("1_ato5p")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=668877832]
-visible = false
-position = Vector2(0, 9)
+position = Vector2(0, 8)
 shape = SubResource("RectangleShape2D_oya5r")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=738110515]
@@ -73,6 +73,7 @@ animation = &"window1"
 [node name="Area2D" type="Area2D" parent="." unique_id=1467265318]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1190382482]
+visible = false
 position = Vector2(0, -9)
 shape = SubResource("RectangleShape2D_syahi")
 
