@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://dibq41c2ekqxp" path="res://scripts/double_door.gd" id="1_07wbm"]
 [ext_resource type="Texture2D" uid="uid://cfnkly2fyo8wy" path="res://sprites/door/door_double.png" id="2_07wbm"]
 [ext_resource type="Texture2D" uid="uid://bwm865i0qx373" path="res://sprites/door/door_double1.png" id="3_3dfa4"]
+[ext_resource type="Texture2D" uid="uid://bq0u5ox57tqr0" path="res://sprites/door/lock.png" id="4_qtr2k"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_07wbm"]
 atlas = ExtResource("2_07wbm")
@@ -331,38 +332,99 @@ animations = [{
 size = Vector2(32, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wi4je"]
-size = Vector2(32, 26)
+size = Vector2(32, 22)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rx0qv"]
-size = Vector2(32, 26)
+size = Vector2(32, 22)
+
+[sub_resource type="Animation" id="Animation_rphfo"]
+resource_name = "unlock"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Lock:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.033333335, 0.2, 0.33333334, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 3), Vector2(4, -1), Vector2(7, 0), Vector2(15, 22)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Lock:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.33333334, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 2.3561945, 3.1415927, 4.712389]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Lock:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.33333334, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_s7o6s"]
+_data = {
+&"unlock": SubResource("Animation_rphfo")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qtr2k"]
+size = Vector2(32, 36)
 
 [node name="Double_door" type="StaticBody2D" unique_id=735009287]
 script = ExtResource("1_07wbm")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=735103022]
 sprite_frames = SubResource("SpriteFrames_fmo56")
-animation = &"open_down_1"
+animation = &"open_down_0"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=126597316]
-visible = false
 shape = SubResource("RectangleShape2D_s7c6u")
 
 [node name="down_trigger" type="Area2D" parent="." unique_id=1890605391]
 position = Vector2(0, 14)
+monitoring = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="down_trigger" unique_id=193299860]
-visible = false
-position = Vector2(0, -9)
+position = Vector2(0, -11)
 shape = SubResource("RectangleShape2D_wi4je")
 
 [node name="up_trigger" type="Area2D" parent="." unique_id=1320729443]
+monitoring = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="up_trigger" unique_id=395239498]
-visible = false
-position = Vector2(0, -5)
+position = Vector2(0, -3)
 shape = SubResource("RectangleShape2D_rx0qv")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1239228259]
+libraries/ = SubResource("AnimationLibrary_s7o6s")
+
+[node name="Lock" type="Sprite2D" parent="." unique_id=100550604]
+position = Vector2(0, 3)
+texture = ExtResource("4_qtr2k")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=688954554]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=905213477]
+visible = false
+shape = SubResource("RectangleShape2D_qtr2k")
 
 [connection signal="body_entered" from="down_trigger" to="." method="_on_down_trigger_body_entered"]
 [connection signal="body_exited" from="down_trigger" to="." method="_on_down_trigger_body_exited"]
 [connection signal="body_entered" from="up_trigger" to="." method="_on_up_trigger_body_entered"]
 [connection signal="body_exited" from="up_trigger" to="." method="_on_up_trigger_body_exited"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

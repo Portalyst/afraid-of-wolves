@@ -1,5 +1,9 @@
 extends CharacterBody2D
 
+enum State {IDLE, RUN_AWAY, AGGRESIVE}
+
+var state := State.IDLE
+
 var speed = 100
 var numb : int
 var aggresive : bool = false
@@ -17,22 +21,23 @@ func _ready() -> void:
 	$NavigationAgent2D.target_position = target.position
 
 func _physics_process(delta: float) -> void:
-	$NavigationAgent2D.target_position = target.position
-	if global.wolf_on_floor != global.player_on_floor:
-		if global.wolf_on_floor == 1:
-			$NavigationAgent2D.target_position = stairs_up_position
-		if global.wolf_on_floor == 2:
-			$NavigationAgent2D.target_position = stairs_down_position
-	if aggresive == true:
-		if !$NavigationAgent2D.is_target_reached():
-			var nav_direction = to_local($NavigationAgent2D.get_next_path_position()).normalized()
-			if nav_direction.x < 0:
-				$AnimatedSprite2D.play("left")
-			if nav_direction.x > 0:
-				$AnimatedSprite2D.play("right")
-			if nav_direction.x < nav_direction.y:
-				$AnimatedSprite2D.play("down")
-			velocity = nav_direction * speed * 1.5
+	match state:
+		State.AGGRESIVE:
+			$NavigationAgent2D.target_position = target.position
+			if global.wolf_on_floor != global.player_on_floor:
+				if global.wolf_on_floor == 1:
+					$NavigationAgent2D.target_position = stairs_up_position
+				if global.wolf_on_floor == 2:
+					$NavigationAgent2D.target_position = stairs_down_position
+			if !$NavigationAgent2D.is_target_reached():
+				var nav_direction = to_local($NavigationAgent2D.get_next_path_position()).normalized()
+				if nav_direction.x < 0:
+					$AnimatedSprite2D.play("left")
+				if nav_direction.x > 0:
+					$AnimatedSprite2D.play("right")
+				if nav_direction.x < nav_direction.y:
+					$AnimatedSprite2D.play("down")
+				velocity = nav_direction * speed * 1.5
 	move_and_slide()
 
 func spawn():
@@ -42,8 +47,8 @@ func _on_spawn_timer_timeout() -> void:
 	spawn()
 
 func _on_passive_timer_timeout() -> void:
-	aggresive = true
+	state = State.AGGRESIVE
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	if body.has_meta("player") and aggresive == true:
+	if body.has_meta("player") and state == State.AGGRESIVE:
 		bite.emit()

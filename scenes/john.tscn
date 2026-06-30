@@ -306,9 +306,9 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_r0ebv"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_oigdq"]
 radius = 4.0
-height = 12.0
+height = 14.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oigdq"]
 size = Vector2(96, 88)
@@ -323,9 +323,8 @@ sprite_frames = SubResource("SpriteFrames_07sbj")
 animation = &"idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1223813713]
-visible = false
-position = Vector2(0, 2)
-shape = SubResource("CapsuleShape2D_r0ebv")
+position = Vector2(0, 1)
+shape = SubResource("CapsuleShape2D_oigdq")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1456303919]
 

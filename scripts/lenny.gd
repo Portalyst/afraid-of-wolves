@@ -6,12 +6,14 @@ var direction
 signal brake_window
 
 func _physics_process(delta: float) -> void:
-	if running == true:
-		velocity = direction * speed
-	if running == false and aggresive == false:
-		velocity.x = move_toward(velocity.x, 0, speed)
-		velocity.y = move_toward(velocity.y, 0, speed)
 	super._physics_process(delta)
+	match state:
+		State.RUN_AWAY:
+			velocity = direction * speed
+		State.IDLE:
+			velocity.x = move_toward(velocity.x, 0, speed)
+			velocity.y = move_toward(velocity.y, 0, speed)
+	
 
 func spawn():
 	super.spawn()
@@ -27,7 +29,6 @@ func spawn():
 		$AnimatedSprite2D.play("down")
 
 func run_away():
-	print("PIZDA")
 	$PassiveTimer.stop()
 	if numb in [0, 5]:
 		direction = Vector2(-1, 0)
@@ -41,7 +42,7 @@ func run_away():
 	if numb in [4, 8, 9]:
 		direction = Vector2(0, -1)
 		$AnimatedSprite2D.play("up")
-	running = true
+	state = State.RUN_AWAY
 	$Timer.start()
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
@@ -53,7 +54,7 @@ func _on_area_2d_area_exited(area: Area2D) -> void:
 		area.charge.disconnect(run_away)
 
 func _on_timer_timeout() -> void:
-	running = false
+	state = State.IDLE
 	$SpawnTimer.start()
 
 func _on_passive_timer_timeout() -> void:
