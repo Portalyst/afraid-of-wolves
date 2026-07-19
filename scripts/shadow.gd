@@ -1,21 +1,18 @@
 extends Area2D
 
-enum State {IDLE, HIDE, SHOW}
-
-var state := State.IDLE
+enum State {START, HIDE, SHOW}
+var state := State.START
 
 func _process(delta: float) -> void:
 	match state:
-		State.IDLE:
+		State.START:
 			pass
 		State.HIDE:
-			while self.modulate.a != 0:
-				self.modulate.a -= 1
-			state = State.IDLE
+			if self.modulate.a8 != 0:
+				self.modulate.a8 -= 20
 		State.SHOW:
-			while self.modulate.a != 233:
-				self.modulate.a += 1
-			state = State.IDLE
+			if self.modulate.a8 != 240:
+				self.modulate.a8 += 20
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.has_meta("player"):

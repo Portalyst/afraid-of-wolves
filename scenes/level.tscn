@@ -259,6 +259,9 @@ size = Vector2(80, 96)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_avnxn"]
 size = Vector2(48, 16)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_11l65"]
+size = Vector2(32, 16)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yf5fn"]
 size = Vector2(272, 48)
 
@@ -294,6 +297,9 @@ size = Vector2(32, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qssos"]
 size = Vector2(112, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4dgpn"]
+size = Vector2(32, 16)
 
 [node name="level" type="Node2D" unique_id=1025674173]
 script = ExtResource("1_2q6dc")
@@ -562,8 +568,11 @@ position = Vector2(8, 60)
 scale = Vector2(3.0000007, 0.99999994)
 texture = ExtResource("7_b121j")
 
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="shadows/room2shadow" unique_id=1363643691]
+position = Vector2(0, -52)
+shape = SubResource("RectangleShape2D_11l65")
+
 [node name="mainshadow" parent="shadows" unique_id=847102229 instance=ExtResource("12_8iemx")]
-visible = false
 position = Vector2(854, -78)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="shadows/mainshadow" unique_id=37356125]
@@ -659,6 +668,10 @@ shape = SubResource("RectangleShape2D_qssos")
 position = Vector2(-8, -4)
 scale = Vector2(7, 4)
 texture = ExtResource("7_b121j")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="shadows/room3shadow" unique_id=1728566035]
+position = Vector2(0, 36)
+shape = SubResource("RectangleShape2D_4dgpn")
 
 [connection signal="body_entered" from="trigger_down" to="." method="_on_trigger_down_body_entered"]
 [connection signal="body_entered" from="trigger_up" to="." method="_on_trigger_up_body_entered"]

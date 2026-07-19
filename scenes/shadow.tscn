@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://beeodhe8jwwyq" path="res://scripts/shadow.gd" id="1_0rvn4"]
 
 [node name="shadow" type="Area2D" unique_id=847102229]
-modulate = Color(1, 1, 1, 0.9137255)
+modulate = Color(1, 1, 1, 0.9411765)
 script = ExtResource("1_0rvn4")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
