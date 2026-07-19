@@ -2,10 +2,10 @@ extends StaticBody2D
 
 @export_enum("0", "1") var type : String
 
-
 var locked : bool = true
 
 func _ready() -> void:
+	set_meta("door", 1)
 	$AnimatedSprite2D.play("close_down_"+type)
 	if type == "1":
 		$AnimationPlayer.queue_free()

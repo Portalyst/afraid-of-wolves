@@ -1,4 +1,5 @@
-res://scenes/level.tscn
-res://scenes/john.tscn
 res://scenes/double_door.tscn
 res://scripts/double_door.gd
+res://scripts/shadow.gd
+res://scenes/shadow.tscn
+res://scenes/level.tscn
