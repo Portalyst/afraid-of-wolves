@@ -1,9 +1,9 @@
 CollisionShape2D
-Node2D
 Area2D
+AnimatedSprite2D
+Node2D
 AnimationPlayer
 PointLight2D
-AnimatedSprite2D
 StaticBody2D
 Timer
 NavigationAgent2D

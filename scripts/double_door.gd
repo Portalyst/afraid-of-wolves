@@ -24,23 +24,23 @@ func unlock(selected : Array):
 		$CollisionShape2D.queue_free()
 
 func _on_down_trigger_body_entered(body: Node2D) -> void:
-	if body.has_meta("player"):
+	if body.has_meta("player") or body.has_meta("wolf"):
 		$AnimatedSprite2D.play("open_up_"+type)
 		$up_trigger.monitoring = false
 
 func _on_down_trigger_body_exited(body: Node2D) -> void:
-	if body.has_meta("player"):
-			$AnimatedSprite2D.play("close_up_"+type)
-			await $AnimatedSprite2D.animation_finished
-			$up_trigger.monitoring = true
+	if body.has_meta("player") or body.has_meta("wolf"):
+		$AnimatedSprite2D.play("close_up_"+type)
+		await $AnimatedSprite2D.animation_finished
+		$up_trigger.monitoring = true
 
 func _on_up_trigger_body_entered(body: Node2D) -> void:
-	if body.has_meta("player"):
+	if body.has_meta("player") or body.has_meta("wolf"):
 		$AnimatedSprite2D.play("open_down_"+type)
 		$down_trigger.monitoring = false
 
 func _on_up_trigger_body_exited(body: Node2D) -> void:
-	if body.has_meta("player"):
+	if body.has_meta("player") or body.has_meta("wolf"):
 		$AnimatedSprite2D.play("close_down_"+type)
 		await $AnimatedSprite2D.animation_finished
 		$down_trigger.monitoring = true

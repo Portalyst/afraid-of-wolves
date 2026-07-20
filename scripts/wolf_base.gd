@@ -23,6 +23,7 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	match state:
 		State.AGGRESIVE:
+			modulate.a8 = 255
 			$NavigationAgent2D.target_position = target.position
 			if global.wolf_on_floor != global.player_on_floor:
 				if global.wolf_on_floor == 1:

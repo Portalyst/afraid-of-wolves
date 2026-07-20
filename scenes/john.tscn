@@ -5,6 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://mf1rk7ora7q3" path="res://sprites/tools/shadow.png" id="3_af6mu"]
 [ext_resource type="Texture2D" uid="uid://cqbmvcpqua3ym" path="res://sprites/tools/select.png" id="4_oigdq"]
 [ext_resource type="Texture2D" uid="uid://l0ovxavdoymg" path="res://sprites/tools/crowbar/crowbar.png" id="5_fsnvj"]
+[ext_resource type="Texture2D" uid="uid://cb1j7wjhvkxgd" path="res://sprites/tools/polaroid/noflash.png" id="6_w7w2l"]
+[ext_resource type="Texture2D" uid="uid://b40f82b10rkkd" path="res://sprites/tools/polaroid/withflash.png" id="7_f28jw"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_r0ebv"]
 atlas = ExtResource("1_uxisy")
@@ -165,7 +167,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_vyojm")
 }],
-"loop": true,
+"loop": 1,
 "name": &"fastrun_d",
 "speed": 5.0
 }, {
@@ -182,7 +184,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_jdx0j")
 }],
-"loop": true,
+"loop": 1,
 "name": &"fastrun_l",
 "speed": 5.0
 }, {
@@ -199,7 +201,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ku0iy")
 }],
-"loop": true,
+"loop": 1,
 "name": &"fastrun_r",
 "speed": 5.0
 }, {
@@ -216,7 +218,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_t1645")
 }],
-"loop": true,
+"loop": 1,
 "name": &"fastrun_u",
 "speed": 5.0
 }, {
@@ -233,7 +235,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_fsnvj")
 }],
-"loop": true,
+"loop": 1,
 "name": &"idle",
 "speed": 5.0
 }, {
@@ -250,7 +252,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_5sr6c")
 }],
-"loop": true,
+"loop": 1,
 "name": &"run_d",
 "speed": 5.0
 }, {
@@ -267,7 +269,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_umru3")
 }],
-"loop": true,
+"loop": 1,
 "name": &"run_l",
 "speed": 5.0
 }, {
@@ -284,7 +286,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_xmxqb")
 }],
-"loop": true,
+"loop": 1,
 "name": &"run_r",
 "speed": 5.0
 }, {
@@ -301,7 +303,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_5361c")
 }],
-"loop": true,
+"loop": 1,
 "name": &"run_u",
 "speed": 5.0
 }]
@@ -309,6 +311,25 @@ animations = [{
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_oigdq"]
 radius = 4.0
 height = 14.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g4v7s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_w7w2l")
+}],
+"loop": 1,
+"name": &"noflash",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_f28jw")
+}],
+"loop": 1,
+"name": &"withflash",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oigdq"]
 size = Vector2(96, 88)
@@ -387,11 +408,18 @@ centered = false
 position = Vector2(60, 131)
 texture = ExtResource("5_fsnvj")
 
+[node name="polaroid" type="AnimatedSprite2D" parent="CanvasLayer" unique_id=222401750]
+position = Vector2(100, 131)
+sprite_frames = SubResource("SpriteFrames_g4v7s")
+animation = &"noflash"
+
 [node name="Area2D" type="Area2D" parent="." unique_id=1439211020]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=131498972]
 visible = false
 shape = SubResource("RectangleShape2D_oigdq")
 
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

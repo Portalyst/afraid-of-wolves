@@ -17,7 +17,7 @@ func _physics_process(delta: float) -> void:
 
 func spawn():
 	super.spawn()
-	numb = randi_range(0, 9)
+	numb = randi_range(5, 9)
 	position = global.windows[numb]
 	if numb in [0, 5]:
 		$AnimatedSprite2D.play("right")

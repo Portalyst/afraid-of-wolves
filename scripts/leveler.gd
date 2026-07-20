@@ -19,7 +19,7 @@ func _process(delta: float) -> void:
 	pass
 
 func use(selected: Array):
-	if active == false:
+	if active == false and selected[1] != 1:
 		$LightTimer.start()
 		$LightEndTimer.start()
 		$leveler.play("down")
