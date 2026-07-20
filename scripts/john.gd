@@ -5,6 +5,7 @@ var speed : int = 60
 var selected : Array = [1, 0, 0]
 
 var has_flash : bool = false
+var polaroid_ready : bool = true
 
 signal use
 
@@ -32,6 +33,8 @@ func _physics_process(delta: float) -> void:
 		$CanvasLayer/Select2.hide()
 	if Input.is_action_just_pressed("use"):
 		use.emit(selected)
+		if selected[1] == 1:
+			take_picture()
 	
 	if Input.is_action_pressed("run"):
 		speed = 80
@@ -64,6 +67,12 @@ func take_flash():
 	has_flash = true
 	$CanvasLayer/polaroid.play("withflash")
 
+func take_picture():
+	if polaroid_ready == true:
+		$AnimationPlayer.play("photo_out")
+		polaroid_ready = false
+		$polaroid_cooldown.start()
+
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.has_meta("wolf"):
 		body.bite.connect(dead)
@@ -79,3 +88,6 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 func _on_area_2d_area_exited(area: Area2D) -> void:
 	if area.has_meta("flash"):
 		area.take_flash.disconnect(take_flash)
+
+func _on_polaroid_cooldown_timeout() -> void:
+	polaroid_ready = true

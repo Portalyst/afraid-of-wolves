@@ -1,11 +1,11 @@
+Timer
+AnimationPlayer
 CollisionShape2D
 Area2D
 AnimatedSprite2D
 Node2D
-AnimationPlayer
 PointLight2D
 StaticBody2D
-Timer
 NavigationAgent2D
 CharacterBody2D
 NavigationRegion2D

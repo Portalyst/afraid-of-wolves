@@ -454,13 +454,13 @@ shape = SubResource("RectangleShape2D_33x8s")
 [node name="trigger_down" type="Area2D" parent="." unique_id=850285278]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="trigger_down" unique_id=2034867030]
-position = Vector2(816, -50)
+position = Vector2(816, -59)
 shape = SubResource("RectangleShape2D_olg7q")
 
 [node name="trigger_up" type="Area2D" parent="." unique_id=2033260489]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="trigger_up" unique_id=187036458]
-position = Vector2(80, -118)
+position = Vector2(80, -108)
 shape = SubResource("RectangleShape2D_t1rx8")
 
 [node name="leveltrashfloor2" type="Node2D" parent="." unique_id=863484562]

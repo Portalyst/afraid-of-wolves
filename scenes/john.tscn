@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://l0ovxavdoymg" path="res://sprites/tools/crowbar/crowbar.png" id="5_fsnvj"]
 [ext_resource type="Texture2D" uid="uid://cb1j7wjhvkxgd" path="res://sprites/tools/polaroid/noflash.png" id="6_w7w2l"]
 [ext_resource type="Texture2D" uid="uid://b40f82b10rkkd" path="res://sprites/tools/polaroid/withflash.png" id="7_f28jw"]
+[ext_resource type="Texture2D" uid="uid://c63b38muue5py" path="res://sprites/tools/polaroid/photo_frame.png" id="8_f28jw"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_r0ebv"]
 atlas = ExtResource("1_uxisy")
@@ -334,6 +335,67 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oigdq"]
 size = Vector2(96, 88)
 
+[sub_resource type="Animation" id="Animation_f28jw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/PhotoFrame:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(153, -38)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/PhotoFrame:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_mxu6f"]
+resource_name = "photo_out"
+length = 2.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/PhotoFrame:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2, 2.8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(153, -38), Vector2(153, 38), Vector2(152.99998, 198.99998)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/PhotoFrame:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(2, 2.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.6725554]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5sr6c"]
+_data = {
+&"RESET": SubResource("Animation_f28jw"),
+&"photo_out": SubResource("Animation_mxu6f")
+}
+
 [node name="John" type="CharacterBody2D" unique_id=1620480787]
 collision_layer = 3
 collision_mask = 3
@@ -350,6 +412,10 @@ shape = SubResource("CapsuleShape2D_oigdq")
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1456303919]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=239907170]
+
+[node name="PhotoFrame" type="Sprite2D" parent="CanvasLayer" unique_id=128836357]
+position = Vector2(153, -38)
+texture = ExtResource("8_f28jw")
 
 [node name="Shadow" type="Sprite2D" parent="CanvasLayer" unique_id=381984673]
 self_modulate = Color(1, 1, 1, 0.5882353)
@@ -419,7 +485,15 @@ animation = &"noflash"
 visible = false
 shape = SubResource("RectangleShape2D_oigdq")
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1339048805]
+libraries/ = SubResource("AnimationLibrary_5sr6c")
+
+[node name="polaroid_cooldown" type="Timer" parent="." unique_id=1002491117]
+wait_time = 5.0
+one_shot = true
+
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="timeout" from="polaroid_cooldown" to="." method="_on_polaroid_cooldown_timeout"]
