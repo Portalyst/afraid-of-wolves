@@ -18,6 +18,7 @@ func _ready() -> void:
 func unlock(selected : Array):
 	if selected[0] == 1 and locked == true:
 		$AnimationPlayer.play("unlock")
+		$sound_unlock.play()
 		locked = false
 		$down_trigger.monitoring = true
 		$up_trigger.monitoring = true
@@ -26,22 +27,26 @@ func unlock(selected : Array):
 func _on_down_trigger_body_entered(body: Node2D) -> void:
 	if body.has_meta("player") or body.has_meta("wolf"):
 		$AnimatedSprite2D.play("open_up_"+type)
+		$sound_open.play()
 		$up_trigger.monitoring = false
 
 func _on_down_trigger_body_exited(body: Node2D) -> void:
 	if body.has_meta("player") or body.has_meta("wolf"):
 		$AnimatedSprite2D.play("close_up_"+type)
+		$sound_close.play()
 		await $AnimatedSprite2D.animation_finished
 		$up_trigger.monitoring = true
 
 func _on_up_trigger_body_entered(body: Node2D) -> void:
 	if body.has_meta("player") or body.has_meta("wolf"):
 		$AnimatedSprite2D.play("open_down_"+type)
+		$sound_open.play()
 		$down_trigger.monitoring = false
 
 func _on_up_trigger_body_exited(body: Node2D) -> void:
 	if body.has_meta("player") or body.has_meta("wolf"):
 		$AnimatedSprite2D.play("close_down_"+type)
+		$sound_close.play()
 		await $AnimatedSprite2D.animation_finished
 		$down_trigger.monitoring = true
 

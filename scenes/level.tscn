@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://cuexif142ovl3" path="res://sprites/enviroment/stairs_shadow.png" id="11_fpun6"]
 [ext_resource type="PackedScene" uid="uid://c0oe4ly76o5h2" path="res://scenes/shadow.tscn" id="12_8iemx"]
 [ext_resource type="PackedScene" uid="uid://d3xrxvwgvubrg" path="res://scenes/flash.tscn" id="13_64w2a"]
+[ext_resource type="PackedScene" uid="uid://cdgl2n111hgbv" path="res://scenes/marcus.tscn" id="13_arp2o"]
 [ext_resource type="Texture2D" uid="uid://bnhv8mvcj5pt" path="res://sprites/enviroment/railing.png" id="15_wc255"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_8iemx"]
@@ -462,6 +463,10 @@ shape = SubResource("RectangleShape2D_olg7q")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="trigger_up" unique_id=187036458]
 position = Vector2(80, -108)
 shape = SubResource("RectangleShape2D_t1rx8")
+
+[node name="Marcus" parent="trigger_up" unique_id=1251208640 node_paths=PackedStringArray("target") instance=ExtResource("13_arp2o")]
+position = Vector2(469, -147)
+target = NodePath("../../John")
 
 [node name="leveltrashfloor2" type="Node2D" parent="." unique_id=863484562]
 

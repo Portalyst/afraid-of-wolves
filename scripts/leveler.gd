@@ -29,14 +29,22 @@ func use(selected: Array):
 	if stuck == true and active == true and selected[0] == 1:
 		anim_up()
 		stuck = false
+		
+
+func flash():
+	$Flash.show()
+	$FlashTimer.start()
+	charge.emit()
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.has_meta("player"):
 		body.use.connect(use)
+		body.flash.connect(flash)
 
 func _on_body_exited(body: Node2D) -> void:
 	if body.has_meta("player"):
 		body.use.disconnect(use)
+		body.flash.disconnect(flash)
 
 func _on_light_timer_timeout() -> void:
 	$charge.visible = !$charge.visible
@@ -71,3 +79,6 @@ func anim_up() -> void:
 		$leveler0.play("up1")
 		await $leveler0.animation_finished
 		active = false
+
+func _on_flash_timer_timeout() -> void:
+	$Flash.hide()

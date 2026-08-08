@@ -8,9 +8,11 @@ var has_flash : bool = false
 var polaroid_ready : bool = true
 
 signal use
+signal flash
 
 func _ready() -> void:
 	set_meta("player", 1)
+	$CanvasLayer.show()
 
 func _physics_process(delta: float) -> void:
 	var direction := Vector2(Input.get_axis("left", "right"), Input.get_axis("up", "down"))
@@ -50,6 +52,8 @@ func _physics_process(delta: float) -> void:
 	
 	if direction:
 		velocity = direction * speed
+		if $footstep_sounds.is_stopped():
+			$footstep_sounds.start()
 		if speed <= 60:
 			$AnimatedSprite2D.play("run_"+anim_dir)
 		if speed > 60:
@@ -69,7 +73,11 @@ func take_flash():
 
 func take_picture():
 	if polaroid_ready == true:
-		$AnimationPlayer.play("photo_out")
+		if has_flash == true:
+			$AnimationPlayer.play("photo_out_flash")
+			flash.emit()
+		else:
+			$AnimationPlayer.play("photo_out")
 		polaroid_ready = false
 		$polaroid_cooldown.start()
 
@@ -91,3 +99,6 @@ func _on_area_2d_area_exited(area: Area2D) -> void:
 
 func _on_polaroid_cooldown_timeout() -> void:
 	polaroid_ready = true
+
+func _on_footstep_sounds_timeout() -> void:
+	$footsteps.play()

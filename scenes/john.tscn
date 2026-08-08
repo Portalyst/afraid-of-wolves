@@ -3,11 +3,17 @@
 [ext_resource type="Script" uid="uid://cxjey6i6f6g7m" path="res://scripts/john.gd" id="1_r0ebv"]
 [ext_resource type="Texture2D" uid="uid://c68fixnmtjfsx" path="res://sprites/john/sheet.png" id="1_uxisy"]
 [ext_resource type="Texture2D" uid="uid://mf1rk7ora7q3" path="res://sprites/tools/shadow.png" id="3_af6mu"]
+[ext_resource type="Texture2D" uid="uid://bf16r3kjol106" path="res://sprites/tools/polaroid/highlight.png" id="3_mxu6f"]
 [ext_resource type="Texture2D" uid="uid://cqbmvcpqua3ym" path="res://sprites/tools/select.png" id="4_oigdq"]
 [ext_resource type="Texture2D" uid="uid://l0ovxavdoymg" path="res://sprites/tools/crowbar/crowbar.png" id="5_fsnvj"]
 [ext_resource type="Texture2D" uid="uid://cb1j7wjhvkxgd" path="res://sprites/tools/polaroid/noflash.png" id="6_w7w2l"]
 [ext_resource type="Texture2D" uid="uid://b40f82b10rkkd" path="res://sprites/tools/polaroid/withflash.png" id="7_f28jw"]
 [ext_resource type="Texture2D" uid="uid://c63b38muue5py" path="res://sprites/tools/polaroid/photo_frame.png" id="8_f28jw"]
+[ext_resource type="AudioStream" uid="uid://dp835mu5e6l3b" path="res://sounds/notmy/footstep_wood1.ogg" id="10_umru3"]
+[ext_resource type="AudioStream" uid="uid://c3big46f4n0m4" path="res://sounds/notmy/footstep_wood2.ogg" id="11_makqm"]
+[ext_resource type="AudioStream" uid="uid://02050icix2ri" path="res://sounds/notmy/footstep_wood3.ogg" id="12_cw6qu"]
+[ext_resource type="AudioStream" uid="uid://dpuonpnlug56i" path="res://sounds/notmy/footstep_wood4.ogg" id="13_lwj1h"]
+[ext_resource type="AudioStream" uid="uid://cevn12l6rlkw0" path="res://sounds/notmy/footstep_wood5.ogg" id="14_xmxqb"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_r0ebv"]
 atlas = ExtResource("1_uxisy")
@@ -361,6 +367,18 @@ tracks/1/keys = {
 "update": 0,
 "values": [0.0]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CanvasLayer/Highlight:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_mxu6f"]
 resource_name = "photo_out"
@@ -390,11 +408,60 @@ tracks/1/keys = {
 "values": [0.0, 0.6725554]
 }
 
+[sub_resource type="Animation" id="Animation_5sr6c"]
+resource_name = "photo_out_flash"
+length = 2.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/PhotoFrame:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2, 2.8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(153, -38), Vector2(153, 38), Vector2(152.99998, 198.99998)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/PhotoFrame:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(2, 2.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.6725554]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CanvasLayer/Highlight:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_5sr6c"]
 _data = {
 &"RESET": SubResource("Animation_f28jw"),
-&"photo_out": SubResource("Animation_mxu6f")
+&"photo_out": SubResource("Animation_mxu6f"),
+&"photo_out_flash": SubResource("Animation_5sr6c")
 }
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_g4v7s"]
+streams_count = 5
+stream_0/stream = ExtResource("10_umru3")
+stream_1/stream = ExtResource("11_makqm")
+stream_2/stream = ExtResource("12_cw6qu")
+stream_3/stream = ExtResource("13_lwj1h")
+stream_4/stream = ExtResource("14_xmxqb")
 
 [node name="John" type="CharacterBody2D" unique_id=1620480787]
 collision_layer = 3
@@ -403,7 +470,7 @@ script = ExtResource("1_r0ebv")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1303598773]
 sprite_frames = SubResource("SpriteFrames_07sbj")
-animation = &"idle"
+animation = &"run_d"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1223813713]
 position = Vector2(0, 1)
@@ -412,6 +479,7 @@ shape = SubResource("CapsuleShape2D_oigdq")
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1456303919]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=239907170]
+visible = false
 
 [node name="PhotoFrame" type="Sprite2D" parent="CanvasLayer" unique_id=128836357]
 position = Vector2(153, -38)
@@ -479,6 +547,15 @@ position = Vector2(100, 131)
 sprite_frames = SubResource("SpriteFrames_g4v7s")
 animation = &"noflash"
 
+[node name="Highlight" type="Sprite2D" parent="CanvasLayer" unique_id=1285473171]
+visible = false
+position = Vector2(100, 75)
+texture = ExtResource("3_mxu6f")
+
+[node name="Highlight2" type="Sprite2D" parent="CanvasLayer/Highlight" unique_id=1335331023]
+position = Vector2(-1, 52)
+texture = ExtResource("3_mxu6f")
+
 [node name="Area2D" type="Area2D" parent="." unique_id=1439211020]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=131498972]
@@ -492,8 +569,17 @@ libraries/ = SubResource("AnimationLibrary_5sr6c")
 wait_time = 5.0
 one_shot = true
 
+[node name="footsteps" type="AudioStreamPlayer2D" parent="." unique_id=1549558829]
+stream = SubResource("AudioStreamRandomizer_g4v7s")
+volume_db = -15.551
+
+[node name="footstep_sounds" type="Timer" parent="." unique_id=836121899]
+wait_time = 0.4
+one_shot = true
+
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
 [connection signal="timeout" from="polaroid_cooldown" to="." method="_on_polaroid_cooldown_timeout"]
+[connection signal="timeout" from="footstep_sounds" to="." method="_on_footstep_sounds_timeout"]

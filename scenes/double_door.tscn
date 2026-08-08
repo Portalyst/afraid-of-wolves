@@ -4,6 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://cfnkly2fyo8wy" path="res://sprites/door/door_double.png" id="2_07wbm"]
 [ext_resource type="Texture2D" uid="uid://bwm865i0qx373" path="res://sprites/door/door_double1.png" id="3_3dfa4"]
 [ext_resource type="Texture2D" uid="uid://bq0u5ox57tqr0" path="res://sprites/door/lock.png" id="4_qtr2k"]
+[ext_resource type="AudioStream" uid="uid://b02n7hub0ix4e" path="res://sounds/notmy/doors_open.ogg" id="5_spt60"]
+[ext_resource type="AudioStream" uid="uid://oci12d564rwi" path="res://sounds/notmy/doors_close.ogg" id="6_38o23"]
+[ext_resource type="AudioStream" uid="uid://d1hn1ew5w7eep" path="res://sounds/notmy/doors_unlock.ogg" id="7_p5nfs"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_07wbm"]
 atlas = ExtResource("2_07wbm")
@@ -421,6 +424,15 @@ texture = ExtResource("4_qtr2k")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=905213477]
 visible = false
 shape = SubResource("RectangleShape2D_qtr2k")
+
+[node name="sound_open" type="AudioStreamPlayer2D" parent="." unique_id=1313437944]
+stream = ExtResource("5_spt60")
+
+[node name="sound_close" type="AudioStreamPlayer2D" parent="." unique_id=1178781180]
+stream = ExtResource("6_38o23")
+
+[node name="sound_unlock" type="AudioStreamPlayer2D" parent="." unique_id=1876401983]
+stream = ExtResource("7_p5nfs")
 
 [connection signal="body_entered" from="down_trigger" to="." method="_on_down_trigger_body_entered"]
 [connection signal="body_exited" from="down_trigger" to="." method="_on_down_trigger_body_exited"]

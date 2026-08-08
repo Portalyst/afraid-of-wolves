@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://dc2du3airgoo7" path="res://sprites/leveler/leveler.png" id="1_qgquf"]
 [ext_resource type="Texture2D" uid="uid://dq81w7t7pd210" path="res://sprites/leveler/electricity.png" id="2_jv1db"]
 [ext_resource type="Texture2D" uid="uid://cw7lxhc6ljr3k" path="res://sprites/leveler/add_frame.png" id="4_wm4xg"]
+[ext_resource type="Texture2D" uid="uid://cfs3a7le1tig1" path="res://sprites/window/flash.png" id="6_b03i3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wm4xg"]
 size = Vector2(48, 32)
@@ -59,7 +60,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("4_wm4xg")
 }],
-"loop": false,
+"loop": 0,
 "name": &"add_frame",
 "speed": 2.0
 }, {
@@ -82,7 +83,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_eb0gk")
 }],
-"loop": false,
+"loop": 0,
 "name": &"down",
 "speed": 15.0
 }, {
@@ -93,7 +94,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_644fi")
 }],
-"loop": false,
+"loop": 0,
 "name": &"up0",
 "speed": 1.0
 }, {
@@ -107,7 +108,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_gpgnq")
 }],
-"loop": false,
+"loop": 0,
 "name": &"up1",
 "speed": 1.0
 }]
@@ -149,7 +150,17 @@ one_shot = true
 
 [node name="ResetTimer" type="Timer" parent="." unique_id=1912432002]
 
+[node name="Flash" type="Sprite2D" parent="." unique_id=847738760]
+visible = false
+position = Vector2(32, -8)
+texture = ExtResource("6_b03i3")
+
+[node name="FlashTimer" type="Timer" parent="." unique_id=563952257]
+wait_time = 0.2
+one_shot = true
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
 [connection signal="timeout" from="LightTimer" to="." method="_on_light_timer_timeout"]
 [connection signal="timeout" from="LightEndTimer" to="." method="_on_light_end_timer_timeout"]
+[connection signal="timeout" from="FlashTimer" to="." method="_on_flash_timer_timeout"]

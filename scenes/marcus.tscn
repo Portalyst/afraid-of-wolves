@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://cdgl2n111hgbv"]
+
+[ext_resource type="PackedScene" uid="uid://b4xl5c33g6lt3" path="res://scenes/wolf_base.tscn" id="1_eln4d"]
+[ext_resource type="Script" uid="uid://bfpqmwceqpvy4" path="res://scripts/marcus.gd" id="2_07tp6"]
+[ext_resource type="AudioStream" uid="uid://c63t72tsdetxv" path="res://sounds/notmy/marcus/marcus_chains1.ogg" id="3_pugyx"]
+[ext_resource type="AudioStream" uid="uid://15hc535147jr" path="res://sounds/notmy/marcus/marcus_chains2.ogg" id="4_vid4f"]
+[ext_resource type="AudioStream" uid="uid://bfb0e7tcm31w4" path="res://sounds/notmy/marcus/marcus_chains3.ogg" id="5_c0mb3"]
+[ext_resource type="AudioStream" uid="uid://c3x0ye76p63bl" path="res://sounds/notmy/marcus/marcus_chains4.ogg" id="6_noira"]
+[ext_resource type="AudioStream" uid="uid://b5sgpqmsx0mik" path="res://sounds/notmy/marcus/marcus_chains5.ogg" id="7_pw57p"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_sj5xr"]
+streams_count = 5
+stream_0/stream = ExtResource("3_pugyx")
+stream_1/stream = ExtResource("4_vid4f")
+stream_2/stream = ExtResource("5_c0mb3")
+stream_3/stream = ExtResource("6_noira")
+stream_4/stream = ExtResource("7_pw57p")
+
+[node name="Marcus" unique_id=1251208640 instance=ExtResource("1_eln4d")]
+script = ExtResource("2_07tp6")
+
+[node name="CollisionShape2D" parent="Area2D" parent_id_path=PackedInt32Array(1466089484) index="0" unique_id=1196445474]
+visible = true
+
+[node name="PassiveTimer" parent="." index="3" unique_id=768835833]
+wait_time = 400.0
+
+[node name="AudioStreamPlayer2D" parent="." index="6" unique_id=1630658975]
+stream = SubResource("AudioStreamRandomizer_sj5xr")
+volume_db = 10.806
+attenuation = 1.0283648
+
+[node name="ChainTimer" type="Timer" parent="." index="7" unique_id=2022665402]
+one_shot = true
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
+[connection signal="timeout" from="ChainTimer" to="." method="_on_chain_timer_timeout"]
