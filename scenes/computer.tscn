@@ -1,0 +1,509 @@
+[gd_scene format=3 uid="uid://btq8abmhph6f1"]
+
+[ext_resource type="Texture2D" uid="uid://dq5kbadu3duf8" path="res://sprites/computer/computer.png" id="1_7ikar"]
+[ext_resource type="Script" uid="uid://cpnkbueybun4a" path="res://scripts/computer.gd" id="1_tjrug"]
+[ext_resource type="Texture2D" uid="uid://botyo2wtvwii1" path="res://sprites/computer/computer1.png" id="2_tjrug"]
+[ext_resource type="Texture2D" uid="uid://ouvspsu2gc2a" path="res://sprites/computer/computer2.png" id="3_uiul0"]
+[ext_resource type="Texture2D" uid="uid://c70a2fnmv5c5p" path="res://sprites/computer/gui/border.png" id="5_uiul0"]
+[ext_resource type="Texture2D" uid="uid://ccdd7yeydamb4" path="res://sprites/computer/gui/background.png" id="6_c6j5k"]
+[ext_resource type="Texture2D" uid="uid://duy1c3xpqq83u" path="res://sprites/computer/gui/close_animation.png" id="7_3swsi"]
+[ext_resource type="Texture2D" uid="uid://dfllylkcxotsa" path="res://sprites/computer/gui/close_button.png" id="8_m1r6p"]
+[ext_resource type="Texture2D" uid="uid://cn8168wb8g28" path="res://sprites/computer/gui/scan_button.png" id="9_vbh7i"]
+[ext_resource type="Texture2D" uid="uid://ddpoa4ut86a3m" path="res://sprites/computer/gui/select_button.png" id="10_i36oq"]
+[ext_resource type="Texture2D" uid="uid://csyva1cn71k7l" path="res://sprites/computer/gui/close.png" id="11_f3b7m"]
+[ext_resource type="Texture2D" uid="uid://chwrbfu4nhplu" path="res://sprites/computer/gui/attention.png" id="12_eg6yx"]
+[ext_resource type="Texture2D" uid="uid://hlbg6rh3r0ed" path="res://sprites/computer/gui/open.png" id="13_y87hx"]
+[ext_resource type="Texture2D" uid="uid://pyjxf6lqh0hi" path="res://sprites/computer/gui/select.png" id="14_3swsi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yf5fn"]
+size = Vector2(10, 10)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g4v7s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_uiul0")
+}],
+"loop": 1,
+"name": &"0",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_tjrug")
+}],
+"loop": 1,
+"name": &"1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_7ikar")
+}],
+"loop": 1,
+"name": &"2",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_57qmd"]
+size = Vector2(48, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6rxko"]
+atlas = ExtResource("7_3swsi")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_36met"]
+atlas = ExtResource("7_3swsi")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0vpjp"]
+atlas = ExtResource("7_3swsi")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ny7qh"]
+atlas = ExtResource("7_3swsi")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_06yn7"]
+atlas = ExtResource("7_3swsi")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h6np1"]
+atlas = ExtResource("7_3swsi")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ovcfo"]
+atlas = ExtResource("7_3swsi")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nl1v5"]
+atlas = ExtResource("7_3swsi")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o0n5b"]
+atlas = ExtResource("7_3swsi")
+region = Rect2(256, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dc5t1"]
+atlas = ExtResource("7_3swsi")
+region = Rect2(288, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_at0gx"]
+atlas = ExtResource("7_3swsi")
+region = Rect2(320, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_naekv"]
+atlas = ExtResource("7_3swsi")
+region = Rect2(352, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ix6sk"]
+atlas = ExtResource("7_3swsi")
+region = Rect2(384, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2x7us"]
+atlas = ExtResource("7_3swsi")
+region = Rect2(416, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tivf8"]
+atlas = ExtResource("7_3swsi")
+region = Rect2(448, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c7txu"]
+atlas = ExtResource("7_3swsi")
+region = Rect2(480, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8gj4u"]
+atlas = ExtResource("7_3swsi")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yf5fn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6rxko")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_36met")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0vpjp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ny7qh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_06yn7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h6np1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ovcfo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nl1v5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o0n5b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dc5t1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_at0gx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_naekv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ix6sk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2x7us")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tivf8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c7txu")
+}],
+"loop": 0,
+"name": &"close",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8gj4u")
+}],
+"loop": 1,
+"name": &"open",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_10rfb"]
+atlas = ExtResource("8_m1r6p")
+region = Rect2(28, 0, 28, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_shmwx"]
+atlas = ExtResource("8_m1r6p")
+region = Rect2(0, 0, 28, 10)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_57qmd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_10rfb")
+}],
+"loop": 1,
+"name": &"down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_shmwx")
+}],
+"loop": 1,
+"name": &"up",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g32th"]
+atlas = ExtResource("9_vbh7i")
+region = Rect2(43, 0, 43, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s1rfd"]
+atlas = ExtResource("9_vbh7i")
+region = Rect2(0, 0, 43, 10)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_d0u6y"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g32th")
+}],
+"loop": 1,
+"name": &"down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s1rfd")
+}],
+"loop": 1,
+"name": &"up",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qlp8q"]
+atlas = ExtResource("10_i36oq")
+region = Rect2(10, 0, 10, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xma1n"]
+atlas = ExtResource("10_i36oq")
+region = Rect2(0, 0, 10, 10)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3gngh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qlp8q")
+}],
+"loop": 1,
+"name": &"down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xma1n")
+}],
+"loop": 1,
+"name": &"up",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_c77k0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qlp8q")
+}],
+"loop": 1,
+"name": &"down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xma1n")
+}],
+"loop": 1,
+"name": &"up",
+"speed": 5.0
+}]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_c6j5k"]
+load_path = "res://.godot/imported/close.png-1da49eb7258d4c3b3b5830ace99717de.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_m1r6p"]
+load_path = "res://.godot/imported/open.png-34281bea0585c7a9831ee1f285c0ae16.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_uvvcl"]
+load_path = "res://.godot/imported/attention.png-08b08eb1760f11a3dd29f2c7d376ff7f.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_i36oq"]
+load_path = "res://.godot/imported/select.png-6e0b87de7dcad98d047b9e9f45247a46.ctex"
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_c0v2l"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qlp8q")
+}],
+"loop": 1,
+"name": &"down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xma1n")
+}],
+"loop": 1,
+"name": &"up",
+"speed": 5.0
+}]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_vbh7i"]
+load_path = "res://.godot/imported/open.png-34281bea0585c7a9831ee1f285c0ae16.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_3swsi"]
+load_path = "res://.godot/imported/close.png-1da49eb7258d4c3b3b5830ace99717de.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_s07ic"]
+load_path = "res://.godot/imported/attention.png-08b08eb1760f11a3dd29f2c7d376ff7f.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_f3b7m"]
+load_path = "res://.godot/imported/select.png-6e0b87de7dcad98d047b9e9f45247a46.ctex"
+
+[node name="StaticBody2D" type="StaticBody2D" unique_id=1428180347]
+script = ExtResource("1_tjrug")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=422889292]
+visible = false
+shape = SubResource("RectangleShape2D_yf5fn")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=162280429]
+sprite_frames = SubResource("SpriteFrames_g4v7s")
+animation = &"2"
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1992320049]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1865494744]
+visible = false
+shape = SubResource("RectangleShape2D_57qmd")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1076573557]
+visible = false
+
+[node name="Border" type="Sprite2D" parent="CanvasLayer" unique_id=608425396]
+position = Vector2(128, 72)
+texture = ExtResource("5_uiul0")
+
+[node name="Background" type="Sprite2D" parent="CanvasLayer" unique_id=1557406170]
+position = Vector2(128, 72)
+texture = ExtResource("6_c6j5k")
+
+[node name="close_anim" type="AnimatedSprite2D" parent="CanvasLayer" unique_id=55342449]
+position = Vector2(156, 80)
+sprite_frames = SubResource("SpriteFrames_yf5fn")
+animation = &"close"
+
+[node name="close_button" type="AnimatedSprite2D" parent="CanvasLayer" unique_id=1082435482]
+position = Vector2(156, 103)
+sprite_frames = SubResource("SpriteFrames_57qmd")
+animation = &"up"
+
+[node name="closeButton" type="Button" parent="CanvasLayer/close_button" unique_id=1205753856]
+self_modulate = Color(1, 1, 1, 0)
+offset_left = -14.0
+offset_top = -5.0
+offset_right = 14.0
+offset_bottom = 5.0
+
+[node name="scan_button" type="AnimatedSprite2D" parent="CanvasLayer" unique_id=342575975]
+position = Vector2(79, 65)
+sprite_frames = SubResource("SpriteFrames_d0u6y")
+animation = &"up"
+centered = false
+
+[node name="scanButton" type="Button" parent="CanvasLayer/scan_button" unique_id=571234898]
+self_modulate = Color(1, 1, 1, 0)
+offset_right = 43.0
+offset_bottom = 10.0
+
+[node name="vent1" type="AnimatedSprite2D" parent="CanvasLayer" unique_id=484340033]
+position = Vector2(84, 82)
+sprite_frames = SubResource("SpriteFrames_3gngh")
+animation = &"up"
+
+[node name="Open" type="Sprite2D" parent="CanvasLayer/vent1" unique_id=116145683]
+position = Vector2(9, -3)
+texture = ExtResource("13_y87hx")
+centered = false
+
+[node name="Close" type="Sprite2D" parent="CanvasLayer/vent1" unique_id=915537172]
+visible = false
+position = Vector2(7, -3)
+texture = ExtResource("11_f3b7m")
+centered = false
+
+[node name="Attention" type="Sprite2D" parent="CanvasLayer/vent1" unique_id=111862210]
+visible = false
+position = Vector2(-4, -31)
+texture = ExtResource("12_eg6yx")
+centered = false
+
+[node name="Select" type="Sprite2D" parent="CanvasLayer/vent1" unique_id=703595733]
+position = Vector2(-3, -3)
+texture = ExtResource("14_3swsi")
+centered = false
+
+[node name="ventButton1" type="Button" parent="CanvasLayer/vent1" unique_id=159549639]
+self_modulate = Color(1, 1, 1, 0)
+offset_left = -5.0
+offset_top = -5.0
+offset_right = 4.0
+offset_bottom = 5.0
+
+[node name="vent2" type="AnimatedSprite2D" parent="CanvasLayer" unique_id=116394541]
+position = Vector2(84, 93)
+sprite_frames = SubResource("SpriteFrames_c77k0")
+animation = &"up"
+
+[node name="Close" type="Sprite2D" parent="CanvasLayer/vent2" unique_id=746316267]
+visible = false
+position = Vector2(7, -3)
+texture = SubResource("CompressedTexture2D_c6j5k")
+centered = false
+
+[node name="Open" type="Sprite2D" parent="CanvasLayer/vent2" unique_id=910292729]
+position = Vector2(9, -3)
+texture = SubResource("CompressedTexture2D_m1r6p")
+centered = false
+
+[node name="Attention" type="Sprite2D" parent="CanvasLayer/vent2" unique_id=1427768916]
+visible = false
+position = Vector2(12, -42)
+texture = SubResource("CompressedTexture2D_uvvcl")
+centered = false
+
+[node name="Select" type="Sprite2D" parent="CanvasLayer/vent2" unique_id=1908336593]
+visible = false
+position = Vector2(-3, -3)
+texture = SubResource("CompressedTexture2D_i36oq")
+centered = false
+
+[node name="ventButton2" type="Button" parent="CanvasLayer/vent2" unique_id=2003847443]
+self_modulate = Color(1, 1, 1, 0)
+offset_left = -5.0
+offset_top = -5.0
+offset_right = 4.0
+offset_bottom = 5.0
+
+[node name="vent3" type="AnimatedSprite2D" parent="CanvasLayer" unique_id=973066752]
+position = Vector2(84, 104)
+sprite_frames = SubResource("SpriteFrames_c0v2l")
+animation = &"up"
+
+[node name="Open" type="Sprite2D" parent="CanvasLayer/vent3" unique_id=1913028641]
+position = Vector2(9, -3)
+texture = SubResource("CompressedTexture2D_vbh7i")
+centered = false
+
+[node name="Close" type="Sprite2D" parent="CanvasLayer/vent3" unique_id=2065353490]
+visible = false
+position = Vector2(7, -3)
+texture = SubResource("CompressedTexture2D_3swsi")
+centered = false
+
+[node name="Attention" type="Sprite2D" parent="CanvasLayer/vent3" unique_id=938485515]
+visible = false
+position = Vector2(28, -53)
+texture = SubResource("CompressedTexture2D_s07ic")
+centered = false
+
+[node name="Select" type="Sprite2D" parent="CanvasLayer/vent3" unique_id=474629708]
+visible = false
+position = Vector2(-3, -3)
+texture = SubResource("CompressedTexture2D_f3b7m")
+centered = false
+
+[node name="ventButton3" type="Button" parent="CanvasLayer/vent3" unique_id=230021765]
+self_modulate = Color(1, 1, 1, 0)
+offset_left = -5.0
+offset_top = -5.0
+offset_right = 4.0
+offset_bottom = 5.0
+
+[node name="quit" type="Button" parent="CanvasLayer" unique_id=1670336285]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(1, 1)
+custom_maximum_size = Vector2(10, 10)
+offset_left = 177.0
+offset_top = 32.0
+offset_right = 185.0
+offset_bottom = 40.0
+scale = Vector2(0.9, 0.9)
+
+[connection signal="mouse_entered" from="CanvasLayer/close_button/closeButton" to="." method="_on_close_button_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/close_button/closeButton" to="." method="_on_close_button_mouse_exited"]
+[connection signal="mouse_entered" from="CanvasLayer/scan_button/scanButton" to="." method="_on_scan_button_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/scan_button/scanButton" to="." method="_on_scan_button_mouse_exited"]
+[connection signal="mouse_entered" from="CanvasLayer/vent1/ventButton1" to="." method="_on_vent_button_1_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/vent1/ventButton1" to="." method="_on_vent_button_1_mouse_exited"]
+[connection signal="pressed" from="CanvasLayer/vent1/ventButton1" to="." method="_on_vent_button_1_pressed"]
+[connection signal="mouse_entered" from="CanvasLayer/vent2/ventButton2" to="." method="_on_vent_button_2_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/vent2/ventButton2" to="." method="_on_vent_button_2_mouse_exited"]
+[connection signal="pressed" from="CanvasLayer/vent2/ventButton2" to="." method="_on_vent_button_2_pressed"]
+[connection signal="mouse_entered" from="CanvasLayer/vent3/ventButton3" to="." method="_on_vent_button_3_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/vent3/ventButton3" to="." method="_on_vent_button_3_mouse_exited"]
+[connection signal="pressed" from="CanvasLayer/vent3/ventButton3" to="." method="_on_vent_button_3_pressed"]
+[connection signal="pressed" from="CanvasLayer/quit" to="." method="_on_quit_pressed"]

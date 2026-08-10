@@ -3,10 +3,62 @@
 [ext_resource type="PackedScene" uid="uid://b4xl5c33g6lt3" path="res://scenes/wolf_base.tscn" id="1_eln4d"]
 [ext_resource type="Script" uid="uid://bfpqmwceqpvy4" path="res://scripts/marcus.gd" id="2_07tp6"]
 [ext_resource type="AudioStream" uid="uid://c63t72tsdetxv" path="res://sounds/notmy/marcus/marcus_chains1.ogg" id="3_pugyx"]
+[ext_resource type="Texture2D" uid="uid://dxwwo7yt0peci" path="res://sprites/wolves/marcus/sheet.png" id="3_vid4f"]
 [ext_resource type="AudioStream" uid="uid://15hc535147jr" path="res://sounds/notmy/marcus/marcus_chains2.ogg" id="4_vid4f"]
 [ext_resource type="AudioStream" uid="uid://bfb0e7tcm31w4" path="res://sounds/notmy/marcus/marcus_chains3.ogg" id="5_c0mb3"]
 [ext_resource type="AudioStream" uid="uid://c3x0ye76p63bl" path="res://sounds/notmy/marcus/marcus_chains4.ogg" id="6_noira"]
 [ext_resource type="AudioStream" uid="uid://b5sgpqmsx0mik" path="res://sounds/notmy/marcus/marcus_chains5.ogg" id="7_pw57p"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c0mb3"]
+atlas = ExtResource("3_vid4f")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_noira"]
+atlas = ExtResource("3_vid4f")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pw57p"]
+atlas = ExtResource("3_vid4f")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s1u3h"]
+atlas = ExtResource("3_vid4f")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_arp2o"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c0mb3")
+}],
+"loop": 1,
+"name": &"down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_noira")
+}],
+"loop": 1,
+"name": &"left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pw57p")
+}],
+"loop": 1,
+"name": &"right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s1u3h")
+}],
+"loop": 1,
+"name": &"up",
+"speed": 5.0
+}]
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_sj5xr"]
 streams_count = 5
@@ -19,11 +71,21 @@ stream_4/stream = ExtResource("7_pw57p")
 [node name="Marcus" unique_id=1251208640 instance=ExtResource("1_eln4d")]
 script = ExtResource("2_07tp6")
 
-[node name="CollisionShape2D" parent="Area2D" parent_id_path=PackedInt32Array(1466089484) index="0" unique_id=1196445474]
+[node name="AnimatedSprite2D" parent="." index="0" unique_id=1740745473]
+sprite_frames = SubResource("SpriteFrames_arp2o")
+animation = &"down"
+
+[node name="Area2D" parent="." index="2" unique_id=1466089484]
+visible = false
+
+[node name="CollisionShape2D" parent="Area2D" index="0" unique_id=1196445474]
 visible = true
 
 [node name="PassiveTimer" parent="." index="3" unique_id=768835833]
-wait_time = 400.0
+wait_time = 40.0
+
+[node name="CollisionShape2D" parent="." index="4" unique_id=1132464983]
+visible = false
 
 [node name="AudioStreamPlayer2D" parent="." index="6" unique_id=1630658975]
 stream = SubResource("AudioStreamRandomizer_sj5xr")

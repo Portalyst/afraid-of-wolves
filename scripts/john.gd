@@ -84,18 +84,14 @@ func take_picture():
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.has_meta("wolf"):
 		body.bite.connect(dead)
+	if body.has_meta("flash"):
+		body.take_flash.connect(take_flash)
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
 	if body.has_meta("wolf"):
 		body.bite.disconnect(dead)
-
-func _on_area_2d_area_entered(area: Area2D) -> void:
-	if area.has_meta("flash"):
-		area.take_flash.connect(take_flash)
-
-func _on_area_2d_area_exited(area: Area2D) -> void:
-	if area.has_meta("flash"):
-		area.take_flash.disconnect(take_flash)
+	if body.has_meta("flash"):
+		body.take_flash.disconnect(take_flash)
 
 func _on_polaroid_cooldown_timeout() -> void:
 	polaroid_ready = true

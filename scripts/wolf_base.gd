@@ -4,6 +4,8 @@ enum State {IDLE, RUN_AWAY, AGGRESIVE}
 
 var state := State.IDLE
 
+var start_pos : Vector2
+
 var speed = 100
 var numb : int
 var aggresive : bool = false
@@ -17,6 +19,7 @@ var stairs_down_position : Vector2 = Vector2(815, -90)
 
 func _ready() -> void:
 	set_meta("wolf", 1)
+	start_pos = position
 	spawn()
 	$NavigationAgent2D.target_position = target.position
 

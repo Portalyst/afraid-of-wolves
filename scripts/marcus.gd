@@ -4,6 +4,10 @@ var active : bool = false
 
 signal brake_window
 
+func _ready() -> void:
+	super._ready()
+	$AnimatedSprite2D.hide()
+
 func _physics_process(delta: float) -> void:
 	super._physics_process(delta)
 	if active == true:
@@ -24,6 +28,7 @@ func spawn():
 
 func run_away():
 	active = false
+	position = start_pos
 	$PassiveTimer.stop()
 	$SpawnTimer.start()
 
@@ -42,3 +47,4 @@ func _on_passive_timer_timeout() -> void:
 	super._on_passive_timer_timeout()
 	brake_window.emit()
 	active = false
+	$AnimatedSprite2D.show()

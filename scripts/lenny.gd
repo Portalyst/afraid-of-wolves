@@ -55,6 +55,7 @@ func _on_area_2d_area_exited(area: Area2D) -> void:
 
 func _on_timer_timeout() -> void:
 	state = State.IDLE
+	position = start_pos
 	$SpawnTimer.start()
 
 func _on_passive_timer_timeout() -> void:

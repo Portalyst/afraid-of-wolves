@@ -319,25 +319,6 @@ animations = [{
 radius = 4.0
 height = 14.0
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_g4v7s"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("6_w7w2l")
-}],
-"loop": 1,
-"name": &"noflash",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("7_f28jw")
-}],
-"loop": 1,
-"name": &"withflash",
-"speed": 5.0
-}]
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oigdq"]
 size = Vector2(96, 88)
 
@@ -393,7 +374,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 2, 2.8),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(153, -38), Vector2(153, 38), Vector2(152.99998, 198.99998)]
+"values": [Vector2(220, -38), Vector2(220, 38), Vector2(220, 198)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -421,7 +402,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 2, 2.8),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(153, -38), Vector2(153, 38), Vector2(152.99998, 198.99998)]
+"values": [Vector2(220, -38), Vector2(220, 38), Vector2(220, 198)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -463,6 +444,25 @@ stream_2/stream = ExtResource("12_cw6qu")
 stream_3/stream = ExtResource("13_lwj1h")
 stream_4/stream = ExtResource("14_xmxqb")
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_g4v7s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_w7w2l")
+}],
+"loop": 1,
+"name": &"noflash",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_f28jw")
+}],
+"loop": 1,
+"name": &"withflash",
+"speed": 5.0
+}]
+
 [node name="John" type="CharacterBody2D" unique_id=1620480787]
 collision_layer = 3
 collision_mask = 3
@@ -477,84 +477,6 @@ position = Vector2(0, 1)
 shape = SubResource("CapsuleShape2D_oigdq")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1456303919]
-
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=239907170]
-visible = false
-
-[node name="PhotoFrame" type="Sprite2D" parent="CanvasLayer" unique_id=128836357]
-position = Vector2(153, -38)
-texture = ExtResource("8_f28jw")
-
-[node name="Shadow" type="Sprite2D" parent="CanvasLayer" unique_id=381984673]
-self_modulate = Color(1, 1, 1, 0.5882353)
-position = Vector2(60, 134)
-texture = ExtResource("3_af6mu")
-
-[node name="Button" type="Button" parent="CanvasLayer/Shadow" unique_id=1933129194]
-self_modulate = Color(1, 1, 1, 0)
-offset_left = -16.0
-offset_top = -18.0
-offset_right = 16.0
-offset_bottom = 16.0
-
-[node name="Shadow3" type="Sprite2D" parent="CanvasLayer" unique_id=1087183668]
-self_modulate = Color(1, 1, 1, 0.5882353)
-position = Vector2(140, 134)
-texture = ExtResource("3_af6mu")
-
-[node name="Button" type="Button" parent="CanvasLayer/Shadow3" unique_id=153409167]
-self_modulate = Color(1, 1, 1, 0)
-offset_left = -16.0
-offset_top = -18.0
-offset_right = 16.0
-offset_bottom = 16.0
-
-[node name="Shadow2" type="Sprite2D" parent="CanvasLayer" unique_id=1651289100]
-self_modulate = Color(1, 1, 1, 0.5882353)
-position = Vector2(100, 134)
-texture = ExtResource("3_af6mu")
-
-[node name="Button" type="Button" parent="CanvasLayer/Shadow2" unique_id=1905786005]
-self_modulate = Color(1, 1, 1, 0)
-offset_left = -16.0
-offset_top = -18.0
-offset_right = 16.0
-offset_bottom = 16.0
-
-[node name="Select1" type="Sprite2D" parent="CanvasLayer" unique_id=1318989878]
-position = Vector2(44, 147)
-texture = ExtResource("4_oigdq")
-centered = false
-
-[node name="Select2" type="Sprite2D" parent="CanvasLayer" unique_id=2020039713]
-visible = false
-position = Vector2(84, 147)
-texture = ExtResource("4_oigdq")
-centered = false
-
-[node name="Select3" type="Sprite2D" parent="CanvasLayer" unique_id=445097581]
-visible = false
-position = Vector2(124, 147)
-texture = ExtResource("4_oigdq")
-centered = false
-
-[node name="Crowbar" type="Sprite2D" parent="CanvasLayer" unique_id=2132804754]
-position = Vector2(60, 131)
-texture = ExtResource("5_fsnvj")
-
-[node name="polaroid" type="AnimatedSprite2D" parent="CanvasLayer" unique_id=222401750]
-position = Vector2(100, 131)
-sprite_frames = SubResource("SpriteFrames_g4v7s")
-animation = &"noflash"
-
-[node name="Highlight" type="Sprite2D" parent="CanvasLayer" unique_id=1285473171]
-visible = false
-position = Vector2(100, 75)
-texture = ExtResource("3_mxu6f")
-
-[node name="Highlight2" type="Sprite2D" parent="CanvasLayer/Highlight" unique_id=1335331023]
-position = Vector2(-1, 52)
-texture = ExtResource("3_mxu6f")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1439211020]
 
@@ -577,8 +499,86 @@ volume_db = -15.551
 wait_time = 0.4
 one_shot = true
 
-[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
-[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=239907170]
+
+[node name="PhotoFrame" type="Sprite2D" parent="CanvasLayer" unique_id=128836357]
+position = Vector2(153, -38)
+texture = ExtResource("8_f28jw")
+
+[node name="Shadow" type="Sprite2D" parent="CanvasLayer" unique_id=381984673]
+self_modulate = Color(1, 1, 1, 0.5882353)
+position = Vector2(88, 128)
+texture = ExtResource("3_af6mu")
+
+[node name="Button" type="Button" parent="CanvasLayer/Shadow" unique_id=1933129194]
+self_modulate = Color(1, 1, 1, 0)
+offset_left = -16.0
+offset_top = -18.0
+offset_right = 16.0
+offset_bottom = 16.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Shadow3" type="Sprite2D" parent="CanvasLayer" unique_id=1087183668]
+self_modulate = Color(1, 1, 1, 0.5882353)
+position = Vector2(168, 128)
+texture = ExtResource("3_af6mu")
+
+[node name="Button" type="Button" parent="CanvasLayer/Shadow3" unique_id=153409167]
+self_modulate = Color(1, 1, 1, 0)
+offset_left = -16.0
+offset_top = -18.0
+offset_right = 16.0
+offset_bottom = 16.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Shadow2" type="Sprite2D" parent="CanvasLayer" unique_id=1651289100]
+self_modulate = Color(1, 1, 1, 0.5882353)
+position = Vector2(128, 128)
+texture = ExtResource("3_af6mu")
+
+[node name="Button" type="Button" parent="CanvasLayer/Shadow2" unique_id=1905786005]
+self_modulate = Color(1, 1, 1, 0)
+offset_left = -16.0
+offset_top = -18.0
+offset_right = 16.0
+offset_bottom = 16.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Select1" type="Sprite2D" parent="CanvasLayer" unique_id=1318989878]
+position = Vector2(72, 141)
+texture = ExtResource("4_oigdq")
+centered = false
+
+[node name="Select2" type="Sprite2D" parent="CanvasLayer" unique_id=2020039713]
+visible = false
+position = Vector2(112, 141)
+texture = ExtResource("4_oigdq")
+centered = false
+
+[node name="Select3" type="Sprite2D" parent="CanvasLayer" unique_id=445097581]
+visible = false
+position = Vector2(152, 141)
+texture = ExtResource("4_oigdq")
+centered = false
+
+[node name="Crowbar" type="Sprite2D" parent="CanvasLayer" unique_id=2132804754]
+position = Vector2(88, 125)
+texture = ExtResource("5_fsnvj")
+
+[node name="polaroid" type="AnimatedSprite2D" parent="CanvasLayer" unique_id=222401750]
+position = Vector2(128, 125)
+sprite_frames = SubResource("SpriteFrames_g4v7s")
+animation = &"noflash"
+
+[node name="Highlight" type="Sprite2D" parent="CanvasLayer" unique_id=1285473171]
+visible = false
+position = Vector2(128, 72)
+texture = ExtResource("3_mxu6f")
+
+[node name="Highlight2" type="Sprite2D" parent="CanvasLayer/Highlight" unique_id=1335331023]
+position = Vector2(0, 49)
+texture = ExtResource("3_mxu6f")
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
 [connection signal="timeout" from="polaroid_cooldown" to="." method="_on_polaroid_cooldown_timeout"]

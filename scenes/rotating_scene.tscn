@@ -1,0 +1,185 @@
+[gd_scene format=3 uid="uid://cwia3j8ak4gy0"]
+
+[ext_resource type="Texture2D" uid="uid://dxwwo7yt0peci" path="res://sprites/wolves/marcus/sheet.png" id="1_4racu"]
+[ext_resource type="Script" uid="uid://d1qewu2634apa" path="res://scripts/rotating_scene.gd" id="1_ad265"]
+[ext_resource type="Texture2D" uid="uid://dnend6pljsbca" path="res://sprites/wolves/glenn/sheet.png" id="2_ad265"]
+[ext_resource type="Texture2D" uid="uid://bbethmeiqbfsg" path="res://sprites/wolves/lenny/sheet.png" id="3_11rm6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gntby"]
+atlas = ExtResource("1_4racu")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s30ok"]
+atlas = ExtResource("1_4racu")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g3k5a"]
+atlas = ExtResource("1_4racu")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_11e4p"]
+atlas = ExtResource("1_4racu")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g4v7s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gntby")
+}],
+"loop": 0,
+"name": &"down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s30ok")
+}],
+"loop": 0,
+"name": &"left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g3k5a")
+}],
+"loop": 0,
+"name": &"right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_11e4p")
+}],
+"loop": 0,
+"name": &"up",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_twb0r"]
+atlas = ExtResource("2_ad265")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ox2g"]
+atlas = ExtResource("2_ad265")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5uxga"]
+atlas = ExtResource("2_ad265")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_65xqs"]
+atlas = ExtResource("2_ad265")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yf5fn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_twb0r")
+}],
+"loop": 1,
+"name": &"down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ox2g")
+}],
+"loop": 1,
+"name": &"left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5uxga")
+}],
+"loop": 1,
+"name": &"right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_65xqs")
+}],
+"loop": 1,
+"name": &"up",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4xbce"]
+atlas = ExtResource("3_11rm6")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eo0al"]
+atlas = ExtResource("3_11rm6")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1kt8a"]
+atlas = ExtResource("3_11rm6")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ptgnq"]
+atlas = ExtResource("3_11rm6")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_57qmd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4xbce")
+}],
+"loop": 1,
+"name": &"down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eo0al")
+}],
+"loop": 1,
+"name": &"left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1kt8a")
+}],
+"loop": 1,
+"name": &"right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ptgnq")
+}],
+"loop": 1,
+"name": &"up",
+"speed": 5.0
+}]
+
+[node name="rotating_scene" type="Node2D" unique_id=1675061121]
+script = ExtResource("1_ad265")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1854121040]
+position = Vector2(100, 75)
+
+[node name="marcus" type="AnimatedSprite2D" parent="." unique_id=1400031402]
+position = Vector2(67, 73)
+sprite_frames = SubResource("SpriteFrames_g4v7s")
+animation = &"down"
+
+[node name="glenn" type="AnimatedSprite2D" parent="." unique_id=1392215934]
+position = Vector2(131, 73)
+sprite_frames = SubResource("SpriteFrames_yf5fn")
+animation = &"down"
+
+[node name="lenny" type="AnimatedSprite2D" parent="." unique_id=163501982]
+position = Vector2(99, 73)
+sprite_frames = SubResource("SpriteFrames_57qmd")
+animation = &"down"
+
+[node name="Timer" type="Timer" parent="." unique_id=1079530158]
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

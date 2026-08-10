@@ -12,10 +12,14 @@
 [ext_resource type="PackedScene" uid="uid://b2j7gago6muaq" path="res://scenes/double_door.tscn" id="9_8c41q"]
 [ext_resource type="Texture2D" uid="uid://doxbbp27c6yew" path="res://sprites/enviroment/couch.png" id="9_olg7q"]
 [ext_resource type="Texture2D" uid="uid://cuexif142ovl3" path="res://sprites/enviroment/stairs_shadow.png" id="11_fpun6"]
+[ext_resource type="PackedScene" uid="uid://ba1n4oaflqn3x" path="res://scenes/glenn.tscn" id="12_8gofh"]
 [ext_resource type="PackedScene" uid="uid://c0oe4ly76o5h2" path="res://scenes/shadow.tscn" id="12_8iemx"]
 [ext_resource type="PackedScene" uid="uid://d3xrxvwgvubrg" path="res://scenes/flash.tscn" id="13_64w2a"]
-[ext_resource type="PackedScene" uid="uid://cdgl2n111hgbv" path="res://scenes/marcus.tscn" id="13_arp2o"]
+[ext_resource type="Texture2D" uid="uid://cqmdygl4wuarh" path="res://sprites/enviroment/table_h.png" id="14_gunhw"]
 [ext_resource type="Texture2D" uid="uid://bnhv8mvcj5pt" path="res://sprites/enviroment/railing.png" id="15_wc255"]
+[ext_resource type="Texture2D" uid="uid://2tc41ruius05" path="res://sprites/enviroment/table_v.png" id="18_8gofh"]
+[ext_resource type="Texture2D" uid="uid://2u1sim6li4i7" path="res://sprites/enviroment/table_h1.png" id="19_h6wmr"]
+[ext_resource type="PackedScene" uid="uid://btq8abmhph6f1" path="res://scenes/computer.tscn" id="20_8gofh"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_8iemx"]
 
@@ -251,6 +255,15 @@ size = Vector2(5, 64)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_33x8s"]
 size = Vector2(5, 64)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2j2di"]
+size = Vector2(45, 19)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gunhw"]
+size = Vector2(22.1875, 34)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8gofh"]
+size = Vector2(32.09375, 18)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_olg7q"]
 size = Vector2(26, 4)
 
@@ -309,6 +322,19 @@ metadata/_edit_lock_ = true
 
 [node name="enviroment" type="Node2D" parent="." unique_id=1319922883]
 
+[node name="TableV" type="Sprite2D" parent="enviroment" unique_id=179394546]
+position = Vector2(939, 33)
+texture = ExtResource("18_8gofh")
+
+[node name="TableH1" type="Sprite2D" parent="enviroment" unique_id=890751183]
+position = Vector2(913, -164)
+texture = ExtResource("19_h6wmr")
+
+[node name="TableH" type="Sprite2D" parent="enviroment" unique_id=2013311734]
+position = Vector2(801, 45)
+texture = ExtResource("14_gunhw")
+centered = false
+
 [node name="Couch" type="Sprite2D" parent="enviroment" unique_id=1140191688]
 position = Vector2(136, -95)
 texture = ExtResource("9_olg7q")
@@ -339,6 +365,11 @@ flip_h = true
 
 [node name="John" parent="." unique_id=1620480787 instance=ExtResource("4_mx8sn")]
 position = Vector2(848, -125)
+
+[node name="glenn" parent="." unique_id=1251208640 node_paths=PackedStringArray("computer", "target") instance=ExtResource("12_8gofh")]
+position = Vector2(617, -70)
+computer = NodePath("../computer")
+target = NodePath("../John")
 
 [node name="StairsShadow" type="Sprite2D" parent="." unique_id=1792836201]
 position = Vector2(816, -64)
@@ -452,6 +483,18 @@ shape = SubResource("RectangleShape2D_5s0fj")
 position = Vector2(834.5, -80)
 shape = SubResource("RectangleShape2D_33x8s")
 
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="random_collisions" unique_id=778671654]
+position = Vector2(823.5, 54.5)
+shape = SubResource("RectangleShape2D_2j2di")
+
+[node name="CollisionShape2D9" type="CollisionShape2D" parent="random_collisions" unique_id=1320471289]
+position = Vector2(938.90625, 30)
+shape = SubResource("RectangleShape2D_gunhw")
+
+[node name="CollisionShape2D10" type="CollisionShape2D" parent="random_collisions" unique_id=478002760]
+position = Vector2(913, -167)
+shape = SubResource("RectangleShape2D_8gofh")
+
 [node name="trigger_down" type="Area2D" parent="." unique_id=850285278]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="trigger_down" unique_id=2034867030]
@@ -463,10 +506,6 @@ shape = SubResource("RectangleShape2D_olg7q")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="trigger_up" unique_id=187036458]
 position = Vector2(80, -108)
 shape = SubResource("RectangleShape2D_t1rx8")
-
-[node name="Marcus" parent="trigger_up" unique_id=1251208640 node_paths=PackedStringArray("target") instance=ExtResource("13_arp2o")]
-position = Vector2(469, -147)
-target = NodePath("../../John")
 
 [node name="leveltrashfloor2" type="Node2D" parent="." unique_id=863484562]
 
@@ -589,6 +628,24 @@ position = Vector2(968, -195)
 
 [node name="WindowMarker9" type="Marker2D" parent="Markers" unique_id=423388014]
 position = Vector2(776, -192)
+
+[node name="flash_marker" type="Marker2D" parent="Markers" unique_id=510572995]
+position = Vector2(922, -172)
+
+[node name="flash_marker2" type="Marker2D" parent="Markers" unique_id=1763401758]
+position = Vector2(938, 19)
+
+[node name="flash_marker3" type="Marker2D" parent="Markers" unique_id=281452291]
+position = Vector2(812, 54)
+
+[node name="computer_marker" type="Marker2D" parent="Markers" unique_id=1984486677]
+position = Vector2(831, 51)
+
+[node name="computer_marker2" type="Marker2D" parent="Markers" unique_id=1795393102]
+position = Vector2(938, 34)
+
+[node name="computer_marker3" type="Marker2D" parent="Markers" unique_id=1588464637]
+position = Vector2(910, -174)
 
 [node name="on_floor1" type="Area2D" parent="." unique_id=1815236041]
 
@@ -731,7 +788,11 @@ scale = Vector2(3, 1)
 texture = ExtResource("7_b121j")
 
 [node name="flash" parent="." unique_id=1665155478 instance=ExtResource("13_64w2a")]
-position = Vector2(831, 56)
+position = Vector2(970, -227)
+
+[node name="computer" parent="." unique_id=131763195 node_paths=PackedStringArray("glenn") instance=ExtResource("20_8gofh")]
+position = Vector2(896, -220)
+glenn = NodePath("../glenn")
 
 [connection signal="body_entered" from="trigger_down" to="." method="_on_trigger_down_body_entered"]
 [connection signal="body_entered" from="trigger_up" to="." method="_on_trigger_up_body_entered"]

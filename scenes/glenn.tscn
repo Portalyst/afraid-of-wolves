@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://ba1n4oaflqn3x"]
+
+[ext_resource type="PackedScene" uid="uid://b4xl5c33g6lt3" path="res://scenes/wolf_base.tscn" id="1_mvx3p"]
+[ext_resource type="Script" uid="uid://bejenxvfjag5g" path="res://scripts/glenn.gd" id="2_mvx3p"]
+[ext_resource type="Texture2D" uid="uid://dnend6pljsbca" path="res://sprites/wolves/glenn/sheet.png" id="3_20kd6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bocd4"]
+atlas = ExtResource("3_20kd6")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_li82r"]
+atlas = ExtResource("3_20kd6")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3fb38"]
+atlas = ExtResource("3_20kd6")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1x4iq"]
+atlas = ExtResource("3_20kd6")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_20kd6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bocd4")
+}],
+"loop": 1,
+"name": &"down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_li82r")
+}],
+"loop": 1,
+"name": &"left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3fb38")
+}],
+"loop": 1,
+"name": &"right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1x4iq")
+}],
+"loop": 1,
+"name": &"up",
+"speed": 5.0
+}]
+
+[node name="glenn" unique_id=1251208640 instance=ExtResource("1_mvx3p")]
+script = ExtResource("2_mvx3p")
+
+[node name="AnimatedSprite2D" parent="." index="0" unique_id=1740745473]
+sprite_frames = SubResource("SpriteFrames_20kd6")
+animation = &"down"
+
+[node name="CollisionShape2D" parent="." index="4" unique_id=1132464983]
+visible = false
