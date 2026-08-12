@@ -476,7 +476,6 @@ visible = false
 shape = SubResource("RectangleShape2D_57qmd")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1076573557]
-visible = false
 
 [node name="Border" type="Sprite2D" parent="CanvasLayer" unique_id=608425396]
 position = Vector2(128, 72)
