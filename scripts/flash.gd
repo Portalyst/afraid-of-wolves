@@ -14,7 +14,9 @@ func pick_up(selected: Array):
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.has_meta("player"):
 		body.use.connect(pick_up)
+		global.player_can_flash = false
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
 	if body.has_meta("player"):
 		body.use.disconnect(pick_up)
+		global.player_can_flash = true

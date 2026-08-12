@@ -1,10 +1,10 @@
-res://sprites/computer/gui/
-res://scripts/
-res://scenes/
-res://sprites/computer/
+res://sprites/wolves/marcus/
 res://sprites/wolves/lenny/
 res://sprites/wolves/glenn/
-res://sprites/wolves/marcus/
+res://scripts/
+res://scenes/
+res://sprites/computer/gui/
+res://sprites/computer/
 res://sprites/tools/polaroid/
 res://sprites/leveler/
 res://sprites/john/

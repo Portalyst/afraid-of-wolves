@@ -5,6 +5,11 @@ var direction
 
 signal brake_window
 
+func _ready() -> void:
+	super._ready()
+	set_meta("wolf", "lenny")
+	spawn_tool.spawn_lenny.connect(start_spawn)
+
 func _physics_process(delta: float) -> void:
 	super._physics_process(delta)
 	match state:
@@ -20,16 +25,16 @@ func spawn():
 	numb = randi_range(0, 9)
 	position = global.windows[numb]
 	if numb in [0, 5]:
-		$AnimatedSprite2D.play("right")
+		$AnimatedSprite2D.play("idle_right")
 	if numb in [1, 2, 6, 7]:
-		$AnimatedSprite2D.play("up")
+		$AnimatedSprite2D.play("idle_up")
 	if numb == 3:
-		$AnimatedSprite2D.play("left")
+		$AnimatedSprite2D.play("idle_left")
 	if numb in [4, 8, 9]:
-		$AnimatedSprite2D.play("down")
+		$AnimatedSprite2D.play("idle_down")
 
 func run_away():
-	$PassiveTimer.stop()
+	super.run_away()
 	if numb in [0, 5]:
 		direction = Vector2(-1, 0)
 		$AnimatedSprite2D.play("left")
@@ -56,7 +61,8 @@ func _on_area_2d_area_exited(area: Area2D) -> void:
 func _on_timer_timeout() -> void:
 	state = State.IDLE
 	position = start_pos
-	$SpawnTimer.start()
+	wolf_run_away.emit("lenny")
+	#$SpawnTimer.start()
 
 func _on_passive_timer_timeout() -> void:
 	super._on_passive_timer_timeout()

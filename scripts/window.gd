@@ -12,8 +12,10 @@ func brake():
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.has_meta("wolf"):
-		body.brake_window.connect(brake)
+		if body.get_meta("wolf") == "lenny":
+			body.brake_window.connect(brake)
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
 	if body.has_meta("wolf"):
-		body.brake_window.disconnect(brake)
+		if body.get_meta("wolf") == "lenny":
+			body.brake_window.disconnect(brake)

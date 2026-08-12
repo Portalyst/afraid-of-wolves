@@ -14,12 +14,15 @@
 [ext_resource type="Texture2D" uid="uid://cuexif142ovl3" path="res://sprites/enviroment/stairs_shadow.png" id="11_fpun6"]
 [ext_resource type="PackedScene" uid="uid://ba1n4oaflqn3x" path="res://scenes/glenn.tscn" id="12_8gofh"]
 [ext_resource type="PackedScene" uid="uid://c0oe4ly76o5h2" path="res://scenes/shadow.tscn" id="12_8iemx"]
+[ext_resource type="PackedScene" uid="uid://druif5kxh078g" path="res://scenes/lenny.tscn" id="13_5k0ak"]
 [ext_resource type="PackedScene" uid="uid://d3xrxvwgvubrg" path="res://scenes/flash.tscn" id="13_64w2a"]
 [ext_resource type="Texture2D" uid="uid://cqmdygl4wuarh" path="res://sprites/enviroment/table_h.png" id="14_gunhw"]
+[ext_resource type="PackedScene" uid="uid://cdgl2n111hgbv" path="res://scenes/marcus.tscn" id="14_wu01b"]
 [ext_resource type="Texture2D" uid="uid://bnhv8mvcj5pt" path="res://sprites/enviroment/railing.png" id="15_wc255"]
 [ext_resource type="Texture2D" uid="uid://2tc41ruius05" path="res://sprites/enviroment/table_v.png" id="18_8gofh"]
 [ext_resource type="Texture2D" uid="uid://2u1sim6li4i7" path="res://sprites/enviroment/table_h1.png" id="19_h6wmr"]
 [ext_resource type="PackedScene" uid="uid://btq8abmhph6f1" path="res://scenes/computer.tscn" id="20_8gofh"]
+[ext_resource type="PackedScene" uid="uid://oro126shx4gs" path="res://scenes/wolf_spawn_tool.tscn" id="23_3ies3"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_8iemx"]
 
@@ -366,10 +369,21 @@ flip_h = true
 [node name="John" parent="." unique_id=1620480787 instance=ExtResource("4_mx8sn")]
 position = Vector2(848, -125)
 
-[node name="glenn" parent="." unique_id=1251208640 node_paths=PackedStringArray("computer", "target") instance=ExtResource("12_8gofh")]
-position = Vector2(617, -70)
+[node name="glenn" parent="." unique_id=1251208640 node_paths=PackedStringArray("computer", "target", "spawn_tool") instance=ExtResource("12_8gofh")]
+position = Vector2(504, 82)
 computer = NodePath("../computer")
 target = NodePath("../John")
+spawn_tool = NodePath("../WolfSpawnTool")
+
+[node name="Lenny" parent="." unique_id=1528688950 node_paths=PackedStringArray("target", "spawn_tool") instance=ExtResource("13_5k0ak")]
+position = Vector2(450, 82)
+target = NodePath("../John")
+spawn_tool = NodePath("../WolfSpawnTool")
+
+[node name="Marcus" parent="." unique_id=1215621572 node_paths=PackedStringArray("target", "spawn_tool") instance=ExtResource("14_wu01b")]
+position = Vector2(478, 82)
+target = NodePath("../John")
+spawn_tool = NodePath("../WolfSpawnTool")
 
 [node name="StairsShadow" type="Sprite2D" parent="." unique_id=1792836201]
 position = Vector2(816, -64)
@@ -647,6 +661,9 @@ position = Vector2(938, 34)
 [node name="computer_marker3" type="Marker2D" parent="Markers" unique_id=1588464637]
 position = Vector2(910, -174)
 
+[node name="basement_marker" type="Marker2D" parent="Markers" unique_id=259936428]
+position = Vector2(135, -156)
+
 [node name="on_floor1" type="Area2D" parent="." unique_id=1815236041]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="on_floor1" unique_id=991899060]
@@ -792,6 +809,11 @@ position = Vector2(970, -227)
 
 [node name="computer" parent="." unique_id=131763195 node_paths=PackedStringArray("glenn") instance=ExtResource("20_8gofh")]
 position = Vector2(896, -220)
+glenn = NodePath("../glenn")
+
+[node name="WolfSpawnTool" parent="." unique_id=1751355580 node_paths=PackedStringArray("lenny", "marcus", "glenn") instance=ExtResource("23_3ies3")]
+lenny = NodePath("../Lenny")
+marcus = NodePath("../Marcus")
 glenn = NodePath("../glenn")
 
 [connection signal="body_entered" from="trigger_down" to="." method="_on_trigger_down_body_entered"]

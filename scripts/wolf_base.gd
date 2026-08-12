@@ -11,19 +11,25 @@ var numb : int
 var aggresive : bool = false
 
 signal bite
+signal wolf_run_away(String)
 
 var stairs_up_position : Vector2 = Vector2(80, -120)
 var stairs_down_position : Vector2 = Vector2(815, -90)
 
+@export var Name : String
 @export var target : Node
+@export var spawn_tool : Node
+
 
 func _ready() -> void:
-	set_meta("wolf", 1)
+	set_meta("wolf", Name)
 	start_pos = position
-	spawn()
 	$NavigationAgent2D.target_position = target.position
+	
 
 func _physics_process(delta: float) -> void:
+	if global.wolf_breach == true and state != State.AGGRESIVE:
+		self.queue_free()
 	match state:
 		State.AGGRESIVE:
 			modulate.a8 = 255
@@ -35,23 +41,45 @@ func _physics_process(delta: float) -> void:
 					$NavigationAgent2D.target_position = stairs_down_position
 			if !$NavigationAgent2D.is_target_reached():
 				var nav_direction = to_local($NavigationAgent2D.get_next_path_position()).normalized()
-				if nav_direction.x < 0:
-					$AnimatedSprite2D.play("left")
-				if nav_direction.x > 0:
-					$AnimatedSprite2D.play("right")
-				if nav_direction.x < nav_direction.y:
-					$AnimatedSprite2D.play("down")
+				var anim_direction = target.position - self.position
+				if abs(anim_direction.x) > abs(anim_direction.y):
+					if anim_direction.x > 0:
+						$AnimatedSprite2D.play("right")
+					if anim_direction.x < 0:
+						$AnimatedSprite2D.play("left")
+				if abs(anim_direction.x) < abs(anim_direction.y):
+					if anim_direction.y < 0:
+						$AnimatedSprite2D.play("up")
+					if anim_direction.y > 0:
+						$AnimatedSprite2D.play("down")
 				velocity = nav_direction * speed * 1.5
 	move_and_slide()
 
+func start_spawn():
+	var delay := randi_range(1, 5)
+	var number_sign = [-1, 1].pick_random()
+	$SpawnTimer.wait_time += delay*number_sign
+	$SpawnTimer.start()
+	$spawn_sound.play()
+
 func spawn():
+	$sounds.play()
 	$PassiveTimer.start()
-	
+
+func run_away():
+	$run_away_sound.play()
+	$PassiveTimer.stop()
+	wolf_run_away.emit(Name)
+
 func _on_spawn_timer_timeout() -> void:
-	spawn()
+	if global.wolves_can_spawn == true:
+		spawn()
+	else:
+		start_spawn()
 
 func _on_passive_timer_timeout() -> void:
 	state = State.AGGRESIVE
+	global.wolf_breach = true
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.has_meta("player") and state == State.AGGRESIVE:

@@ -3,6 +3,25 @@
 [ext_resource type="PackedScene" uid="uid://b4xl5c33g6lt3" path="res://scenes/wolf_base.tscn" id="1_cbdyq"]
 [ext_resource type="Script" uid="uid://b0fxsegvtcjax" path="res://scripts/lenny.gd" id="1_d587q"]
 [ext_resource type="Texture2D" uid="uid://bbethmeiqbfsg" path="res://sprites/wolves/lenny/sheet.png" id="3_dtw10"]
+[ext_resource type="AudioStream" uid="uid://c6fhcvsk2qnqb" path="res://sounds/notmy/wolves/lenny_knock.ogg" id="4_ug321"]
+[ext_resource type="AudioStream" uid="uid://3yoduauqmb0g" path="res://sounds/notmy/wolves/lenny_howl.ogg" id="5_1pxfj"]
+[ext_resource type="AudioStream" uid="uid://cu31ui6rwpjy8" path="res://sounds/notmy/wolves/lenny_hurt.ogg" id="6_1pxfj"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vf3u4"]
+atlas = ExtResource("3_dtw10")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gvjhf"]
+atlas = ExtResource("3_dtw10")
+region = Rect2(128, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wmnef"]
+atlas = ExtResource("3_dtw10")
+region = Rect2(128, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rwcwq"]
+atlas = ExtResource("3_dtw10")
+region = Rect2(128, 96, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dtw10"]
 atlas = ExtResource("3_dtw10")
@@ -68,8 +87,73 @@ region = Rect2(32, 64, 32, 32)
 atlas = ExtResource("3_dtw10")
 region = Rect2(32, 96, 32, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_hnh1y"]
+atlas = ExtResource("3_dtw10")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sio4g"]
+atlas = ExtResource("3_dtw10")
+region = Rect2(224, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4e2e4"]
+atlas = ExtResource("3_dtw10")
+region = Rect2(224, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_siiys"]
+atlas = ExtResource("3_dtw10")
+region = Rect2(224, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mxkic"]
+atlas = ExtResource("3_dtw10")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_80a7h"]
+atlas = ExtResource("3_dtw10")
+region = Rect2(192, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qsxpm"]
+atlas = ExtResource("3_dtw10")
+region = Rect2(192, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f5f6w"]
+atlas = ExtResource("3_dtw10")
+region = Rect2(192, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hxpe6"]
+atlas = ExtResource("3_dtw10")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xb1uq"]
+atlas = ExtResource("3_dtw10")
+region = Rect2(160, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fdxoy"]
+atlas = ExtResource("3_dtw10")
+region = Rect2(160, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4i3r5"]
+atlas = ExtResource("3_dtw10")
+region = Rect2(160, 96, 32, 32)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_d587q"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vf3u4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gvjhf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wmnef")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rwcwq")
+}],
+"loop": 1,
+"name": &"down",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_dtw10")
@@ -90,7 +174,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_pefua")
 }],
 "loop": 1,
-"name": &"down",
+"name": &"idle_down",
 "speed": 3.0
 }, {
 "frames": [{
@@ -113,7 +197,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_ug321")
 }],
 "loop": 1,
-"name": &"left",
+"name": &"idle_left",
 "speed": 3.0
 }, {
 "frames": [{
@@ -136,7 +220,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_maqvg")
 }],
 "loop": 1,
-"name": &"right",
+"name": &"idle_right",
 "speed": 3.0
 }, {
 "frames": [{
@@ -159,19 +243,71 @@ animations = [{
 "texture": SubResource("AtlasTexture_vjhrr")
 }],
 "loop": 1,
-"name": &"up",
+"name": &"idle_up",
 "speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hnh1y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sio4g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4e2e4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_siiys")
+}],
+"loop": 1,
+"name": &"left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mxkic")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_80a7h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qsxpm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f5f6w")
+}],
+"loop": 1,
+"name": &"right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hxpe6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xb1uq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fdxoy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4i3r5")
+}],
+"loop": 1,
+"name": &"up",
+"speed": 5.0
 }]
 
 [node name="Lenny" unique_id=1251208640 instance=ExtResource("1_cbdyq")]
 script = ExtResource("1_d587q")
+Name = "lenny"
 
 [node name="AnimatedSprite2D" parent="." index="0" unique_id=1740745473]
 sprite_frames = SubResource("SpriteFrames_d587q")
-animation = &"down"
+animation = &"up"
 
-[node name="PassiveTimer" parent="." index="3" unique_id=768835833]
-wait_time = 30.0
+[node name="SpawnTimer" parent="." index="1" unique_id=1505807063]
+wait_time = 20.0
 
 [node name="CollisionShape2D" parent="." index="4" unique_id=1132464983]
 visible = false
@@ -179,6 +315,15 @@ visible = false
 [node name="Timer" type="Timer" parent="." index="6" unique_id=1318555065]
 wait_time = 2.0
 one_shot = true
+
+[node name="sounds" parent="." index="7" unique_id=1630658975]
+stream = ExtResource("4_ug321")
+
+[node name="spawn_sound" parent="." index="8" unique_id=937897585]
+stream = ExtResource("5_1pxfj")
+
+[node name="run_away_sound" parent="." index="9" unique_id=857314457]
+stream = ExtResource("6_1pxfj")
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]

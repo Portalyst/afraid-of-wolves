@@ -3,9 +3,13 @@ extends Node
 var player_on_floor : int = 1
 var wolf_on_floor : int = 1
 
+var basement_pos : Vector2
+
 var player_can_walk : bool = true
+var player_can_flash : bool = true
 
 var wolves_can_spawn : bool = true
+var wolf_breach : bool = false
 
 var windows : Array
 var flashs : Array
@@ -13,6 +17,7 @@ var computers : Array
 
 func _ready() -> void:
 	if $/root/level/Markers/WindowMarker:
+		basement_pos = $/root/level/Markers/basement_marker.position
 		var window0 : Vector2 = $/root/level/Markers/WindowMarker.position
 		var window1 : Vector2 = $/root/level/Markers/WindowMarker1.position
 		var window2 : Vector2 = $/root/level/Markers/WindowMarker2.position

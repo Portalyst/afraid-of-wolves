@@ -7,6 +7,8 @@ signal brake_window
 func _ready() -> void:
 	super._ready()
 	$AnimatedSprite2D.hide()
+	set_meta("wolf", "marcus")
+	spawn_tool.spawn_marcus.connect(start_spawn)
 
 func _physics_process(delta: float) -> void:
 	super._physics_process(delta)
@@ -15,10 +17,9 @@ func _physics_process(delta: float) -> void:
 			$ChainTimer.start(randi_range(1, 3))
 		var volume = self.position.distance_to(target.position)
 		volume = int(volume / 10)
-		if volume >= 30:
-			volume = 30
-		$AudioStreamPlayer2D.attenuation = volume
-		print(volume)
+		if volume >= 20:
+			volume = 20
+		$sounds.attenuation = volume
 
 func spawn():
 	super.spawn()
@@ -27,13 +28,13 @@ func spawn():
 	active = true
 
 func run_away():
+	super.run_away()
+	$sounds.stop()
 	active = false
 	position = start_pos
-	$PassiveTimer.stop()
-	$SpawnTimer.start()
 
 func _on_chain_timer_timeout() -> void:
-	$AudioStreamPlayer2D.play()
+	$sounds.play()
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.has_meta("leveler"):

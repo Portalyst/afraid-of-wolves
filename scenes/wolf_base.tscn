@@ -35,7 +35,11 @@ target_desired_distance = 3.0
 path_max_distance = 120.0
 path_postprocessing = 1
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1630658975]
+[node name="sounds" type="AudioStreamPlayer2D" parent="." unique_id=1630658975]
+
+[node name="spawn_sound" type="AudioStreamPlayer2D" parent="." unique_id=937897585]
+
+[node name="run_away_sound" type="AudioStreamPlayer2D" parent="." unique_id=857314457]
 
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

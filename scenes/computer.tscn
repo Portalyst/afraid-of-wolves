@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://chwrbfu4nhplu" path="res://sprites/computer/gui/attention.png" id="12_eg6yx"]
 [ext_resource type="Texture2D" uid="uid://hlbg6rh3r0ed" path="res://sprites/computer/gui/open.png" id="13_y87hx"]
 [ext_resource type="Texture2D" uid="uid://pyjxf6lqh0hi" path="res://sprites/computer/gui/select.png" id="14_3swsi"]
+[ext_resource type="Texture2D" uid="uid://c6111dlyriy66" path="res://sprites/computer/gui/scan_anim.png" id="15_m1r6p"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yf5fn"]
 size = Vector2(10, 10)
@@ -112,6 +113,10 @@ region = Rect2(448, 0, 32, 32)
 atlas = ExtResource("7_3swsi")
 region = Rect2(480, 0, 32, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_m1r6p"]
+atlas = ExtResource("7_3swsi")
+region = Rect2(480, 0, 32, 32)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_8gj4u"]
 atlas = ExtResource("7_3swsi")
 region = Rect2(0, 0, 32, 32)
@@ -169,7 +174,15 @@ animations = [{
 }],
 "loop": 0,
 "name": &"close",
-"speed": 10.0
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m1r6p")
+}],
+"loop": 1,
+"name": &"closed",
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -261,6 +274,70 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_vbh7i"]
+atlas = ExtResource("15_m1r6p")
+region = Rect2(0, 0, 7, 7)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i36oq"]
+atlas = ExtResource("15_m1r6p")
+region = Rect2(7, 0, 7, 7)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f3b7m"]
+atlas = ExtResource("15_m1r6p")
+region = Rect2(14, 0, 7, 7)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eg6yx"]
+atlas = ExtResource("15_m1r6p")
+region = Rect2(21, 0, 7, 7)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y87hx"]
+atlas = ExtResource("15_m1r6p")
+region = Rect2(28, 0, 7, 7)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c77k0"]
+atlas = ExtResource("15_m1r6p")
+region = Rect2(35, 0, 7, 7)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c0v2l"]
+atlas = ExtResource("15_m1r6p")
+region = Rect2(42, 0, 7, 7)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uvvcl"]
+atlas = ExtResource("15_m1r6p")
+region = Rect2(49, 0, 7, 7)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fcnqv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vbh7i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i36oq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f3b7m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eg6yx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y87hx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c77k0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c0v2l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uvvcl")
+}],
+"loop": 1,
+"name": &"run",
+"speed": 5.0
+}]
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_c77k0"]
 animations = [{
 "frames": [{
@@ -286,11 +363,40 @@ load_path = "res://.godot/imported/close.png-1da49eb7258d4c3b3b5830ace99717de.ct
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_m1r6p"]
 load_path = "res://.godot/imported/open.png-34281bea0585c7a9831ee1f285c0ae16.ctex"
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_uvvcl"]
-load_path = "res://.godot/imported/attention.png-08b08eb1760f11a3dd29f2c7d376ff7f.ctex"
-
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_i36oq"]
 load_path = "res://.godot/imported/select.png-6e0b87de7dcad98d047b9e9f45247a46.ctex"
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_s07ic"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vbh7i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i36oq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f3b7m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eg6yx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y87hx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c77k0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c0v2l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uvvcl")
+}],
+"loop": 1,
+"name": &"run",
+"speed": 5.0
+}]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_c0v2l"]
 animations = [{
@@ -317,11 +423,40 @@ load_path = "res://.godot/imported/open.png-34281bea0585c7a9831ee1f285c0ae16.cte
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_3swsi"]
 load_path = "res://.godot/imported/close.png-1da49eb7258d4c3b3b5830ace99717de.ctex"
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_s07ic"]
-load_path = "res://.godot/imported/attention.png-08b08eb1760f11a3dd29f2c7d376ff7f.ctex"
-
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_f3b7m"]
 load_path = "res://.godot/imported/select.png-6e0b87de7dcad98d047b9e9f45247a46.ctex"
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_iq1fe"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vbh7i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i36oq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f3b7m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eg6yx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y87hx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c77k0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c0v2l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uvvcl")
+}],
+"loop": 1,
+"name": &"run",
+"speed": 5.0
+}]
 
 [node name="StaticBody2D" type="StaticBody2D" unique_id=1428180347]
 script = ExtResource("1_tjrug")
@@ -354,7 +489,7 @@ texture = ExtResource("6_c6j5k")
 [node name="close_anim" type="AnimatedSprite2D" parent="CanvasLayer" unique_id=55342449]
 position = Vector2(156, 80)
 sprite_frames = SubResource("SpriteFrames_yf5fn")
-animation = &"close"
+animation = &"open"
 
 [node name="close_button" type="AnimatedSprite2D" parent="CanvasLayer" unique_id=1082435482]
 position = Vector2(156, 103)
@@ -397,7 +532,7 @@ centered = false
 
 [node name="Attention" type="Sprite2D" parent="CanvasLayer/vent1" unique_id=111862210]
 visible = false
-position = Vector2(-4, -31)
+position = Vector2(-3, -30)
 texture = ExtResource("12_eg6yx")
 centered = false
 
@@ -412,6 +547,13 @@ offset_left = -5.0
 offset_top = -5.0
 offset_right = 4.0
 offset_bottom = 5.0
+
+[node name="scan" type="AnimatedSprite2D" parent="CanvasLayer/vent1" unique_id=322031109]
+visible = false
+position = Vector2(-3, -30)
+sprite_frames = SubResource("SpriteFrames_fcnqv")
+animation = &"run"
+centered = false
 
 [node name="vent2" type="AnimatedSprite2D" parent="CanvasLayer" unique_id=116394541]
 position = Vector2(84, 93)
@@ -429,10 +571,10 @@ position = Vector2(9, -3)
 texture = SubResource("CompressedTexture2D_m1r6p")
 centered = false
 
-[node name="Attention" type="Sprite2D" parent="CanvasLayer/vent2" unique_id=1427768916]
+[node name="Attention" type="Sprite2D" parent="CanvasLayer/vent2" unique_id=1375151508]
 visible = false
-position = Vector2(12, -42)
-texture = SubResource("CompressedTexture2D_uvvcl")
+position = Vector2(13, -41)
+texture = ExtResource("12_eg6yx")
 centered = false
 
 [node name="Select" type="Sprite2D" parent="CanvasLayer/vent2" unique_id=1908336593]
@@ -447,6 +589,13 @@ offset_left = -5.0
 offset_top = -5.0
 offset_right = 4.0
 offset_bottom = 5.0
+
+[node name="scan" type="AnimatedSprite2D" parent="CanvasLayer/vent2" unique_id=1283417200]
+visible = false
+position = Vector2(13, -41)
+sprite_frames = SubResource("SpriteFrames_s07ic")
+animation = &"run"
+centered = false
 
 [node name="vent3" type="AnimatedSprite2D" parent="CanvasLayer" unique_id=973066752]
 position = Vector2(84, 104)
@@ -464,10 +613,10 @@ position = Vector2(7, -3)
 texture = SubResource("CompressedTexture2D_3swsi")
 centered = false
 
-[node name="Attention" type="Sprite2D" parent="CanvasLayer/vent3" unique_id=938485515]
+[node name="Attention" type="Sprite2D" parent="CanvasLayer/vent3" unique_id=708048766]
 visible = false
-position = Vector2(28, -53)
-texture = SubResource("CompressedTexture2D_s07ic")
+position = Vector2(29, -52)
+texture = ExtResource("12_eg6yx")
 centered = false
 
 [node name="Select" type="Sprite2D" parent="CanvasLayer/vent3" unique_id=474629708]
@@ -483,6 +632,13 @@ offset_top = -5.0
 offset_right = 4.0
 offset_bottom = 5.0
 
+[node name="scan" type="AnimatedSprite2D" parent="CanvasLayer/vent3" unique_id=1798391809]
+visible = false
+position = Vector2(29, -52)
+sprite_frames = SubResource("SpriteFrames_iq1fe")
+animation = &"run"
+centered = false
+
 [node name="quit" type="Button" parent="CanvasLayer" unique_id=1670336285]
 self_modulate = Color(1, 1, 1, 0)
 custom_minimum_size = Vector2(1, 1)
@@ -493,10 +649,21 @@ offset_right = 185.0
 offset_bottom = 40.0
 scale = Vector2(0.9, 0.9)
 
+[node name="pullback_timer" type="Timer" parent="." unique_id=1100509330]
+wait_time = 10.0
+
+[node name="scan_timer" type="Timer" parent="." unique_id=1695673271]
+wait_time = 5.0
+one_shot = true
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
 [connection signal="mouse_entered" from="CanvasLayer/close_button/closeButton" to="." method="_on_close_button_mouse_entered"]
 [connection signal="mouse_exited" from="CanvasLayer/close_button/closeButton" to="." method="_on_close_button_mouse_exited"]
+[connection signal="pressed" from="CanvasLayer/close_button/closeButton" to="." method="_on_close_button_pressed"]
 [connection signal="mouse_entered" from="CanvasLayer/scan_button/scanButton" to="." method="_on_scan_button_mouse_entered"]
 [connection signal="mouse_exited" from="CanvasLayer/scan_button/scanButton" to="." method="_on_scan_button_mouse_exited"]
+[connection signal="pressed" from="CanvasLayer/scan_button/scanButton" to="." method="_on_scan_button_pressed"]
 [connection signal="mouse_entered" from="CanvasLayer/vent1/ventButton1" to="." method="_on_vent_button_1_mouse_entered"]
 [connection signal="mouse_exited" from="CanvasLayer/vent1/ventButton1" to="." method="_on_vent_button_1_mouse_exited"]
 [connection signal="pressed" from="CanvasLayer/vent1/ventButton1" to="." method="_on_vent_button_1_pressed"]
@@ -507,3 +674,4 @@ scale = Vector2(0.9, 0.9)
 [connection signal="mouse_exited" from="CanvasLayer/vent3/ventButton3" to="." method="_on_vent_button_3_mouse_exited"]
 [connection signal="pressed" from="CanvasLayer/vent3/ventButton3" to="." method="_on_vent_button_3_pressed"]
 [connection signal="pressed" from="CanvasLayer/quit" to="." method="_on_quit_pressed"]
+[connection signal="timeout" from="scan_timer" to="." method="_on_scan_timer_timeout"]

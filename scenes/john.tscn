@@ -500,6 +500,7 @@ wait_time = 0.4
 one_shot = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=239907170]
+visible = false
 
 [node name="PhotoFrame" type="Sprite2D" parent="CanvasLayer" unique_id=128836357]
 position = Vector2(153, -38)
