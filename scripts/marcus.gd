@@ -17,8 +17,8 @@ func _physics_process(delta: float) -> void:
 			$ChainTimer.start(randi_range(1, 3))
 		var volume = self.position.distance_to(target.position)
 		volume = int(volume / 10)
-		if volume >= 20:
-			volume = 20
+		if volume >= 10:
+			volume = 10
 		$sounds.attenuation = volume
 
 func spawn():

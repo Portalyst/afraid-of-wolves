@@ -24,6 +24,7 @@ global="*uid://jwuox8hgvoeh"
 
 window/size/viewport_width=256
 window/size/viewport_height=144
+window/size/mode=3
 window/stretch/mode="canvas_items"
 
 [input]

@@ -1,7 +1,3 @@
-res://scenes/wolf_base.tscn
-res://scripts/wolf_base.gd
-res://scenes/marcus.tscn
-res://scripts/wolf_spawn_tool.gd
-res://scenes/level.tscn
-res://scenes/glenn.tscn
 res://scenes/computer.tscn
+res://scenes/level.tscn
+res://scripts/marcus.gd
