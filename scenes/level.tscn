@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cc85qewuwmlh1" path="res://scripts/level.gd" id="1_2q6dc"]
 [ext_resource type="Texture2D" uid="uid://b5py6jbx7glt1" path="res://sprites/tilemap.png" id="2_w7c3h"]
+[ext_resource type="Texture2D" uid="uid://oppryydwytgi" path="res://sprites/enviroment/furniture/cactus.png" id="3_7agi7"]
 [ext_resource type="PackedScene" uid="uid://d3bi08tfs43wa" path="res://scenes/window.tscn" id="3_w8frs"]
 [ext_resource type="Texture2D" uid="uid://c7fhim80xlqv3" path="res://sprites/enviroment/tv.png" id="4_8iemx"]
 [ext_resource type="PackedScene" uid="uid://blyioqwiwqdhv" path="res://scenes/john.tscn" id="4_mx8sn"]
@@ -25,6 +26,13 @@
 [ext_resource type="Texture2D" uid="uid://2u1sim6li4i7" path="res://sprites/enviroment/table_h1.png" id="19_h6wmr"]
 [ext_resource type="PackedScene" uid="uid://btq8abmhph6f1" path="res://scenes/computer.tscn" id="20_8gofh"]
 [ext_resource type="PackedScene" uid="uid://oro126shx4gs" path="res://scenes/wolf_spawn_tool.tscn" id="23_3ies3"]
+[ext_resource type="Texture2D" uid="uid://b84arkjq3nbob" path="res://sprites/enviroment/furniture/bedy.png" id="27_kih21"]
+[ext_resource type="Texture2D" uid="uid://bmyylfmu7tr1m" path="res://sprites/enviroment/furniture/bedblue.png" id="28_w3o6u"]
+[ext_resource type="Texture2D" uid="uid://dxaa64fge8v0s" path="res://sprites/enviroment/furniture/bedgr.png" id="29_2e2fo"]
+[ext_resource type="Texture2D" uid="uid://duwrgwjfxnnnv" path="res://sprites/enviroment/furniture/closet.png" id="30_2e2fo"]
+[ext_resource type="Texture2D" uid="uid://b4ohyapwvq7t5" path="res://sprites/enviroment/furniture/clock.png" id="31_gur6y"]
+[ext_resource type="Texture2D" uid="uid://cekp2i7m66n25" path="res://sprites/enviroment/furniture/boxic.png" id="32_v3why"]
+[ext_resource type="Texture2D" uid="uid://dlblhhvc6ysys" path="res://sprites/dead_menu/black.png" id="33_gur6y"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_8iemx"]
 
@@ -239,6 +247,45 @@ terrain_set_0/terrain_1/color = Color(0.7817543, 0.17523402, 0.27304527, 1)
 navigation_layer_0/layers = 1
 sources/1 = SubResource("TileSetAtlasSource_w8frs")
 
+[sub_resource type="Animation" id="Animation_v3why"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Black:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_asl66"]
+resource_name = "fade_out"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Black:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2jdvr"]
+_data = {
+&"RESET": SubResource("Animation_v3why"),
+&"fade_out": SubResource("Animation_asl66")
+}
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_gur6y"]
+load_path = "res://.godot/imported/stairs_shadow.png-9f17d8cc394ca8f94fc4536a4b3c1cca.ctex"
+
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_3ies3"]
 load_path = "res://.godot/imported/stairs_shadow.png-9f17d8cc394ca8f94fc4536a4b3c1cca.ctex"
 
@@ -340,7 +387,20 @@ tile_map_data = PackedByteArray("AAAAAAAAAQABAAEAAAAAAAEAAQABAAEAAAAAAAIAAQABAAE
 tile_set = SubResource("TileSet_mx8sn")
 metadata/_edit_lock_ = true
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=960564451]
+libraries/ = SubResource("AnimationLibrary_2jdvr")
+
 [node name="enviroment" type="Node2D" parent="." unique_id=1319922883]
+
+[node name="Cactus" type="Sprite2D" parent="enviroment" unique_id=1740870167]
+position = Vector2(225, -200)
+texture = ExtResource("3_7agi7")
+
+[node name="StairsShadow4" type="Sprite2D" parent="enviroment/Cactus" unique_id=856932213]
+position = Vector2(-7.926697, -14)
+rotation = 3.1415925
+scale = Vector2(1.0049374, 1)
+texture = SubResource("CompressedTexture2D_gur6y")
 
 [node name="TableV" type="Sprite2D" parent="enviroment" unique_id=179394546]
 position = Vector2(939, 33)
@@ -658,6 +718,53 @@ position = Vector2(792, 32)
 rotation = 1.5707964
 type = "1"
 
+[node name="Bedy" type="Sprite2D" parent="leveltrashfloor2" unique_id=1946887483]
+position = Vector2(1000, -21)
+texture = ExtResource("27_kih21")
+
+[node name="Bedblue" type="Sprite2D" parent="leveltrashfloor2" unique_id=1632481854]
+position = Vector2(800, -38)
+texture = ExtResource("28_w3o6u")
+centered = false
+
+[node name="Bedblue2" type="Sprite2D" parent="leveltrashfloor2" unique_id=1381617242]
+position = Vector2(800, -26)
+texture = ExtResource("28_w3o6u")
+centered = false
+
+[node name="Bedgr" type="Sprite2D" parent="leveltrashfloor2" unique_id=921237457]
+position = Vector2(896, -133)
+texture = ExtResource("29_2e2fo")
+centered = false
+
+[node name="Closet" type="Sprite2D" parent="leveltrashfloor2" unique_id=38798689]
+position = Vector2(895, -13)
+texture = ExtResource("30_2e2fo")
+centered = false
+
+[node name="Closet2" type="Sprite2D" parent="leveltrashfloor2" unique_id=897153669]
+position = Vector2(991, 9)
+texture = ExtResource("30_2e2fo")
+centered = false
+
+[node name="Closet3" type="Sprite2D" parent="leveltrashfloor2" unique_id=318980871]
+position = Vector2(991, -171)
+texture = ExtResource("30_2e2fo")
+centered = false
+
+[node name="Clock" type="Sprite2D" parent="leveltrashfloor2" unique_id=1644680003]
+position = Vector2(984, -93)
+texture = ExtResource("31_gur6y")
+centered = false
+
+[node name="Boxic" type="Sprite2D" parent="leveltrashfloor2" unique_id=600058329]
+position = Vector2(761, -41)
+texture = ExtResource("32_v3why")
+
+[node name="Cactus" type="Sprite2D" parent="leveltrashfloor2" unique_id=874951009]
+position = Vector2(841, -183)
+texture = ExtResource("3_7agi7")
+
 [node name="Markers" type="Node2D" parent="." unique_id=1589906721]
 
 [node name="WindowMarker" type="Marker2D" parent="Markers" unique_id=504295377]
@@ -862,6 +969,12 @@ glenn = NodePath("../glenn")
 lenny = NodePath("../Lenny")
 marcus = NodePath("../Marcus")
 glenn = NodePath("../glenn")
+
+[node name="Black" type="Sprite2D" parent="." unique_id=1877298009]
+position = Vector2(114.5, -62.000015)
+scale = Vector2(62.187504, 41.374996)
+texture = ExtResource("33_gur6y")
+metadata/_edit_lock_ = true
 
 [connection signal="body_entered" from="trigger_down" to="." method="_on_trigger_down_body_entered"]
 [connection signal="body_entered" from="trigger_up" to="." method="_on_trigger_up_body_entered"]

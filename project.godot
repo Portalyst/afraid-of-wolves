@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Afraid of Wolves"
-run/main_scene="uid://5s12tcxxaukg"
+run/main_scene="uid://co00aj0c5xy12"
 config/features=PackedStringArray("4.7", "Forward Plus")
 boot_splash/bg_color=Color(0.0627451, 0.078431375, 0.12156863, 1)
 config/icon="res://icon.svg"

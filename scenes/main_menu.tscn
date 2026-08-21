@@ -7,8 +7,23 @@
 [ext_resource type="Texture2D" uid="uid://cpmb7mkp25o1d" path="res://sprites/main_menu/buttons.png" id="3_8ln24"]
 [ext_resource type="Texture2D" uid="uid://cx7e40wdtxxil" path="res://sprites/main_menu/stars.png" id="3_oa1go"]
 [ext_resource type="Texture2D" uid="uid://btj48cj56prcn" path="res://sprites/main_menu/arrow.png" id="4_rtw2f"]
+[ext_resource type="Texture2D" uid="uid://b7gf2tssre3be" path="res://sprites/main_menu/difficulty.png" id="8_5dd4i"]
 [ext_resource type="Texture2D" uid="uid://n1lt7avbff77" path="res://sprites/main_menu/back.png" id="8_tbmy8"]
 [ext_resource type="Texture2D" uid="uid://bm7vraehfggl3" path="res://sprites/main_menu/map0.png" id="9_jk1qb"]
+[ext_resource type="Texture2D" uid="uid://cnfgbuwcnfysu" path="res://sprites/main_menu/vip_map.png" id="11_rcqid"]
+[ext_resource type="Texture2D" uid="uid://ffas6a2bhhtn" path="res://sprites/main_menu/map_shadow.png" id="12_1ajci"]
+[ext_resource type="Texture2D" uid="uid://bc7kklh7wvoru" path="res://sprites/main_menu/map_lock.png" id="13_7b55j"]
+[ext_resource type="Texture2D" uid="uid://dlblhhvc6ysys" path="res://sprites/dead_menu/black.png" id="14_1ajci"]
+[ext_resource type="Texture2D" uid="uid://bxc2mi1spcwrf" path="res://sprites/main_menu/difficulty_settings.png" id="15_8egab"]
+[ext_resource type="Texture2D" uid="uid://bymd7fb404335" path="res://sprites/main_menu/easy.png" id="16_gw5y6"]
+[ext_resource type="Texture2D" uid="uid://2i7m58k2gsms" path="res://sprites/main_menu/hard.png" id="17_svtp6"]
+[ext_resource type="Texture2D" uid="uid://dhxiqtvpckrw0" path="res://sprites/main_menu/normal.png" id="18_1dfpl"]
+[ext_resource type="Texture2D" uid="uid://2lj8lbqr6h51" path="res://sprites/main_menu/death_wish.png" id="19_qywvv"]
+[ext_resource type="Texture2D" uid="uid://dsyk81w2xa1qa" path="res://sprites/main_menu/story_mode.png" id="20_3wgol"]
+[ext_resource type="Texture2D" uid="uid://cstnd0thfpcma" path="res://sprites/main_menu/difficulty_modifiers.png" id="21_1dfpl"]
+[ext_resource type="Texture2D" uid="uid://dida48tsj0rbl" path="res://sprites/main_menu/modifiers.png" id="22_qywvv"]
+[ext_resource type="Texture2D" uid="uid://xu45tq6its3g" path="res://sprites/main_menu/cross.png" id="23_3wgol"]
+[ext_resource type="Texture2D" uid="uid://ohpgnynq786x" path="res://sprites/main_menu/wip.png" id="24_qywvv"]
 
 [sub_resource type="Animation" id="Animation_oa1go"]
 length = 0.001
@@ -24,6 +39,18 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector2(128, 72)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Black:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_jk1qb"]
 resource_name = "back"
@@ -38,6 +65,51 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(128, 216), Vector2(128, 72)]
+}
+
+[sub_resource type="Animation" id="Animation_5dd4i"]
+resource_name = "back2"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera2D:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(128, 360), Vector2(128, 216)]
+}
+
+[sub_resource type="Animation" id="Animation_lgwnu"]
+resource_name = "difficulty"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera2D:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(128, 216), Vector2(128, 360)]
+}
+
+[sub_resource type="Animation" id="Animation_7b55j"]
+resource_name = "map_selected"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Black:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_tbmy8"]
@@ -59,8 +131,182 @@ tracks/0/keys = {
 _data = {
 &"RESET": SubResource("Animation_oa1go"),
 &"back": SubResource("Animation_jk1qb"),
+&"back2": SubResource("Animation_5dd4i"),
+&"difficulty": SubResource("Animation_lgwnu"),
+&"map_selected": SubResource("Animation_7b55j"),
 &"start": SubResource("Animation_tbmy8")
 }
+
+[sub_resource type="Animation" id="Animation_rcqid"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MapLock1:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(131, 218)]
+}
+
+[sub_resource type="Animation" id="Animation_1ajci"]
+resource_name = "shake"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MapLock1:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(131, 218), Vector2(137, 218), Vector2(125, 218), Vector2(131, 218), Vector2(131, 218)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7b55j"]
+_data = {
+&"RESET": SubResource("Animation_rcqid"),
+&"shake": SubResource("Animation_1ajci")
+}
+
+[sub_resource type="Animation" id="Animation_5pajh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MapLock2:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(190, 218)]
+}
+
+[sub_resource type="Animation" id="Animation_j7ex8"]
+resource_name = "shake"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MapLock2:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(190, 218), Vector2(196, 218), Vector2(184, 218), Vector2(190, 218), Vector2(190, 218)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_a8gd2"]
+_data = {
+&"RESET": SubResource("Animation_5pajh"),
+&"shake": SubResource("Animation_j7ex8")
+}
+
+[sub_resource type="Animation" id="Animation_hstxw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MapLock3:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(98, 270)]
+}
+
+[sub_resource type="Animation" id="Animation_8egab"]
+resource_name = "shake"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MapLock3:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(98, 270), Vector2(104, 270), Vector2(92, 270), Vector2(98, 270), Vector2(98, 270)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gw5y6"]
+_data = {
+&"RESET": SubResource("Animation_hstxw"),
+&"shake": SubResource("Animation_8egab")
+}
+
+[sub_resource type="Animation" id="Animation_svtp6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MapLock4:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(157, 270)]
+}
+
+[sub_resource type="Animation" id="Animation_1dfpl"]
+resource_name = "shake"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MapLock4:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(157, 270), Vector2(163, 270), Vector2(151, 270), Vector2(157, 270), Vector2(157, 270)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qywvv"]
+_data = {
+&"RESET": SubResource("Animation_svtp6"),
+&"shake": SubResource("Animation_1dfpl")
+}
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lgwnu"]
+atlas = ExtResource("8_5dd4i")
+region = Rect2(63, 0, 63, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_flqon"]
+atlas = ExtResource("8_5dd4i")
+region = Rect2(0, 0, 63, 19)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yf5fn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lgwnu")
+}],
+"loop": 1,
+"name": &"down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_flqon")
+}],
+"loop": 1,
+"name": &"up",
+"speed": 5.0
+}]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jk1qb"]
 atlas = ExtResource("8_tbmy8")
@@ -86,6 +332,145 @@ animations = [{
 }],
 "loop": 1,
 "name": &"up",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5dd4i"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jk1qb")
+}],
+"loop": 1,
+"name": &"down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5dd4i")
+}],
+"loop": 1,
+"name": &"up",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1acrt"]
+atlas = ExtResource("23_3wgol")
+region = Rect2(7, 0, 7, 7)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vr8o3"]
+atlas = ExtResource("23_3wgol")
+region = Rect2(0, 0, 7, 7)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1a85y"]
+atlas = ExtResource("23_3wgol")
+region = Rect2(14, 0, 7, 7)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_57qmd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1acrt")
+}],
+"loop": 1,
+"name": &"entered",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vr8o3")
+}],
+"loop": 1,
+"name": &"exited",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1a85y")
+}],
+"loop": 1,
+"name": &"selected",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hl5e0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1acrt")
+}],
+"loop": 1,
+"name": &"entered",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vr8o3")
+}],
+"loop": 1,
+"name": &"exited",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1a85y")
+}],
+"loop": 1,
+"name": &"selected",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_engjn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1acrt")
+}],
+"loop": 1,
+"name": &"entered",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vr8o3")
+}],
+"loop": 1,
+"name": &"exited",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1a85y")
+}],
+"loop": 1,
+"name": &"selected",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6h3lr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1acrt")
+}],
+"loop": 1,
+"name": &"entered",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vr8o3")
+}],
+"loop": 1,
+"name": &"exited",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1a85y")
+}],
+"loop": 1,
+"name": &"selected",
 "speed": 5.0
 }]
 
@@ -181,11 +566,108 @@ texture = ExtResource("4_rtw2f")
 centered = false
 flip_h = true
 
+[node name="story_mode" type="Node2D" parent="arrows" unique_id=845090414]
+visible = false
+
+[node name="Arrow" type="Sprite2D" parent="arrows/story_mode" unique_id=1491011093]
+position = Vector2(63, 346)
+texture = ExtResource("4_rtw2f")
+centered = false
+
+[node name="Arrow2" type="Sprite2D" parent="arrows/story_mode" unique_id=1711313327]
+position = Vector2(32, 346)
+texture = ExtResource("4_rtw2f")
+centered = false
+flip_h = true
+
+[node name="easy" type="Node2D" parent="arrows" unique_id=906605248]
+position = Vector2(0, 11)
+
+[node name="Arrow" type="Sprite2D" parent="arrows/easy" unique_id=808484416]
+position = Vector2(64, 346)
+texture = ExtResource("4_rtw2f")
+centered = false
+
+[node name="Arrow2" type="Sprite2D" parent="arrows/easy" unique_id=1471275208]
+position = Vector2(31, 346)
+texture = ExtResource("4_rtw2f")
+centered = false
+flip_h = true
+
+[node name="normal" type="Node2D" parent="arrows" unique_id=1680297325]
+visible = false
+position = Vector2(0, 22)
+
+[node name="Arrow" type="Sprite2D" parent="arrows/normal" unique_id=196228755]
+position = Vector2(69, 346)
+texture = ExtResource("4_rtw2f")
+centered = false
+
+[node name="Arrow2" type="Sprite2D" parent="arrows/normal" unique_id=593031174]
+position = Vector2(25, 346)
+texture = ExtResource("4_rtw2f")
+centered = false
+flip_h = true
+
+[node name="hard" type="Node2D" parent="arrows" unique_id=2124033521]
+visible = false
+position = Vector2(0, 33)
+
+[node name="Arrow" type="Sprite2D" parent="arrows/hard" unique_id=1258824351]
+position = Vector2(64, 346)
+texture = ExtResource("4_rtw2f")
+centered = false
+
+[node name="Arrow2" type="Sprite2D" parent="arrows/hard" unique_id=146501771]
+position = Vector2(31, 346)
+texture = ExtResource("4_rtw2f")
+centered = false
+flip_h = true
+
+[node name="death_wish" type="Node2D" parent="arrows" unique_id=26380677]
+visible = false
+position = Vector2(0, 44)
+
+[node name="Arrow" type="Sprite2D" parent="arrows/death_wish" unique_id=761743207]
+position = Vector2(76, 346)
+texture = ExtResource("4_rtw2f")
+centered = false
+
+[node name="Arrow2" type="Sprite2D" parent="arrows/death_wish" unique_id=1195856388]
+position = Vector2(19, 346)
+texture = ExtResource("4_rtw2f")
+centered = false
+flip_h = true
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=5587923]
 libraries/ = SubResource("AnimationLibrary_jk1qb")
 
+[node name="AnimationMapLock1" type="AnimationPlayer" parent="." unique_id=771188400]
+libraries/ = SubResource("AnimationLibrary_7b55j")
+
+[node name="AnimationMapLock2" type="AnimationPlayer" parent="." unique_id=435010286]
+libraries/ = SubResource("AnimationLibrary_a8gd2")
+
+[node name="AnimationMapLock3" type="AnimationPlayer" parent="." unique_id=259713495]
+libraries/ = SubResource("AnimationLibrary_gw5y6")
+
+[node name="AnimationMapLock4" type="AnimationPlayer" parent="." unique_id=1645423907]
+libraries/ = SubResource("AnimationLibrary_qywvv")
+
+[node name="difficulty" type="AnimatedSprite2D" parent="." unique_id=1771832701]
+position = Vector2(110, 151)
+sprite_frames = SubResource("SpriteFrames_yf5fn")
+animation = &"up"
+centered = false
+
+[node name="difficulty_button" type="Button" parent="difficulty" unique_id=1363643384]
+self_modulate = Color(1, 1, 1, 0)
+offset_right = 63.0
+offset_bottom = 19.0
+metadata/_edit_use_anchors_ = true
+
 [node name="back" type="AnimatedSprite2D" parent="." unique_id=233304427]
-position = Vector2(115, 147)
+position = Vector2(80, 151)
 sprite_frames = SubResource("SpriteFrames_g4v7s")
 animation = &"up"
 centered = false
@@ -194,26 +676,252 @@ centered = false
 self_modulate = Color(1, 1, 1, 0)
 offset_right = 27.0
 offset_bottom = 19.0
+metadata/_edit_use_anchors_ = true
+
+[node name="back2" type="AnimatedSprite2D" parent="." unique_id=1055161642]
+position = Vector2(114, 291)
+sprite_frames = SubResource("SpriteFrames_5dd4i")
+animation = &"up"
+centered = false
+
+[node name="back_button2" type="Button" parent="back2" unique_id=134642322]
+self_modulate = Color(1, 1, 1, 0)
+offset_right = 27.0
+offset_bottom = 19.0
+metadata/_edit_use_anchors_ = true
 
 [node name="Map0" type="Sprite2D" parent="." unique_id=1873058656]
-position = Vector2(80, 218)
+position = Vector2(72, 200)
 texture = ExtResource("9_jk1qb")
 
-[node name="Map1" type="Sprite2D" parent="." unique_id=1606534379]
-position = Vector2(105, 218)
-texture = ExtResource("9_jk1qb")
+[node name="Map0_button" type="Button" parent="Map0" unique_id=1323301891]
+self_modulate = Color(1, 1, 1, 0)
+offset_left = -28.0
+offset_top = -25.0
+offset_right = 28.0
+offset_bottom = 24.0
+metadata/_edit_use_anchors_ = true
 
-[node name="Map2" type="Sprite2D" parent="." unique_id=79541049]
-position = Vector2(130, 218)
-texture = ExtResource("9_jk1qb")
+[node name="Map1" type="Sprite2D" parent="." unique_id=408942672]
+position = Vector2(103, 175)
+texture = ExtResource("11_rcqid")
+centered = false
 
-[node name="Map3" type="Sprite2D" parent="." unique_id=772386423]
-position = Vector2(155, 218)
-texture = ExtResource("9_jk1qb")
+[node name="Map1_button" type="Button" parent="Map1" unique_id=1905417250]
+self_modulate = Color(1, 1, 1, 0)
+offset_right = 56.0
+offset_bottom = 49.0
+metadata/_edit_use_anchors_ = true
 
-[node name="Map4" type="Sprite2D" parent="." unique_id=442461579]
-position = Vector2(180, 218)
-texture = ExtResource("9_jk1qb")
+[node name="Map2" type="Sprite2D" parent="." unique_id=1302764305]
+position = Vector2(162, 175)
+texture = ExtResource("11_rcqid")
+centered = false
+
+[node name="Map2_button" type="Button" parent="Map2" unique_id=1889382082]
+self_modulate = Color(1, 1, 1, 0)
+offset_right = 56.0
+offset_bottom = 49.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Map3" type="Sprite2D" parent="." unique_id=348837726]
+position = Vector2(70, 227)
+texture = ExtResource("11_rcqid")
+centered = false
+
+[node name="Map3_button" type="Button" parent="Map3" unique_id=1861748806]
+self_modulate = Color(1, 1, 1, 0)
+offset_right = 56.0
+offset_bottom = 49.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Map4" type="Sprite2D" parent="." unique_id=888743056]
+position = Vector2(129, 227)
+texture = ExtResource("11_rcqid")
+centered = false
+
+[node name="Map4_button" type="Button" parent="Map4" unique_id=82049029]
+self_modulate = Color(1, 1, 1, 0)
+offset_right = 56.0
+offset_bottom = 49.0
+metadata/_edit_use_anchors_ = true
+
+[node name="MapShadow1" type="Sprite2D" parent="." unique_id=133942660]
+position = Vector2(131, 200)
+texture = ExtResource("12_1ajci")
+
+[node name="MapShadow2" type="Sprite2D" parent="." unique_id=1203066666]
+position = Vector2(190, 200)
+texture = ExtResource("12_1ajci")
+
+[node name="MapShadow3" type="Sprite2D" parent="." unique_id=681967668]
+position = Vector2(98, 252)
+texture = ExtResource("12_1ajci")
+
+[node name="MapShadow4" type="Sprite2D" parent="." unique_id=557861528]
+position = Vector2(157, 252)
+texture = ExtResource("12_1ajci")
+
+[node name="MapLock1" type="Sprite2D" parent="." unique_id=1760049064]
+position = Vector2(131, 218)
+texture = ExtResource("13_7b55j")
+
+[node name="MapLock2" type="Sprite2D" parent="." unique_id=883073882]
+position = Vector2(190, 218)
+texture = ExtResource("13_7b55j")
+
+[node name="MapLock3" type="Sprite2D" parent="." unique_id=1145160978]
+position = Vector2(98, 270)
+texture = ExtResource("13_7b55j")
+
+[node name="MapLock4" type="Sprite2D" parent="." unique_id=1153394098]
+position = Vector2(157, 270)
+texture = ExtResource("13_7b55j")
+
+[node name="Black" type="Sprite2D" parent="." unique_id=1139301198]
+self_modulate = Color(1, 1, 1, 0)
+position = Vector2(128, 221.5)
+scale = Vector2(16, 9.6875)
+texture = ExtResource("14_1ajci")
+
+[node name="DifficultySettings" type="Sprite2D" parent="." unique_id=494772735]
+position = Vector2(21, 331)
+texture = ExtResource("15_8egab")
+centered = false
+
+[node name="StoryMode" type="Sprite2D" parent="." unique_id=1742678452]
+position = Vector2(41, 346)
+texture = ExtResource("20_3wgol")
+centered = false
+
+[node name="story_mode_button" type="Button" parent="StoryMode" unique_id=1454445627]
+self_modulate = Color(1, 1, 1, 0)
+offset_right = 19.0
+offset_bottom = 9.0
+
+[node name="Easy" type="Sprite2D" parent="." unique_id=800400508]
+position = Vector2(40, 357)
+texture = ExtResource("16_gw5y6")
+centered = false
+
+[node name="easy_button" type="Button" parent="Easy" unique_id=733279980]
+self_modulate = Color(1, 1, 1, 0)
+offset_right = 21.0
+offset_bottom = 9.0
+
+[node name="Normal" type="Sprite2D" parent="." unique_id=92422697]
+position = Vector2(34, 368)
+texture = ExtResource("18_1dfpl")
+centered = false
+
+[node name="normal_button" type="Button" parent="Normal" unique_id=714748452]
+self_modulate = Color(1, 1, 1, 0)
+offset_right = 32.0
+offset_bottom = 9.0
+
+[node name="Hard" type="Sprite2D" parent="." unique_id=699711503]
+position = Vector2(40, 379)
+texture = ExtResource("17_svtp6")
+centered = false
+
+[node name="hard_button" type="Button" parent="Hard" unique_id=976282878]
+self_modulate = Color(1, 1, 1, 0)
+offset_right = 21.0
+offset_bottom = 9.0
+
+[node name="DeathWish" type="Sprite2D" parent="." unique_id=2027305633]
+position = Vector2(28, 390)
+texture = ExtResource("19_qywvv")
+centered = false
+
+[node name="death_wish_button" type="Button" parent="DeathWish" unique_id=448825725]
+self_modulate = Color(1, 1, 1, 0)
+offset_right = 45.0
+offset_bottom = 9.0
+
+[node name="DifficultyModifiers" type="Sprite2D" parent="." unique_id=1811696858]
+position = Vector2(170, 326)
+texture = ExtResource("21_1dfpl")
+centered = false
+
+[node name="Modifiers" type="Sprite2D" parent="." unique_id=1450570129]
+position = Vector2(170, 352)
+texture = ExtResource("22_qywvv")
+centered = false
+
+[node name="selection0" type="AnimatedSprite2D" parent="." unique_id=668403961]
+position = Vector2(161, 351)
+sprite_frames = SubResource("SpriteFrames_57qmd")
+animation = &"exited"
+centered = false
+
+[node name="selection0_button" type="Button" parent="selection0" unique_id=1504934770]
+self_modulate = Color(1, 1, 1, 0)
+offset_right = 8.0
+offset_bottom = 8.0
+scale = Vector2(0.88, 0.88)
+
+[node name="selection1" type="AnimatedSprite2D" parent="." unique_id=1477084292]
+position = Vector2(161, 359)
+sprite_frames = SubResource("SpriteFrames_hl5e0")
+animation = &"exited"
+centered = false
+
+[node name="selection1_button" type="Button" parent="selection1" unique_id=503928971]
+self_modulate = Color(1, 1, 1, 0)
+offset_right = 8.0
+offset_bottom = 8.0
+scale = Vector2(0.88, 0.88)
+
+[node name="selection2" type="AnimatedSprite2D" parent="." unique_id=239357559]
+position = Vector2(161, 367)
+sprite_frames = SubResource("SpriteFrames_engjn")
+animation = &"exited"
+centered = false
+
+[node name="selection2_button" type="Button" parent="selection2" unique_id=447866343]
+self_modulate = Color(1, 1, 1, 0)
+offset_right = 8.0
+offset_bottom = 8.0
+scale = Vector2(0.88, 0.88)
+
+[node name="selection3" type="AnimatedSprite2D" parent="." unique_id=2090287905]
+position = Vector2(161, 375)
+sprite_frames = SubResource("SpriteFrames_6h3lr")
+animation = &"exited"
+centered = false
+
+[node name="selection3_button" type="Button" parent="selection3" unique_id=591108791]
+self_modulate = Color(1, 1, 1, 0)
+offset_right = 8.0
+offset_bottom = 8.0
+scale = Vector2(0.88, 0.88)
+
+[node name="selection4" type="AnimatedSprite2D" parent="." unique_id=1593373913]
+position = Vector2(161, 383)
+sprite_frames = SubResource("SpriteFrames_6h3lr")
+animation = &"exited"
+centered = false
+
+[node name="selection4_button" type="Button" parent="selection4" unique_id=1757771280]
+self_modulate = Color(1, 1, 1, 0)
+offset_right = 8.0
+offset_bottom = 8.0
+scale = Vector2(0.88, 0.88)
+
+[node name="Control" type="Control" parent="." unique_id=68265258]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 155.0
+offset_top = 346.0
+offset_right = 249.0
+offset_bottom = 399.0
+
+[node name="Wip" type="Sprite2D" parent="." unique_id=819731380]
+self_modulate = Color(1, 1, 1, 0.54509807)
+position = Vector2(196, 372.625)
+scale = Vector2(1, 1.6590904)
+texture = ExtResource("24_qywvv")
 
 [connection signal="mouse_entered" from="Buttons/start" to="." method="_on_start_mouse_entered"]
 [connection signal="pressed" from="Buttons/start" to="." method="_on_start_pressed"]
@@ -221,6 +929,47 @@ texture = ExtResource("9_jk1qb")
 [connection signal="pressed" from="Buttons/settings" to="." method="_on_settings_pressed"]
 [connection signal="mouse_entered" from="Buttons/quit" to="." method="_on_quit_mouse_entered"]
 [connection signal="pressed" from="Buttons/quit" to="." method="_on_quit_pressed"]
+[connection signal="mouse_entered" from="difficulty/difficulty_button" to="." method="_on_difficulty_button_mouse_entered"]
+[connection signal="mouse_exited" from="difficulty/difficulty_button" to="." method="_on_difficulty_button_mouse_exited"]
+[connection signal="pressed" from="difficulty/difficulty_button" to="." method="_on_difficulty_button_pressed"]
 [connection signal="mouse_entered" from="back/back_button" to="." method="_on_back_button_mouse_entered"]
 [connection signal="mouse_exited" from="back/back_button" to="." method="_on_back_button_mouse_exited"]
 [connection signal="pressed" from="back/back_button" to="." method="_on_back_button_pressed"]
+[connection signal="mouse_entered" from="back2/back_button2" to="." method="_on_back_button_2_mouse_entered"]
+[connection signal="mouse_exited" from="back2/back_button2" to="." method="_on_back_button_2_mouse_exited"]
+[connection signal="pressed" from="back2/back_button2" to="." method="_on_back_button_2_pressed"]
+[connection signal="mouse_entered" from="Map0/Map0_button" to="." method="_on_map_0_button_mouse_entered"]
+[connection signal="mouse_exited" from="Map0/Map0_button" to="." method="_on_map_0_button_mouse_exited"]
+[connection signal="pressed" from="Map0/Map0_button" to="." method="_on_map_0_button_pressed"]
+[connection signal="mouse_entered" from="Map1/Map1_button" to="." method="_on_map_1_button_mouse_entered"]
+[connection signal="mouse_exited" from="Map1/Map1_button" to="." method="_on_map_1_button_mouse_exited"]
+[connection signal="pressed" from="Map1/Map1_button" to="." method="_on_map_1_button_pressed"]
+[connection signal="mouse_entered" from="Map2/Map2_button" to="." method="_on_map_2_button_mouse_entered"]
+[connection signal="mouse_exited" from="Map2/Map2_button" to="." method="_on_map_2_button_mouse_exited"]
+[connection signal="pressed" from="Map2/Map2_button" to="." method="_on_map_2_button_pressed"]
+[connection signal="mouse_entered" from="Map3/Map3_button" to="." method="_on_map_3_button_mouse_entered"]
+[connection signal="mouse_exited" from="Map3/Map3_button" to="." method="_on_map_3_button_mouse_exited"]
+[connection signal="pressed" from="Map3/Map3_button" to="." method="_on_map_3_button_pressed"]
+[connection signal="mouse_entered" from="Map4/Map4_button" to="." method="_on_map_4_button_mouse_entered"]
+[connection signal="mouse_exited" from="Map4/Map4_button" to="." method="_on_map_4_button_mouse_exited"]
+[connection signal="pressed" from="Map4/Map4_button" to="." method="_on_map_4_button_pressed"]
+[connection signal="pressed" from="StoryMode/story_mode_button" to="." method="_on_story_mode_button_pressed"]
+[connection signal="pressed" from="Easy/easy_button" to="." method="_on_easy_button_pressed"]
+[connection signal="pressed" from="Normal/normal_button" to="." method="_on_normal_button_pressed"]
+[connection signal="pressed" from="Hard/hard_button" to="." method="_on_hard_button_pressed"]
+[connection signal="pressed" from="DeathWish/death_wish_button" to="." method="_on_death_wish_button_pressed"]
+[connection signal="mouse_entered" from="selection0/selection0_button" to="." method="_on_selection_0_button_mouse_entered"]
+[connection signal="mouse_exited" from="selection0/selection0_button" to="." method="_on_selection_0_button_mouse_exited"]
+[connection signal="pressed" from="selection0/selection0_button" to="." method="_on_selection_0_button_pressed"]
+[connection signal="mouse_entered" from="selection1/selection1_button" to="." method="_on_selection_1_button_mouse_entered"]
+[connection signal="mouse_exited" from="selection1/selection1_button" to="." method="_on_selection_1_button_mouse_exited"]
+[connection signal="pressed" from="selection1/selection1_button" to="." method="_on_selection_1_button_pressed"]
+[connection signal="mouse_entered" from="selection2/selection2_button" to="." method="_on_selection_2_button_mouse_entered"]
+[connection signal="mouse_exited" from="selection2/selection2_button" to="." method="_on_selection_2_button_mouse_exited"]
+[connection signal="pressed" from="selection2/selection2_button" to="." method="_on_selection_2_button_pressed"]
+[connection signal="mouse_entered" from="selection3/selection3_button" to="." method="_on_selection_3_button_mouse_entered"]
+[connection signal="mouse_exited" from="selection3/selection3_button" to="." method="_on_selection_3_button_mouse_exited"]
+[connection signal="pressed" from="selection3/selection3_button" to="." method="_on_selection_3_button_pressed"]
+[connection signal="mouse_entered" from="selection4/selection4_button" to="." method="_on_selection_4_button_mouse_entered"]
+[connection signal="mouse_exited" from="selection4/selection4_button" to="." method="_on_selection_4_button_mouse_exited"]
+[connection signal="pressed" from="selection4/selection4_button" to="." method="_on_selection_4_button_pressed"]

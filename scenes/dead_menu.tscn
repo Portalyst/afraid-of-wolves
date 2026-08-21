@@ -1,0 +1,352 @@
+[gd_scene format=3 uid="uid://m0ddyw6f6btp"]
+
+[ext_resource type="Texture2D" uid="uid://bhd8w87hfb4n6" path="res://sprites/dead_menu/game_over.png" id="1_1smem"]
+[ext_resource type="Script" uid="uid://bw178utxmyt4h" path="res://scripts/dead_menu.gd" id="1_p7oah"]
+[ext_resource type="Texture2D" uid="uid://b7csccdyhav7w" path="res://sprites/dead_menu/hint.png" id="2_tksux"]
+[ext_resource type="Texture2D" uid="uid://dcl4c6df08mq6" path="res://sprites/dead_menu/glenn_hint.png" id="3_h6pbo"]
+[ext_resource type="Texture2D" uid="uid://byguobya4ncw2" path="res://sprites/dead_menu/you_was_killed_by.png" id="3_is402"]
+[ext_resource type="Texture2D" uid="uid://cdihf10b00p26" path="res://sprites/dead_menu/lenny_hint.png" id="4_gxc36"]
+[ext_resource type="Texture2D" uid="uid://sa78k21f0oyt" path="res://sprites/dead_menu/marcus_hint.png" id="5_is402"]
+[ext_resource type="Texture2D" uid="uid://bgq865wp4ydu7" path="res://sprites/dead_menu/glenn.png" id="7_p7oah"]
+[ext_resource type="Texture2D" uid="uid://dyio3fw6vo0ap" path="res://sprites/dead_menu/lenny.png" id="8_q6qc5"]
+[ext_resource type="Texture2D" uid="uid://cwg0brk2g6qcc" path="res://sprites/dead_menu/marcus.png" id="9_3dhwf"]
+[ext_resource type="Texture2D" uid="uid://5yaas2jf6t42" path="res://sprites/wolves/glenn/scream1.png" id="11_5khws"]
+[ext_resource type="Texture2D" uid="uid://dlblhhvc6ysys" path="res://sprites/dead_menu/black.png" id="11_40qn4"]
+[ext_resource type="Texture2D" uid="uid://lpu1jinnu1qu" path="res://sprites/wolves/glenn/scream2.png" id="12_40qn4"]
+[ext_resource type="Texture2D" uid="uid://8ypsuf47mrmw" path="res://sprites/wolves/lenny/scream1.png" id="13_w7n35"]
+[ext_resource type="Texture2D" uid="uid://cphquhwnv8j4w" path="res://sprites/wolves/lenny/scream2.png" id="14_pmyro"]
+[ext_resource type="Texture2D" uid="uid://bbgkrjyp10esc" path="res://sprites/wolves/marcus/scream1.png" id="15_qmkmq"]
+[ext_resource type="Texture2D" uid="uid://br5baexsldb46" path="res://sprites/wolves/marcus/scream2.png" id="16_v0hb3"]
+[ext_resource type="Texture2D" uid="uid://cogpbjlgihwk2" path="res://sprites/dead_menu/next.png" id="18_w7n35"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g4v7s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_h6pbo")
+}],
+"loop": 1,
+"name": &"glenn",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_gxc36")
+}],
+"loop": 1,
+"name": &"lenny",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_is402")
+}],
+"loop": 1,
+"name": &"marcus",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_eu6uw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_p7oah")
+}],
+"loop": 1,
+"name": &"glenn",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_q6qc5")
+}],
+"loop": 1,
+"name": &"lenny",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_3dhwf")
+}],
+"loop": 1,
+"name": &"marcus",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_pmyro"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Black:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_qmkmq"]
+resource_name = "fade_in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Black:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_v0hb3"]
+resource_name = "fade_out"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Black:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_v0hb3"]
+_data = {
+&"RESET": SubResource("Animation_pmyro"),
+&"fade_in": SubResource("Animation_qmkmq"),
+&"fade_out": SubResource("Animation_v0hb3")
+}
+
+[sub_resource type="Animation" id="Animation_is402"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GameOver:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.10471976]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("GameOver:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.9, 0.9)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Black:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Black:self_modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_w7n35"]
+resource_name = "black_in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Black:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_40qn4"]
+resource_name = "black_out"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Black:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_p7oah"]
+resource_name = "game_over"
+length = 4.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GameOver:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2, 4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [-0.10471976, 0.10471976, -0.10471976]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("GameOver:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2, 4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0.9, 0.9), Vector2(1, 1), Vector2(0.9, 0.9)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_q6qc5"]
+_data = {
+&"RESET": SubResource("Animation_is402"),
+&"black_in": SubResource("Animation_w7n35"),
+&"black_out": SubResource("Animation_40qn4"),
+&"game_over": SubResource("Animation_p7oah")
+}
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yf5fn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_5khws")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_40qn4")
+}],
+"loop": 1,
+"name": &"glenn",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_w7n35")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_pmyro")
+}],
+"loop": 1,
+"name": &"lenny",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("15_qmkmq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_v0hb3")
+}],
+"loop": 1,
+"name": &"marcus",
+"speed": 10.0
+}]
+
+[node name="dead_menu" type="Node2D" unique_id=1352200402]
+script = ExtResource("1_p7oah")
+
+[node name="Black2" type="Sprite2D" parent="." unique_id=1413206708]
+position = Vector2(128, 72)
+scale = Vector2(16, 9)
+texture = ExtResource("11_40qn4")
+
+[node name="GameOver" type="Sprite2D" parent="." unique_id=397080648]
+position = Vector2(128, 43)
+rotation = -0.10471976
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("1_1smem")
+
+[node name="Hint" type="Sprite2D" parent="." unique_id=1089724667]
+position = Vector2(30, 91)
+texture = ExtResource("2_tksux")
+
+[node name="YouWasKilledBy" type="Sprite2D" parent="." unique_id=900926082]
+position = Vector2(210, 91)
+texture = ExtResource("3_is402")
+
+[node name="wolf_hint" type="AnimatedSprite2D" parent="." unique_id=96805543]
+position = Vector2(15, 97)
+sprite_frames = SubResource("SpriteFrames_g4v7s")
+animation = &"marcus"
+centered = false
+
+[node name="who" type="AnimatedSprite2D" parent="." unique_id=1086744197]
+position = Vector2(210, 99)
+sprite_frames = SubResource("SpriteFrames_eu6uw")
+animation = &"lenny"
+
+[node name="Next" type="Sprite2D" parent="." unique_id=231582172]
+position = Vector2(241, 137)
+texture = ExtResource("18_w7n35")
+
+[node name="next_button" type="Button" parent="Next" unique_id=1522076629]
+self_modulate = Color(1, 1, 1, 0)
+offset_left = -16.0
+offset_top = -8.0
+offset_right = 15.0
+offset_bottom = 7.0
+
+[node name="AnimationFade" type="AnimationPlayer" parent="." unique_id=2087319805]
+root_node = NodePath("../AnimationPlayer")
+libraries/ = SubResource("AnimationLibrary_v0hb3")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=652825127]
+libraries/ = SubResource("AnimationLibrary_q6qc5")
+
+[node name="Black" type="Sprite2D" parent="." unique_id=2057670086]
+position = Vector2(128, 72)
+scale = Vector2(16, 9)
+texture = ExtResource("11_40qn4")
+
+[node name="screamer" type="AnimatedSprite2D" parent="." unique_id=7343062]
+visible = false
+position = Vector2(128, 72)
+sprite_frames = SubResource("SpriteFrames_yf5fn")
+animation = &"lenny"
+
+[node name="Timer" type="Timer" parent="." unique_id=1156111544]
+one_shot = true
+
+[node name="Timer2" type="Timer" parent="." unique_id=1729465485]
+one_shot = true
+
+[connection signal="pressed" from="Next/next_button" to="." method="_on_next_button_pressed"]
+[connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]

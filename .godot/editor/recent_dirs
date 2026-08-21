@@ -1,9 +1,10 @@
 res://sprites/main_menu/
-res://scripts/
 res://scenes/
 res://sprites/wolves/marcus/
 res://sprites/wolves/lenny/
 res://sprites/wolves/glenn/
+res://scripts/
+res://sprites/dead_menu/
 res://sprites/computer/gui/
 res://sprites/computer/
 res://sprites/tools/polaroid/

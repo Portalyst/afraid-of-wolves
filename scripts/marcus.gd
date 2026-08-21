@@ -24,7 +24,7 @@ func _physics_process(delta: float) -> void:
 func spawn():
 	super.spawn()
 	numb = randi_range(0, 4)
-	position = global.windows[numb]
+	position = windows[numb]
 	active = true
 
 func run_away():

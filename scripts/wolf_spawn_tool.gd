@@ -23,8 +23,8 @@ func wolves_run_away(wolf: String):
 		$start_delay.start(randi_range(8, 12))
 
 func _on_start_delay_timeout() -> void:
-	#var spawn_list : Array = ["lenny", "marcus", "glenn"]
-	var spawn_list : Array = ["marcus"]
+	var spawn_list : Array = ["lenny", "marcus", "glenn"]
+	#var spawn_list : Array = ["marcus"]
 	var amount_wolves := randi_range(1, 3)
 	print(amount_wolves)
 	for i in amount_wolves:

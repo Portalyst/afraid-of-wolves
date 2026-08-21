@@ -153,6 +153,9 @@ animation = &"up"
 [node name="SpawnTimer" parent="." index="1" unique_id=1505807063]
 wait_time = 30.0
 
+[node name="PassiveTimer" parent="." index="3" unique_id=768835833]
+wait_time = 30.0
+
 [node name="CollisionShape2D" parent="." index="4" unique_id=1132464983]
 visible = false
 

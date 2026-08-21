@@ -10,7 +10,7 @@ var speed = 100
 var numb : int
 var aggresive : bool = false
 
-signal bite
+signal bite(String)
 signal wolf_run_away(String)
 
 var stairs_up_position : Vector2 = Vector2(80, -120)
@@ -20,6 +20,18 @@ var stairs_down_position : Vector2 = Vector2(815, -90)
 @export var target : Node
 @export var spawn_tool : Node
 
+@onready var basement_pos = $/root/level/Markers/basement_marker.position
+@onready var window0 : Vector2 = $/root/level/Markers/WindowMarker.position
+@onready var window1 : Vector2 = $/root/level/Markers/WindowMarker1.position
+@onready var window2 : Vector2 = $/root/level/Markers/WindowMarker2.position
+@onready var window3 : Vector2 = $/root/level/Markers/WindowMarker3.position
+@onready var window4 : Vector2 = $/root/level/Markers/WindowMarker4.position
+@onready var window5 : Vector2 = $/root/level/Markers/WindowMarker5.position #floor two window number 1
+@onready var window6 : Vector2 = $/root/level/Markers/WindowMarker6.position
+@onready var window7 : Vector2 = $/root/level/Markers/WindowMarker7.position
+@onready var window8 : Vector2 = $/root/level/Markers/WindowMarker8.position
+@onready var window9 : Vector2 = $/root/level/Markers/WindowMarker9.position
+@onready var windows = [window0, window1, window2, window3, window4, window5, window6, window7, window8, window9]
 
 func _ready() -> void:
 	set_meta("wolf", Name)
@@ -83,4 +95,4 @@ func _on_passive_timer_timeout() -> void:
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.has_meta("player") and state == State.AGGRESIVE:
-		bite.emit()
+		bite.emit(Name)

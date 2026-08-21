@@ -24,4 +24,4 @@ func run_away():
 
 func _on_passive_timer_timeout() -> void:
 	super._on_passive_timer_timeout()
-	self.position = global.basement_pos
+	self.position = basement_pos

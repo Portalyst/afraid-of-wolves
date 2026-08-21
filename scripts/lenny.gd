@@ -20,10 +20,18 @@ func _physics_process(delta: float) -> void:
 			velocity.y = move_toward(velocity.y, 0, speed)
 	
 
+func start_spawn():
+	var volume = self.position.distance_to(target.position)
+	volume = int(volume / 10)
+	if volume >= 10:
+		volume = 10
+	$spawn_sound.attenuation = volume
+	super.start_spawn()
+
 func spawn():
 	super.spawn()
 	numb = randi_range(0, 9)
-	position = global.windows[numb]
+	position = windows[numb]
 	if numb in [0, 5]:
 		$AnimatedSprite2D.play("idle_right")
 	if numb in [1, 2, 6, 7]:

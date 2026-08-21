@@ -309,6 +309,9 @@ animation = &"up"
 [node name="SpawnTimer" parent="." index="1" unique_id=1505807063]
 wait_time = 20.0
 
+[node name="PassiveTimer" parent="." index="3" unique_id=768835833]
+wait_time = 30.0
+
 [node name="CollisionShape2D" parent="." index="4" unique_id=1132464983]
 visible = false
 
@@ -321,6 +324,7 @@ stream = ExtResource("4_ug321")
 
 [node name="spawn_sound" parent="." index="8" unique_id=937897585]
 stream = ExtResource("5_1pxfj")
+volume_db = 10.0
 
 [node name="run_away_sound" parent="." index="9" unique_id=857314457]
 stream = ExtResource("6_1pxfj")

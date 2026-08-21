@@ -68,8 +68,9 @@ func _physics_process(delta: float) -> void:
 			$AnimatedSprite2D.play("idle")
 		move_and_slide()
 
-func dead():
-	pass
+func dead(wolf_name: String):
+	global.wolf_who_kill = wolf_name
+	get_tree().change_scene_to_file("res://scenes/dead_menu.tscn")
 
 func take_flash():
 	has_flash = true

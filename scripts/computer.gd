@@ -11,8 +11,12 @@ var glenn_in_vent : int = -1
 
 func _ready() -> void:
 	set_meta("computer", 1)
+	var computer0 : Vector2 = $/root/level/Markers/computer_marker.position
+	var computer1 : Vector2 = $/root/level/Markers/computer_marker2.position
+	var computer2 : Vector2 = $/root/level/Markers/computer_marker3.position
+	var computers = [computer0, computer1, computer2]
 	var spawn := randi_range(0, 2)
-	self.position = global.computers[spawn]
+	self.position = computers[spawn]
 	$AnimatedSprite2D.play(str(spawn))
 	glenn.in_vent.connect(glenn_spawn)
 	$CanvasLayer.hide()
