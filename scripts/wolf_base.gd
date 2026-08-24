@@ -12,6 +12,7 @@ var aggresive : bool = false
 
 signal bite(String)
 signal wolf_run_away(String)
+signal breach
 
 var stairs_up_position : Vector2 = Vector2(80, -120)
 var stairs_down_position : Vector2 = Vector2(815, -90)
@@ -19,6 +20,8 @@ var stairs_down_position : Vector2 = Vector2(815, -90)
 @export var Name : String
 @export var target : Node
 @export var spawn_tool : Node
+
+@export var spawn_time : int
 
 @onready var basement_pos = $/root/level/Markers/basement_marker.position
 @onready var window0 : Vector2 = $/root/level/Markers/WindowMarker.position
@@ -67,31 +70,34 @@ func _physics_process(delta: float) -> void:
 				velocity = nav_direction * speed * 1.5
 	move_and_slide()
 
-func start_spawn():
-	var delay := randi_range(1, 5)
-	var number_sign = [-1, 1].pick_random()
-	$SpawnTimer.wait_time += delay*number_sign
-	$SpawnTimer.start()
-	$spawn_sound.play()
+#func start_spawn():
+	#var delay := randi_range(1, 5)
+	#var number_sign = [-1, 1].pick_random()
+	#$SpawnTimer.wait_time += delay*number_sign
+	#$SpawnTimer.start()
+	#$spawn_sound.play()
 
-func spawn():
-	$sounds.play()
-	$PassiveTimer.start()
+func spawn(stat: int):
+	$spawn_sound.play()
+	$PassiveTimer.start(spawn_time-stat/2)
+	print("passive: ",$PassiveTimer.time_left)
+	global.wolves_can_spawn = false
 
 func run_away():
 	$run_away_sound.play()
 	$PassiveTimer.stop()
 	wolf_run_away.emit(Name)
 
-func _on_spawn_timer_timeout() -> void:
-	if global.wolves_can_spawn == true:
-		spawn()
-	else:
-		start_spawn()
+#func _on_spawn_timer_timeout() -> void:
+	#if global.wolves_can_spawn == true:
+		#spawn()
+	#else:
+		#start_spawn()
 
 func _on_passive_timer_timeout() -> void:
 	state = State.AGGRESIVE
 	global.wolf_breach = true
+	breach.emit()
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.has_meta("player") and state == State.AGGRESIVE:

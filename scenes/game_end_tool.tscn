@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://ca85enlose153"]
+
+[ext_resource type="Script" uid="uid://pvhegwilc6he" path="res://scripts/game_end_tool.gd" id="1_wm7rj"]
+
+[node name="game_end_tool" type="Node" unique_id=1615611667]
+script = ExtResource("1_wm7rj")
+
+[node name="Timer" type="Timer" parent="." unique_id=323014790]
+wait_time = 360.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

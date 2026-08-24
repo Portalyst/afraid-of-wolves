@@ -1,6 +1,10 @@
 [gd_scene format=3 uid="uid://oro126shx4gs"]
 
 [ext_resource type="Script" uid="uid://u2f85uacfcgb" path="res://scripts/wolf_spawn_tool.gd" id="1_0l3h4"]
+[ext_resource type="AudioStream" uid="uid://3yoduauqmb0g" path="res://sounds/notmy/wolves/lenny_howl.ogg" id="2_2fdel"]
+[ext_resource type="AudioStream" uid="uid://br6bw6r7vswsd" path="res://sounds/notmy/wolves/marcus_howl.ogg" id="3_aisvg"]
+[ext_resource type="AudioStream" uid="uid://bwc1uo2gu2owt" path="res://sounds/notmy/wolves/glenn_moan.ogg" id="4_ah81e"]
+[ext_resource type="AudioStream" uid="uid://bo77jo650fmmi" path="res://sounds/notmy/wolves/ambience_drone.ogg" id="5_0hi5t"]
 
 [node name="WolfSpawnTool" type="Node" unique_id=1751355580]
 script = ExtResource("1_0l3h4")
@@ -9,7 +13,25 @@ script = ExtResource("1_0l3h4")
 one_shot = true
 
 [node name="spawn_delay" type="Timer" parent="." unique_id=2134367859]
-one_shot = true
+wait_time = 5.0
+
+[node name="lenny_howl" type="AudioStreamPlayer" parent="." unique_id=1056486033]
+stream = ExtResource("2_2fdel")
+
+[node name="marcus_howl" type="AudioStreamPlayer" parent="." unique_id=1946030790]
+stream = ExtResource("3_aisvg")
+
+[node name="glenn_howl" type="AudioStreamPlayer" parent="." unique_id=1334708275]
+stream = ExtResource("4_ah81e")
+
+[node name="drone" type="AudioStreamPlayer" parent="." unique_id=547622867]
+stream = ExtResource("5_0hi5t")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=794289433]
+
+[node name="Label" type="Label" parent="CanvasLayer" unique_id=1739939519]
+offset_right = 158.0
+offset_bottom = 23.0
 
 [connection signal="timeout" from="start_delay" to="." method="_on_start_delay_timeout"]
 [connection signal="timeout" from="spawn_delay" to="." method="_on_spawn_delay_timeout"]

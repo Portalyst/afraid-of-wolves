@@ -286,6 +286,9 @@ _data = {
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_gur6y"]
 load_path = "res://.godot/imported/stairs_shadow.png-9f17d8cc394ca8f94fc4536a4b3c1cca.ctex"
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_v3why"]
+load_path = "res://.godot/imported/stairs_shadow.png-9f17d8cc394ca8f94fc4536a4b3c1cca.ctex"
+
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_3ies3"]
 load_path = "res://.godot/imported/stairs_shadow.png-9f17d8cc394ca8f94fc4536a4b3c1cca.ctex"
 
@@ -313,11 +316,38 @@ size = Vector2(5, 64)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2j2di"]
 size = Vector2(45, 19)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_asl66"]
+size = Vector2(34, 30.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2jdvr"]
+size = Vector2(48.5, 49)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q4oe8"]
+size = Vector2(17, 48)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gunhw"]
 size = Vector2(22.1875, 34)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_svjb4"]
+size = Vector2(17, 48)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c1pbi"]
+size = Vector2(17, 33)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_535f6"]
+size = Vector2(17, 33)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_50fbu"]
+size = Vector2(17.5, 48)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0fmhk"]
+size = Vector2(32, 21)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8gofh"]
 size = Vector2(32.09375, 18)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iafhg"]
+size = Vector2(48.046875, 23)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_avnxn"]
 size = Vector2(32, 37)
@@ -327,6 +357,9 @@ size = Vector2(19, 47)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_556r4"]
 size = Vector2(80, 22)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cr74b"]
+size = Vector2(48, 22)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7agi7"]
 size = Vector2(45, 44)
@@ -442,6 +475,60 @@ position = Vector2(832, -112)
 texture = ExtResource("15_wc255")
 centered = false
 flip_h = true
+
+[node name="Bedy" type="Sprite2D" parent="enviroment" unique_id=1946887483]
+position = Vector2(1000, -21)
+texture = ExtResource("27_kih21")
+
+[node name="Bedblue" type="Sprite2D" parent="enviroment" unique_id=1632481854]
+position = Vector2(800, -39)
+texture = ExtResource("28_w3o6u")
+centered = false
+
+[node name="Bedblue2" type="Sprite2D" parent="enviroment" unique_id=1381617242]
+position = Vector2(800, -27)
+texture = ExtResource("28_w3o6u")
+centered = false
+
+[node name="Bedgr" type="Sprite2D" parent="enviroment" unique_id=921237457]
+position = Vector2(896, -133)
+texture = ExtResource("29_2e2fo")
+centered = false
+
+[node name="Closet" type="Sprite2D" parent="enviroment" unique_id=38798689]
+position = Vector2(895, -13)
+texture = ExtResource("30_2e2fo")
+centered = false
+
+[node name="Closet2" type="Sprite2D" parent="enviroment" unique_id=897153669]
+position = Vector2(991, 9)
+texture = ExtResource("30_2e2fo")
+centered = false
+
+[node name="Closet3" type="Sprite2D" parent="enviroment" unique_id=318980871]
+position = Vector2(991, -171)
+texture = ExtResource("30_2e2fo")
+centered = false
+
+[node name="Clock" type="Sprite2D" parent="enviroment" unique_id=1644680003]
+position = Vector2(984, -93)
+texture = ExtResource("31_gur6y")
+centered = false
+
+[node name="Boxic" type="Sprite2D" parent="enviroment" unique_id=600058329]
+position = Vector2(737, -71)
+texture = ExtResource("32_v3why")
+centered = false
+
+[node name="Cactus2" type="Sprite2D" parent="enviroment" unique_id=874951009]
+position = Vector2(841, -183)
+texture = ExtResource("3_7agi7")
+
+[node name="StairsShadow5" type="Sprite2D" parent="enviroment/Cactus2" unique_id=2107557612]
+position = Vector2(-8, -7)
+rotation = 3.1415925
+scale = Vector2(1.0049374, 1)
+texture = SubResource("CompressedTexture2D_v3why")
 
 [node name="Kitchen" type="Sprite2D" parent="enviroment" unique_id=1070002842]
 position = Vector2(40, -168)
@@ -592,13 +679,49 @@ shape = SubResource("RectangleShape2D_33x8s")
 position = Vector2(823.5, 54.5)
 shape = SubResource("RectangleShape2D_2j2di")
 
+[node name="CollisionShape2D17" type="CollisionShape2D" parent="random_collisions" unique_id=343842125]
+position = Vector2(815, -21.25)
+shape = SubResource("RectangleShape2D_asl66")
+
+[node name="CollisionShape2D24" type="CollisionShape2D" parent="random_collisions" unique_id=251327983]
+position = Vector2(759.75, -46.5)
+shape = SubResource("RectangleShape2D_2jdvr")
+
+[node name="CollisionShape2D18" type="CollisionShape2D" parent="random_collisions" unique_id=728747830]
+position = Vector2(903.5, 11)
+shape = SubResource("RectangleShape2D_q4oe8")
+
 [node name="CollisionShape2D9" type="CollisionShape2D" parent="random_collisions" unique_id=1320471289]
 position = Vector2(938.90625, 30)
 shape = SubResource("RectangleShape2D_gunhw")
 
+[node name="CollisionShape2D19" type="CollisionShape2D" parent="random_collisions" unique_id=320675917]
+position = Vector2(999.5, 33)
+shape = SubResource("RectangleShape2D_svjb4")
+
+[node name="CollisionShape2D20" type="CollisionShape2D" parent="random_collisions" unique_id=353277208]
+position = Vector2(1000, -16.5)
+shape = SubResource("RectangleShape2D_c1pbi")
+
+[node name="CollisionShape2D21" type="CollisionShape2D" parent="random_collisions" unique_id=44490950]
+position = Vector2(991, -76)
+shape = SubResource("RectangleShape2D_535f6")
+
+[node name="CollisionShape2D22" type="CollisionShape2D" parent="random_collisions" unique_id=1861303845]
+position = Vector2(999.75, -147)
+shape = SubResource("RectangleShape2D_50fbu")
+
+[node name="CollisionShape2D23" type="CollisionShape2D" parent="random_collisions" unique_id=394348314]
+position = Vector2(912, -122.5)
+shape = SubResource("RectangleShape2D_0fmhk")
+
 [node name="CollisionShape2D10" type="CollisionShape2D" parent="random_collisions" unique_id=478002760]
 position = Vector2(913, -167)
 shape = SubResource("RectangleShape2D_8gofh")
+
+[node name="CollisionShape2D16" type="CollisionShape2D" parent="random_collisions" unique_id=618888998]
+position = Vector2(840.97656, -170.5)
+shape = SubResource("RectangleShape2D_iafhg")
 
 [node name="CollisionShape2D11" type="CollisionShape2D" parent="random_collisions" unique_id=1237632191]
 position = Vector2(16, -132.5)
@@ -611,6 +734,10 @@ shape = SubResource("RectangleShape2D_cmcjb")
 [node name="CollisionShape2D13" type="CollisionShape2D" parent="random_collisions" unique_id=948967308]
 position = Vector2(40, -187)
 shape = SubResource("RectangleShape2D_556r4")
+
+[node name="CollisionShape2D15" type="CollisionShape2D" parent="random_collisions" unique_id=1219409312]
+position = Vector2(225, -187)
+shape = SubResource("RectangleShape2D_cr74b")
 
 [node name="CollisionShape2D14" type="CollisionShape2D" parent="random_collisions" unique_id=66962465]
 position = Vector2(200.5, -103)
@@ -718,53 +845,6 @@ position = Vector2(792, 32)
 rotation = 1.5707964
 type = "1"
 
-[node name="Bedy" type="Sprite2D" parent="leveltrashfloor2" unique_id=1946887483]
-position = Vector2(1000, -21)
-texture = ExtResource("27_kih21")
-
-[node name="Bedblue" type="Sprite2D" parent="leveltrashfloor2" unique_id=1632481854]
-position = Vector2(800, -38)
-texture = ExtResource("28_w3o6u")
-centered = false
-
-[node name="Bedblue2" type="Sprite2D" parent="leveltrashfloor2" unique_id=1381617242]
-position = Vector2(800, -26)
-texture = ExtResource("28_w3o6u")
-centered = false
-
-[node name="Bedgr" type="Sprite2D" parent="leveltrashfloor2" unique_id=921237457]
-position = Vector2(896, -133)
-texture = ExtResource("29_2e2fo")
-centered = false
-
-[node name="Closet" type="Sprite2D" parent="leveltrashfloor2" unique_id=38798689]
-position = Vector2(895, -13)
-texture = ExtResource("30_2e2fo")
-centered = false
-
-[node name="Closet2" type="Sprite2D" parent="leveltrashfloor2" unique_id=897153669]
-position = Vector2(991, 9)
-texture = ExtResource("30_2e2fo")
-centered = false
-
-[node name="Closet3" type="Sprite2D" parent="leveltrashfloor2" unique_id=318980871]
-position = Vector2(991, -171)
-texture = ExtResource("30_2e2fo")
-centered = false
-
-[node name="Clock" type="Sprite2D" parent="leveltrashfloor2" unique_id=1644680003]
-position = Vector2(984, -93)
-texture = ExtResource("31_gur6y")
-centered = false
-
-[node name="Boxic" type="Sprite2D" parent="leveltrashfloor2" unique_id=600058329]
-position = Vector2(761, -41)
-texture = ExtResource("32_v3why")
-
-[node name="Cactus" type="Sprite2D" parent="leveltrashfloor2" unique_id=874951009]
-position = Vector2(841, -183)
-texture = ExtResource("3_7agi7")
-
 [node name="Markers" type="Node2D" parent="." unique_id=1589906721]
 
 [node name="WindowMarker" type="Marker2D" parent="Markers" unique_id=504295377]
@@ -843,8 +923,8 @@ position = Vector2(8, 36)
 shape = SubResource("RectangleShape2D_wgxnn")
 
 [node name="Sprite0003" type="Sprite2D" parent="shadows/room2shadow" unique_id=769286717]
-position = Vector2(8, 4)
-scale = Vector2(5, 6)
+position = Vector2(7.9999976, -1.5000019)
+scale = Vector2(5.6250005, 6.8125)
 texture = ExtResource("7_b121j")
 
 [node name="Sprite0004" type="Sprite2D" parent="shadows/room2shadow" unique_id=89047157]
@@ -884,23 +964,23 @@ position = Vector2(106, -29)
 shape = SubResource("RectangleShape2D_p1u0y")
 
 [node name="Sprite0003" type="Sprite2D" parent="shadows/mainshadow" unique_id=1840115456]
-position = Vector2(17.999989, 6)
-scale = Vector2(17.000002, 3)
+position = Vector2(15.499994, 2.861023e-06)
+scale = Vector2(17.312502, 3.7499995)
 texture = ExtResource("7_b121j")
 
 [node name="Sprite0004" type="Sprite2D" parent="shadows/mainshadow" unique_id=1959494489]
-position = Vector2(-46.00004, -57.999992)
-scale = Vector2(8.999997, 4.999999)
+position = Vector2(-45.99999, -80.5)
+scale = Vector2(9.625001, 6.3125)
 texture = ExtResource("7_b121j")
 
 [node name="Sprite0005" type="Sprite2D" parent="shadows/mainshadow" unique_id=997063491]
-position = Vector2(-93.99999, 86)
-scale = Vector2(2.999999, 7.0000005)
+position = Vector2(-94.49999, 86.5)
+scale = Vector2(3.5625005, 7.0625005)
 texture = ExtResource("7_b121j")
 
 [node name="Sprite0006" type="Sprite2D" parent="shadows/mainshadow" unique_id=938294010]
-position = Vector2(-66.99994, 110)
-scale = Vector2(0.37499952, 2.0000002)
+position = Vector2(-64.99997, 110)
+scale = Vector2(0.12500365, 2.0000002)
 texture = ExtResource("7_b121j")
 
 [node name="room1shadow" parent="shadows" unique_id=2018371456 instance=ExtResource("12_8iemx")]
@@ -911,8 +991,8 @@ position = Vector2(-10, 39)
 shape = SubResource("RectangleShape2D_g4v7s")
 
 [node name="Sprite0003" type="Sprite2D" parent="shadows/room1shadow" unique_id=132496661]
-position = Vector2(-2, 7)
-scale = Vector2(7, 6)
+position = Vector2(-1.4999783, 0.999993)
+scale = Vector2(7.562501, 6.75)
 texture = ExtResource("7_b121j")
 
 [node name="Sprite0005" type="Sprite2D" parent="shadows/room1shadow" unique_id=2139127152]
@@ -933,8 +1013,8 @@ position = Vector2(-8, -36.5)
 shape = SubResource("RectangleShape2D_qssos")
 
 [node name="Sprite0004" type="Sprite2D" parent="shadows/room3shadow" unique_id=2025756380]
-position = Vector2(-8, -4)
-scale = Vector2(7, 4)
+position = Vector2(-7.999946, -10.5)
+scale = Vector2(7.625001, 4.8125)
 texture = ExtResource("7_b121j")
 
 [node name="shadow" parent="shadows" unique_id=779952447 instance=ExtResource("12_8iemx")]
@@ -971,6 +1051,7 @@ marcus = NodePath("../Marcus")
 glenn = NodePath("../glenn")
 
 [node name="Black" type="Sprite2D" parent="." unique_id=1877298009]
+visible = false
 position = Vector2(114.5, -62.000015)
 scale = Vector2(62.187504, 41.374996)
 texture = ExtResource("33_gur6y")

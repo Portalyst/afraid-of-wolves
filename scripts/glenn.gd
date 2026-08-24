@@ -7,11 +7,15 @@ signal in_vent
 func _ready() -> void:
 	super._ready()
 	computer.block.connect(run_away)
+	computer.scanning.connect(scanning)
 	set_meta("wolf", "glenn")
-	spawn_tool.spawn_glenn.connect(start_spawn)
+	spawn_tool.spawn_glenn.connect(spawn)
 
-func spawn():
-	super.spawn()
+func scanning(state: bool):
+	$PassiveTimer.paused = state
+
+func spawn(stat: int):
+	super.spawn(stat)
 	var vent := randi_range(0, 2)
 	in_vent.emit(vent)
 	global.wolves_can_spawn = false

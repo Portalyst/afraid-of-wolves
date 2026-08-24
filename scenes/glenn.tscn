@@ -4,7 +4,6 @@
 [ext_resource type="Script" uid="uid://bejenxvfjag5g" path="res://scripts/glenn.gd" id="2_mvx3p"]
 [ext_resource type="Texture2D" uid="uid://dnend6pljsbca" path="res://sprites/wolves/glenn/sheet.png" id="3_20kd6"]
 [ext_resource type="AudioStream" uid="uid://cdwo2wxms3ant" path="res://sounds/notmy/wolves/glenn_crawl.ogg" id="4_3fb38"]
-[ext_resource type="AudioStream" uid="uid://bwc1uo2gu2owt" path="res://sounds/notmy/wolves/glenn_moan.ogg" id="5_1x4iq"]
 [ext_resource type="AudioStream" uid="uid://dwgo02gfwp1iq" path="res://sounds/notmy/wolves/glenn_knock.ogg" id="6_vlmy4"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3fb38"]
@@ -145,6 +144,7 @@ animations = [{
 [node name="glenn" unique_id=1251208640 instance=ExtResource("1_mvx3p")]
 script = ExtResource("2_mvx3p")
 Name = "glenn"
+spawn_time = 30
 
 [node name="AnimatedSprite2D" parent="." index="0" unique_id=1740745473]
 sprite_frames = SubResource("SpriteFrames_20kd6")
@@ -166,7 +166,7 @@ debug_enabled = true
 stream = ExtResource("4_3fb38")
 
 [node name="spawn_sound" parent="." index="7" unique_id=937897585]
-stream = ExtResource("5_1x4iq")
+stream = ExtResource("4_3fb38")
 
 [node name="run_away_sound" parent="." index="8" unique_id=857314457]
 stream = ExtResource("6_vlmy4")

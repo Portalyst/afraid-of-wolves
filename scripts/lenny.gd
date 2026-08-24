@@ -8,7 +8,7 @@ signal brake_window
 func _ready() -> void:
 	super._ready()
 	set_meta("wolf", "lenny")
-	spawn_tool.spawn_lenny.connect(start_spawn)
+	spawn_tool.spawn_lenny.connect(spawn)
 
 func _physics_process(delta: float) -> void:
 	super._physics_process(delta)
@@ -19,17 +19,18 @@ func _physics_process(delta: float) -> void:
 			velocity.x = move_toward(velocity.x, 0, speed)
 			velocity.y = move_toward(velocity.y, 0, speed)
 	
+#
+#func start_spawn():
+	#
+	#super.start_spawn()
 
-func start_spawn():
+func spawn(stat: int):
 	var volume = self.position.distance_to(target.position)
 	volume = int(volume / 10)
 	if volume >= 10:
 		volume = 10
 	$spawn_sound.attenuation = volume
-	super.start_spawn()
-
-func spawn():
-	super.spawn()
+	$spawn_sound.play()
 	numb = randi_range(0, 9)
 	position = windows[numb]
 	if numb in [0, 5]:
@@ -40,6 +41,7 @@ func spawn():
 		$AnimatedSprite2D.play("idle_left")
 	if numb in [4, 8, 9]:
 		$AnimatedSprite2D.play("idle_down")
+	super.spawn(stat)
 
 func run_away():
 	super.run_away()

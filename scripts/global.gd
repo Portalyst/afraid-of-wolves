@@ -8,6 +8,8 @@ var wolf_on_floor : int = 1
 var player_can_walk : bool = true
 var player_can_flash : bool = true
 
+var amount_of_players : int = 1
+
 var wolves_can_spawn : bool = true
 var wolf_breach : bool = false
 var wolf_who_kill : String = "lenny"

@@ -3,6 +3,7 @@ extends StaticBody2D
 @export var glenn : Node
 
 signal block
+signal scanning
 
 var buttons : Array = [1, 0, 0]
 var closed_vents : Array = [0, 0, 0]
@@ -72,6 +73,14 @@ func _on_vent_button_3_mouse_exited() -> void:
 
 func _on_quit_pressed() -> void:
 	$CanvasLayer.hide()
+	$CanvasLayer/vent1/Attention.hide()
+	$CanvasLayer/vent2/Attention.hide()
+	$CanvasLayer/vent3/Attention.hide()
+	$CanvasLayer/vent1/scan.hide()
+	$CanvasLayer/vent2/scan.hide()
+	$CanvasLayer/vent3/scan.hide()
+	$scan_timer.stop()
+	scanning.emit(false)
 	global.player_can_walk = true
 
 func _on_vent_button_1_pressed() -> void:
@@ -122,6 +131,7 @@ func _on_scan_button_pressed() -> void:
 		$CanvasLayer/vent2/scan.play("run")
 		$CanvasLayer/vent3/scan.play("run")
 		$scan_timer.start()
+		scanning.emit(true)
 
 func _on_close_button_pressed() -> void:
 	$CanvasLayer/close_anim.play("close")
@@ -152,3 +162,4 @@ func _on_scan_timer_timeout() -> void:
 			$CanvasLayer/vent2/Attention.show()
 		if glenn_in_vent == 2:
 			$CanvasLayer/vent3/Attention.show()
+	scanning.emit(false)

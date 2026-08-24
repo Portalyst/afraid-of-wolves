@@ -8,7 +8,7 @@ func _ready() -> void:
 	super._ready()
 	$AnimatedSprite2D.hide()
 	set_meta("wolf", "marcus")
-	spawn_tool.spawn_marcus.connect(start_spawn)
+	spawn_tool.spawn_marcus.connect(spawn)
 
 func _physics_process(delta: float) -> void:
 	super._physics_process(delta)
@@ -21,8 +21,8 @@ func _physics_process(delta: float) -> void:
 			volume = 10
 		$sounds.attenuation = volume
 
-func spawn():
-	super.spawn()
+func spawn(stat: int):
+	super.spawn(stat)
 	numb = randi_range(0, 4)
 	position = windows[numb]
 	active = true

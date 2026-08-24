@@ -1,9 +1,9 @@
-res://sprites/main_menu/
 res://scenes/
+res://scripts/
+res://sprites/main_menu/
 res://sprites/wolves/marcus/
 res://sprites/wolves/lenny/
 res://sprites/wolves/glenn/
-res://scripts/
 res://sprites/dead_menu/
 res://sprites/computer/gui/
 res://sprites/computer/
