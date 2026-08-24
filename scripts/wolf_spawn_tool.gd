@@ -29,7 +29,23 @@ func _ready() -> void:
 	lenny.wolf_run_away.connect(wolves_run_away)
 	marcus.wolf_run_away.connect(wolves_run_away)
 	glenn.wolf_run_away.connect(wolves_run_away)
-	
+	match global.mode:
+		global.DIFFICULT.easy:
+			lenny_aggresive = 2
+			marcus_aggresive = 2
+			glenn_aggresive = 2
+		global.DIFFICULT.normal:
+			lenny_aggresive = 6
+			marcus_aggresive = 6
+			glenn_aggresive = 6
+		global.DIFFICULT.hard:
+			lenny_aggresive = 13
+			marcus_aggresive = 11
+			glenn_aggresive = 11
+		global.DIFFICULT.death_wish:
+			lenny_aggresive = 15
+			marcus_aggresive = 13
+			glenn_aggresive = 13
 
 func _process(delta: float) -> void:
 	$CanvasLayer/Label.text = "lp: "+str(lenny_path)+" mp: "+str(marcus_path)+" gp: "+str(glenn_path)
