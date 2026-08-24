@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://dsu6us0ix3svi"]
+
+[ext_resource type="Script" uid="uid://crjimoy7p8grl" path="res://scripts/clock.gd" id="1_7dv1d"]
+[ext_resource type="Texture2D" uid="uid://b4ohyapwvq7t5" path="res://sprites/enviroment/furniture/clock.png" id="1_vlc7k"]
+[ext_resource type="Texture2D" uid="uid://xxkm7odxu2q6" path="res://sprites/enviroment/furniture/arrow0.png" id="2_eptq3"]
+[ext_resource type="Texture2D" uid="uid://cfkw38ctpfk62" path="res://sprites/enviroment/furniture/arrow1.png" id="3_7dv1d"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
+size = Vector2(13, 32)
+
+[node name="clock" type="StaticBody2D" unique_id=1908822178]
+script = ExtResource("1_7dv1d")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=904499068]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_g4v7s")
+
+[node name="Clock" type="Sprite2D" parent="." unique_id=894543233]
+texture = ExtResource("1_vlc7k")
+
+[node name="Arrow0" type="Sprite2D" parent="." unique_id=1896310190]
+position = Vector2(-0.5, -7.5)
+texture = ExtResource("2_eptq3")
+offset = Vector2(0, -1)
+
+[node name="Arrow1" type="Sprite2D" parent="." unique_id=416645037]
+position = Vector2(-0.5, -7.5)
+texture = ExtResource("3_7dv1d")
+offset = Vector2(0, -1)

@@ -14,7 +14,7 @@ var wolves_can_spawn : bool = true
 var wolf_breach : bool = false
 var wolf_who_kill : String = "lenny"
 
-var death_wish_unlocked : bool = false
+var death_wish_unlocked : bool = true
 
 enum DIFFICULT {story, easy, normal, hard, death_wish}
 var mode := DIFFICULT.easy
@@ -24,6 +24,18 @@ var faulty_levers : bool = false
 var computer_modifier : bool = false
 var sounds_modifier : bool = false
 var lights_off : bool = false
+
+var diff_mods : int = 0
+#
+#var map0_rank : String = "n"
+#var map1_rank : String = "n"
+#var map2_rank : String = "n"
+#var map3_rank : String = "n"
+#var map4_rank : String = "n"
+
+var maps : Array = ["n", "n", "n", "n", "n"]
+
+var current_map : int = 0
 
 #var windows : Array
 #var flashs : Array

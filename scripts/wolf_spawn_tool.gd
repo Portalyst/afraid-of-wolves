@@ -29,15 +29,10 @@ func _ready() -> void:
 	lenny.wolf_run_away.connect(wolves_run_away)
 	marcus.wolf_run_away.connect(wolves_run_away)
 	glenn.wolf_run_away.connect(wolves_run_away)
-	lenny.breach.connect(breach)
-	marcus.breach.connect(breach)
-	glenn.breach.connect(breach)
+	
 
 func _process(delta: float) -> void:
 	$CanvasLayer/Label.text = "lp: "+str(lenny_path)+" mp: "+str(marcus_path)+" gp: "+str(glenn_path)
-
-func breach():
-	game_tool.queue_free()
 
 func wolves_run_away(wolf: String):
 	if wolf == "lenny":

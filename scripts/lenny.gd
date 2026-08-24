@@ -27,8 +27,8 @@ func _physics_process(delta: float) -> void:
 func spawn(stat: int):
 	var volume = self.position.distance_to(target.position)
 	volume = int(volume / 10)
-	if volume >= 10:
-		volume = 10
+	if volume >= 5:
+		volume = 5
 	$spawn_sound.attenuation = volume
 	$spawn_sound.play()
 	numb = randi_range(0, 9)

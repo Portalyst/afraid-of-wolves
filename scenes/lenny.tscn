@@ -321,7 +321,7 @@ one_shot = true
 
 [node name="spawn_sound" parent="." index="8" unique_id=937897585]
 stream = ExtResource("4_ug321")
-volume_db = 10.0
+volume_db = 12.496
 
 [node name="run_away_sound" parent="." index="9" unique_id=857314457]
 stream = ExtResource("6_1pxfj")

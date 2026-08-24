@@ -30,9 +30,10 @@
 [ext_resource type="Texture2D" uid="uid://bmyylfmu7tr1m" path="res://sprites/enviroment/furniture/bedblue.png" id="28_w3o6u"]
 [ext_resource type="Texture2D" uid="uid://dxaa64fge8v0s" path="res://sprites/enviroment/furniture/bedgr.png" id="29_2e2fo"]
 [ext_resource type="Texture2D" uid="uid://duwrgwjfxnnnv" path="res://sprites/enviroment/furniture/closet.png" id="30_2e2fo"]
-[ext_resource type="Texture2D" uid="uid://b4ohyapwvq7t5" path="res://sprites/enviroment/furniture/clock.png" id="31_gur6y"]
 [ext_resource type="Texture2D" uid="uid://cekp2i7m66n25" path="res://sprites/enviroment/furniture/boxic.png" id="32_v3why"]
 [ext_resource type="Texture2D" uid="uid://dlblhhvc6ysys" path="res://sprites/dead_menu/black.png" id="33_gur6y"]
+[ext_resource type="PackedScene" uid="uid://ca85enlose153" path="res://scenes/game_end_tool.tscn" id="33_v3why"]
+[ext_resource type="PackedScene" uid="uid://dsu6us0ix3svi" path="res://scenes/clock.tscn" id="34_v3why"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_8iemx"]
 
@@ -334,9 +335,6 @@ size = Vector2(17, 48)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c1pbi"]
 size = Vector2(17, 33)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_535f6"]
-size = Vector2(17, 33)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_50fbu"]
 size = Vector2(17.5, 48)
 
@@ -508,11 +506,6 @@ centered = false
 [node name="Closet3" type="Sprite2D" parent="enviroment" unique_id=318980871]
 position = Vector2(991, -171)
 texture = ExtResource("30_2e2fo")
-centered = false
-
-[node name="Clock" type="Sprite2D" parent="enviroment" unique_id=1644680003]
-position = Vector2(984, -93)
-texture = ExtResource("31_gur6y")
 centered = false
 
 [node name="Boxic" type="Sprite2D" parent="enviroment" unique_id=600058329]
@@ -702,10 +695,6 @@ shape = SubResource("RectangleShape2D_svjb4")
 [node name="CollisionShape2D20" type="CollisionShape2D" parent="random_collisions" unique_id=353277208]
 position = Vector2(1000, -16.5)
 shape = SubResource("RectangleShape2D_c1pbi")
-
-[node name="CollisionShape2D21" type="CollisionShape2D" parent="random_collisions" unique_id=44490950]
-position = Vector2(991, -76)
-shape = SubResource("RectangleShape2D_535f6")
 
 [node name="CollisionShape2D22" type="CollisionShape2D" parent="random_collisions" unique_id=1861303845]
 position = Vector2(999.75, -147)
@@ -912,6 +901,10 @@ visible = false
 position = Vector2(872.5, -62)
 shape = SubResource("RectangleShape2D_64w2a")
 
+[node name="clock" parent="." unique_id=1908822178 node_paths=PackedStringArray("game_tool") instance=ExtResource("34_v3why")]
+position = Vector2(989, -76)
+game_tool = NodePath("../game_end_tool")
+
 [node name="shadows" type="Node2D" parent="." unique_id=844534344]
 visible = false
 
@@ -1045,7 +1038,14 @@ position = Vector2(970, -227)
 position = Vector2(896, -220)
 glenn = NodePath("../glenn")
 
-[node name="WolfSpawnTool" parent="." unique_id=1751355580 node_paths=PackedStringArray("lenny", "marcus", "glenn") instance=ExtResource("23_3ies3")]
+[node name="WolfSpawnTool" parent="." unique_id=1751355580 node_paths=PackedStringArray("lenny", "marcus", "glenn", "game_tool") instance=ExtResource("23_3ies3")]
+lenny = NodePath("../Lenny")
+marcus = NodePath("../Marcus")
+glenn = NodePath("../glenn")
+game_tool = NodePath("../game_end_tool")
+
+[node name="game_end_tool" parent="." unique_id=1615611667 node_paths=PackedStringArray("wolf_tool", "lenny", "marcus", "glenn") instance=ExtResource("33_v3why")]
+wolf_tool = NodePath("../WolfSpawnTool")
 lenny = NodePath("../Lenny")
 marcus = NodePath("../Marcus")
 glenn = NodePath("../glenn")

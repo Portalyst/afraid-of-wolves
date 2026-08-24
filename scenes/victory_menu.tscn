@@ -1,3 +1,316 @@
 [gd_scene format=3 uid="uid://bwx7c6vcab2a0"]
 
+[ext_resource type="Texture2D" uid="uid://dlblhhvc6ysys" path="res://sprites/dead_menu/black.png" id="1_hs5er"]
+[ext_resource type="Script" uid="uid://csoibmqhy1vrg" path="res://scripts/victory_menu.gd" id="1_mjq6d"]
+[ext_resource type="Texture2D" uid="uid://kg5tmsta3ixj" path="res://sprites/victory_menu/survived.png" id="2_n4lob"]
+[ext_resource type="Texture2D" uid="uid://hwo8aumjv5ig" path="res://sprites/victory_menu/difficulty.png" id="3_n4lob"]
+[ext_resource type="Texture2D" uid="uid://dic2dc2wglodn" path="res://sprites/victory_menu/difficulty_modifiers.png" id="4_3gxct"]
+[ext_resource type="Texture2D" uid="uid://2lj8lbqr6h51" path="res://sprites/main_menu/death_wish.png" id="5_kxgey"]
+[ext_resource type="Texture2D" uid="uid://bymd7fb404335" path="res://sprites/main_menu/easy.png" id="6_a7waj"]
+[ext_resource type="Texture2D" uid="uid://2i7m58k2gsms" path="res://sprites/main_menu/hard.png" id="7_alani"]
+[ext_resource type="Texture2D" uid="uid://dhxiqtvpckrw0" path="res://sprites/main_menu/normal.png" id="8_dwkia"]
+[ext_resource type="Texture2D" uid="uid://dih4344isn7ah" path="res://sprites/victory_menu/amount_of_modifiers.png" id="9_j4ov5"]
+[ext_resource type="Texture2D" uid="uid://b0n3t1ayr4f7u" path="res://sprites/victory_menu/you_rank.png" id="10_a7waj"]
+[ext_resource type="Texture2D" uid="uid://bsvapyfnbeq2y" path="res://sprites/victory_menu/rank_a.png" id="11_adwtd"]
+[ext_resource type="Texture2D" uid="uid://cnd3yatbpy6u7" path="res://sprites/victory_menu/rank_b.png" id="12_mjq6d"]
+[ext_resource type="Texture2D" uid="uid://dojocdqotp81v" path="res://sprites/victory_menu/rank_c.png" id="13_0a5i8"]
+[ext_resource type="Texture2D" uid="uid://cof3omfaaa154" path="res://sprites/victory_menu/rank_p.png" id="14_k6ss7"]
+[ext_resource type="Texture2D" uid="uid://dsn1r14cvml6e" path="res://sprites/victory_menu/rank_s.png" id="15_611am"]
+[ext_resource type="Texture2D" uid="uid://dlpn72laqmih8" path="res://sprites/victory_menu/rank_sp.png" id="16_w6owi"]
+[ext_resource type="Texture2D" uid="uid://kgi27vbw5nqw" path="res://sprites/victory_menu/rank_spp.png" id="17_6ebsd"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g4v7s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_kxgey")
+}],
+"loop": 1,
+"name": &"death_wish",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_a7waj")
+}],
+"loop": 1,
+"name": &"easy",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_alani")
+}],
+"loop": 1,
+"name": &"hard",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_dwkia")
+}],
+"loop": 1,
+"name": &"normal",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kyf5d"]
+atlas = ExtResource("9_j4ov5")
+region = Rect2(0, 0, 7, 9)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ckv7e"]
+atlas = ExtResource("9_j4ov5")
+region = Rect2(7, 0, 7, 9)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m8r0n"]
+atlas = ExtResource("9_j4ov5")
+region = Rect2(14, 0, 7, 9)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_adwtd"]
+atlas = ExtResource("9_j4ov5")
+region = Rect2(21, 0, 7, 9)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mjq6d"]
+atlas = ExtResource("9_j4ov5")
+region = Rect2(28, 0, 7, 9)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0a5i8"]
+atlas = ExtResource("9_j4ov5")
+region = Rect2(35, 0, 7, 9)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yf5fn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kyf5d")
+}],
+"loop": 1,
+"name": &"0",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ckv7e")
+}],
+"loop": 1,
+"name": &"1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m8r0n")
+}],
+"loop": 1,
+"name": &"2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_adwtd")
+}],
+"loop": 1,
+"name": &"3",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mjq6d")
+}],
+"loop": 1,
+"name": &"4",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0a5i8")
+}],
+"loop": 1,
+"name": &"5",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_57qmd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_adwtd")
+}],
+"loop": 1,
+"name": &"a",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_mjq6d")
+}],
+"loop": 1,
+"name": &"b",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_0a5i8")
+}],
+"loop": 1,
+"name": &"c",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_k6ss7")
+}],
+"loop": 1,
+"name": &"p",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("15_611am")
+}],
+"loop": 1,
+"name": &"s",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("16_w6owi")
+}],
+"loop": 1,
+"name": &"sp",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("17_6ebsd")
+}],
+"loop": 1,
+"name": &"spp",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_adwtd"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("fade:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_mjq6d"]
+resource_name = "fade_in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("fade:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_0a5i8"]
+resource_name = "fade_out"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("fade:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_k6ss7"]
+_data = {
+&"RESET": SubResource("Animation_adwtd"),
+&"fade_in": SubResource("Animation_mjq6d"),
+&"fade_out": SubResource("Animation_0a5i8")
+}
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_mjq6d"]
+load_path = "res://.godot/imported/next.png-ee02d666aae2208823c89f0205b2e2bd.ctex"
+
 [node name="victory_menu" type="Node2D" unique_id=115855626]
+script = ExtResource("1_mjq6d")
+
+[node name="background" type="Sprite2D" parent="." unique_id=1228289285]
+position = Vector2(128, 72.00001)
+scale = Vector2(16, 9)
+texture = ExtResource("1_hs5er")
+metadata/_edit_lock_ = true
+
+[node name="Survived" type="Sprite2D" parent="." unique_id=1189018705]
+position = Vector2(128, 35)
+texture = ExtResource("2_n4lob")
+
+[node name="Difficulty" type="Sprite2D" parent="." unique_id=305663958]
+position = Vector2(16, 73)
+texture = ExtResource("3_n4lob")
+centered = false
+
+[node name="DifficultyModifiers" type="Sprite2D" parent="." unique_id=1196892598]
+position = Vector2(16, 94)
+texture = ExtResource("4_3gxct")
+centered = false
+
+[node name="difficulty_sprite" type="AnimatedSprite2D" parent="." unique_id=2076200970]
+position = Vector2(16, 81)
+sprite_frames = SubResource("SpriteFrames_g4v7s")
+animation = &"normal"
+centered = false
+
+[node name="amount_of_modifiers" type="AnimatedSprite2D" parent="." unique_id=1107092692]
+position = Vector2(16, 103)
+sprite_frames = SubResource("SpriteFrames_yf5fn")
+animation = &"5"
+centered = false
+
+[node name="YouRank" type="Sprite2D" parent="." unique_id=1801865761]
+position = Vector2(197, 73)
+texture = ExtResource("10_a7waj")
+centered = false
+
+[node name="rank" type="AnimatedSprite2D" parent="." unique_id=354473050]
+position = Vector2(215, 90)
+sprite_frames = SubResource("SpriteFrames_57qmd")
+animation = &"spp"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=575827979]
+
+[node name="fade_player" type="AnimationPlayer" parent="." unique_id=725551324]
+libraries/ = SubResource("AnimationLibrary_k6ss7")
+
+[node name="fade" type="Sprite2D" parent="." unique_id=420919577]
+visible = false
+position = Vector2(128, 72)
+scale = Vector2(16, 9)
+texture = ExtResource("1_hs5er")
+
+[node name="Timer" type="Timer" parent="." unique_id=610118028]
+one_shot = true
+
+[node name="Next" type="Sprite2D" parent="." unique_id=1250095428]
+position = Vector2(241, 137)
+texture = SubResource("CompressedTexture2D_mjq6d")
+
+[node name="next_button" type="Button" parent="Next" unique_id=2128213829]
+self_modulate = Color(1, 1, 1, 0)
+offset_left = -16.0
+offset_top = -8.0
+offset_right = 15.0
+offset_bottom = 7.0
+
+[connection signal="pressed" from="Next/next_button" to="." method="_on_next_button_pressed"]

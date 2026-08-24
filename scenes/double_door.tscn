@@ -388,6 +388,8 @@ _data = {
 size = Vector2(32, 36)
 
 [node name="Double_door" type="StaticBody2D" unique_id=735009287]
+collision_layer = 2
+collision_mask = 2
 script = ExtResource("1_07wbm")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=735103022]

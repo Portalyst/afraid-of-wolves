@@ -5,6 +5,11 @@ var selected : Array = [1, 0, 0]
 func _ready() -> void:
 	if global.death_wish_unlocked == false:
 		$DeathWish.hide()
+	$Map0/rank.play(global.maps[0])
+	$Map1/rank.play(global.maps[1])
+	$Map2/rank.play(global.maps[2])
+	$Map3/rank.play(global.maps[3])
+	$Map4/rank.play(global.maps[4])
 
 func _process(delta: float) -> void:
 	$arrows/story_mode.hide()
@@ -93,7 +98,9 @@ func _on_map_0_button_mouse_exited() -> void:
 	$Map0.position.y -= 1
 
 func _on_map_0_button_pressed() -> void:
+	global.current_map = 0
 	$AnimationPlayer.play("map_selected")
+	$Control2.show()
 	await $AnimationPlayer.animation_finished
 	get_tree().change_scene_to_file("res://scenes/level.tscn")
 
@@ -109,6 +116,7 @@ func _on_map_1_button_mouse_exited() -> void:
 
 func _on_map_1_button_pressed() -> void:
 	$AnimationMapLock1.play("shake")
+	#global.current_map = 1
 
 func _on_map_2_button_mouse_entered() -> void:
 	$Map2.position.y += 1
@@ -122,6 +130,7 @@ func _on_map_2_button_mouse_exited() -> void:
 
 func _on_map_2_button_pressed() -> void:
 	$AnimationMapLock2.play("shake")
+	#global.current_map = 2
 
 func _on_map_3_button_mouse_entered() -> void:
 	$Map3.position.y += 1
@@ -135,6 +144,7 @@ func _on_map_3_button_mouse_exited() -> void:
 
 func _on_map_3_button_pressed() -> void:
 	$AnimationMapLock3.play("shake")
+	#global.current_map = 3
 
 func _on_map_4_button_mouse_entered() -> void:
 	$Map4.position.y += 1
@@ -148,6 +158,7 @@ func _on_map_4_button_mouse_exited() -> void:
 
 func _on_map_4_button_pressed() -> void:
 	$AnimationMapLock4.play("shake")
+	#global.current_map = 4
 
 func _on_story_mode_button_pressed() -> void:
 	#global.mode = global.DIFFICULT.story
@@ -178,9 +189,11 @@ func _on_selection_0_button_pressed() -> void:
 	global.thunderstorm = !global.thunderstorm
 	if $selection0.animation == "entered":
 		$selection0.play("selected")
+		global.diff_mods += 1
 		return
 	if $selection0.animation == "selected":
 		$selection0.play("exited")
+		global.diff_mods -= 1
 		return
 
 func _on_selection_1_button_mouse_entered() -> void:
@@ -195,9 +208,11 @@ func _on_selection_1_button_pressed() -> void:
 	global.faulty_levers = !global.faulty_levers
 	if $selection1.animation == "entered":
 		$selection1.play("selected")
+		global.diff_mods += 1
 		return
 	if $selection1.animation == "selected":
 		$selection1.play("exited")
+		global.diff_mods -= 1
 		return
 
 func _on_selection_2_button_mouse_entered() -> void:
@@ -212,9 +227,11 @@ func _on_selection_2_button_pressed() -> void:
 	global.computer_modifier = !global.computer_modifier
 	if $selection2.animation == "entered":
 		$selection2.play("selected")
+		global.diff_mods += 1
 		return
 	if $selection2.animation == "selected":
 		$selection2.play("exited")
+		global.diff_mods -= 1
 		return
 
 func _on_selection_3_button_mouse_entered() -> void:
@@ -229,9 +246,11 @@ func _on_selection_3_button_pressed() -> void:
 	global.sounds_modifier = !global.sounds_modifier
 	if $selection3.animation == "entered":
 		$selection3.play("selected")
+		global.diff_mods += 1
 		return
 	if $selection3.animation == "selected":
 		$selection3.play("exited")
+		global.diff_mods -= 1
 		return
 
 func _on_selection_4_button_mouse_entered() -> void:
@@ -246,7 +265,9 @@ func _on_selection_4_button_pressed() -> void:
 	global.lights_off = !global.lights_off
 	if $selection4.animation == "entered":
 		$selection4.play("selected")
+		global.diff_mods += 1
 		return
 	if $selection4.animation == "selected":
 		$selection4.play("exited")
+		global.diff_mods -= 1
 		return
