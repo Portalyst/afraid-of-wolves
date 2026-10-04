@@ -4,6 +4,8 @@ extends StaticBody2D
 
 var locked : bool = true
 
+var player
+
 func _ready() -> void:
 	set_meta("door", 1)
 	$AnimatedSprite2D.play("close_down_"+type)
@@ -28,12 +30,14 @@ func _on_down_trigger_body_entered(body: Node2D) -> void:
 	if body.has_meta("player") or body.has_meta("wolf"):
 		$AnimatedSprite2D.play("open_up_"+type)
 		$sound_open.play()
+		$LightOccluder2D.hide()
 		$up_trigger.monitoring = false
 
 func _on_down_trigger_body_exited(body: Node2D) -> void:
 	if body.has_meta("player") or body.has_meta("wolf"):
 		$AnimatedSprite2D.play("close_up_"+type)
 		$sound_close.play()
+		$LightOccluder2D.show()
 		await $AnimatedSprite2D.animation_finished
 		$up_trigger.monitoring = true
 
@@ -41,12 +45,14 @@ func _on_up_trigger_body_entered(body: Node2D) -> void:
 	if body.has_meta("player") or body.has_meta("wolf"):
 		$AnimatedSprite2D.play("open_down_"+type)
 		$sound_open.play()
+		$LightOccluder2D.hide()
 		$down_trigger.monitoring = false
 
 func _on_up_trigger_body_exited(body: Node2D) -> void:
 	if body.has_meta("player") or body.has_meta("wolf"):
 		$AnimatedSprite2D.play("close_down_"+type)
 		$sound_close.play()
+		$LightOccluder2D.show()
 		await $AnimatedSprite2D.animation_finished
 		$down_trigger.monitoring = true
 

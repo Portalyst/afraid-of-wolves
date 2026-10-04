@@ -1319,6 +1319,7 @@ offset_bottom = 8.0
 scale = Vector2(0.88, 0.88)
 
 [node name="Control" type="Control" parent="." unique_id=68265258]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_left = 155.0
@@ -1335,6 +1336,7 @@ offset_right = 256.0
 offset_bottom = 328.0
 
 [node name="Wip" type="Sprite2D" parent="." unique_id=819731380]
+visible = false
 self_modulate = Color(1, 1, 1, 0.54509807)
 position = Vector2(200, 372)
 scale = Vector2(1, 1.6590904)

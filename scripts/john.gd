@@ -13,6 +13,8 @@ signal flash
 func _ready() -> void:
 	set_meta("player", 1)
 	$CanvasLayer.show()
+	if global.lights_off == true:
+		$PointLight2D.show()
 
 func _physics_process(delta: float) -> void:
 	if global.player_can_walk == false:

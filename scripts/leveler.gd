@@ -4,6 +4,7 @@ extends Area2D
 var active : bool = false
 var stuck : bool = false
 
+#signal get_selected
 signal charge
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -49,11 +50,13 @@ func _on_body_exited(body: Node2D) -> void:
 func _on_light_timer_timeout() -> void:
 	$charge.visible = !$charge.visible
 	$light.visible = !$light.visible
+	$PointLight2D.visible = !$PointLight2D.visible
 
 func _on_light_end_timer_timeout() -> void:
 	$LightTimer.stop()
 	$charge.hide()
 	$light.hide()
+	$PointLight2D.hide()
 	var i := randi_range(0, 4)
 	if i == 0:
 		stuck = true
@@ -82,3 +85,5 @@ func anim_up() -> void:
 
 func _on_flash_timer_timeout() -> void:
 	$Flash.hide()
+
+#func _on_button_pressed() -> void:

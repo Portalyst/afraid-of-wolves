@@ -5,6 +5,8 @@ extends Node2D
 func _ready() -> void:
 	$shadows.show()
 	$AnimationPlayer.play("fade_out")
+	if global.lights_off == true:
+		$grayground.hide()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

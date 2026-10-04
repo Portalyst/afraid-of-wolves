@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cxjey6i6f6g7m" path="res://scripts/john.gd" id="1_r0ebv"]
 [ext_resource type="Texture2D" uid="uid://c68fixnmtjfsx" path="res://sprites/john/sheet.png" id="1_uxisy"]
+[ext_resource type="Texture2D" uid="uid://glpkvuvf1tjj" path="res://sprites/john/player_shadow.png" id="2_makqm"]
 [ext_resource type="Texture2D" uid="uid://mf1rk7ora7q3" path="res://sprites/tools/shadow.png" id="3_af6mu"]
 [ext_resource type="Texture2D" uid="uid://bf16r3kjol106" path="res://sprites/tools/polaroid/highlight.png" id="3_mxu6f"]
 [ext_resource type="Texture2D" uid="uid://cqbmvcpqua3ym" path="res://sprites/tools/select.png" id="4_oigdq"]
@@ -463,10 +464,26 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="Gradient" id="Gradient_umru3"]
+offsets = PackedFloat32Array(0, 0.2955665)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_makqm"]
+gradient = SubResource("Gradient_umru3")
+width = 256
+height = 256
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
 [node name="John" type="CharacterBody2D" unique_id=1620480787]
 collision_layer = 3
 collision_mask = 3
 script = ExtResource("1_r0ebv")
+
+[node name="PlayerShadow" type="Sprite2D" parent="." unique_id=53493988]
+self_modulate = Color(1, 1, 1, 0.41568628)
+position = Vector2(0, 7)
+texture = ExtResource("2_makqm")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1303598773]
 sprite_frames = SubResource("SpriteFrames_07sbj")
@@ -579,6 +596,13 @@ texture = ExtResource("3_mxu6f")
 [node name="Highlight2" type="Sprite2D" parent="CanvasLayer/Highlight" unique_id=1335331023]
 position = Vector2(0, 49)
 texture = ExtResource("3_mxu6f")
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=435166048]
+visible = false
+energy = 1.13
+blend_mode = 2
+shadow_color = Color(0, 0, 0, 0.92941177)
+texture = SubResource("GradientTexture2D_makqm")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

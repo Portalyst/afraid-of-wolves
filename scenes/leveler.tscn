@@ -113,6 +113,17 @@ animations = [{
 "speed": 1.0
 }]
 
+[sub_resource type="Gradient" id="Gradient_b03i3"]
+offsets = PackedFloat32Array(0, 0.72906405)
+colors = PackedColorArray(1, 1, 0.3254902, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_eb0gk"]
+gradient = SubResource("Gradient_b03i3")
+width = 256
+height = 256
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
 [node name="leveler" type="Area2D" unique_id=522787959]
 script = ExtResource("1_jv1db")
 
@@ -159,8 +170,24 @@ texture = ExtResource("6_b03i3")
 wait_time = 0.2
 one_shot = true
 
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=1162277727]
+visible = false
+position = Vector2(32, 4)
+rotation = 3.1415927
+shadow_enabled = true
+shadow_color = Color(0, 0, 0, 0.78039217)
+texture = SubResource("GradientTexture2D_eb0gk")
+
+[node name="Button" type="Button" parent="." unique_id=655061713]
+offset_left = -7.0
+offset_top = -5.0
+offset_right = 6.0
+offset_bottom = 18.0
+flat = true
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
 [connection signal="timeout" from="LightTimer" to="." method="_on_light_timer_timeout"]
 [connection signal="timeout" from="LightEndTimer" to="." method="_on_light_end_timer_timeout"]
 [connection signal="timeout" from="FlashTimer" to="." method="_on_flash_timer_timeout"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

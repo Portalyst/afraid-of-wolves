@@ -387,6 +387,9 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qtr2k"]
 size = Vector2(32, 36)
 
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_g4v7s"]
+polygon = PackedVector2Array(-16, -8, 16, -8, 16, 8, -16, 8)
+
 [node name="Double_door" type="StaticBody2D" unique_id=735009287]
 collision_layer = 2
 collision_mask = 2
@@ -435,6 +438,9 @@ stream = ExtResource("6_38o23")
 
 [node name="sound_unlock" type="AudioStreamPlayer2D" parent="." unique_id=1876401983]
 stream = ExtResource("7_p5nfs")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="." unique_id=1777160735]
+occluder = SubResource("OccluderPolygon2D_g4v7s")
 
 [connection signal="body_entered" from="down_trigger" to="." method="_on_down_trigger_body_entered"]
 [connection signal="body_exited" from="down_trigger" to="." method="_on_down_trigger_body_exited"]
